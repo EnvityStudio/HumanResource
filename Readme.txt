@@ -1,0 +1,1 @@
+- khi push thi kem theo script cua database phan minh thuc hien.
