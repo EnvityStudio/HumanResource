@@ -83,3 +83,6 @@ select *from NHANVIENTHUANoccho
 select *from CHUCVU
 
 abcdec
+
+thuan depo trai
+
