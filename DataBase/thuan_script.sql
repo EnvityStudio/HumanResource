@@ -211,14 +211,14 @@ end
 
 
 ---- proc lấy mã nhân viên tiếp theo 
-create proc GetMaNhanVienTiepTheo
+create proc GetMaNhanVien
 as
 begin 
 	select dbo.func_ma_next((select Top 1 MaNV from NHANVIEN order by MaNV desc),'NV','5') as MaNV
 end
 
 ------ proc lấy mã phòng ban tiếp theo 
-create proc GetMaPhongBanTiepTheo
+create proc GetMaPhongBan
 as
 begin 
 	select dbo.func_ma_next((select Top 1 MaPB from PHONGBAN order by MaPB desc),'PB','5') as MaPB
@@ -255,6 +255,44 @@ begin
 		 where MaPB=@MaPB2
 end
 
+---- Proc Danh sách nhân viên 
+create proc DanhSachNhanVien
+as 
+begin 
+	select *from NHANVIEN
+end
+----- Proc Danh sách Phòng Ban
+create proc DanhSachPhongBan
+as 
+begin 
+	select *from PHONGBAN
+end
+----- Proc Danh sách chức vụ 
+create proc DanhSachChucVu
+as 
+begin 
+	select *from CHUCVU
+end
+
+----- Proc Danh sachs Lương
+create proc DanhSachLuong
+as 
+begin 
+	select *from LUONG
+end
+----- Proc Danh Sách ThoiGianCongTac
+create proc DanhSachThoiGianCongTac
+as
+begin 
+	select *from THOIGIANCONGTAC
+end
+
+---------- Proc Danh sách trình độ học vấn
+create proc DanhSachTrinhDoHocVan
+as 
+begin 
+	select *from TRINHDOHOCVAN
+end
 select *from TRINHDOHOCVAN
 select *from THOIGIANCONGTAC
 select *from Luong

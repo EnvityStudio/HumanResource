@@ -39,7 +39,10 @@
     <Reference Include="DevExpress.XtraBars.v14.2" />
     <Reference Include="DevExpress.Sparkline.v14.2.Core" />
     <Reference Include="DevExpress.XtraEditors.v14.2" />
+    <Reference Include="DevExpress.XtraGrid.v14.2, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v14.2, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraNavBar.v14.2, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v14.2, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -52,15 +55,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="BUS\Bus.cs" />
+    <Compile Include="Config\Configuration.cs" />
+    <Compile Include="DAO\Dao.cs" />
+    <Compile Include="DAO\DataProvider.cs" />
+    <Compile Include="GUI\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="GUI\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
+    <Compile Include="VO\ChucVu.cs" />
+    <Compile Include="VO\Luong.cs" />
+    <Compile Include="VO\NhanVien.cs" />
+    <Compile Include="VO\PhongBan.cs" />
+    <Compile Include="VO\ThoiGianCongTac.cs" />
+    <Compile Include="VO\TrinhDoHocVan.cs" />
+    <EmbeddedResource Include="GUI\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
@@ -84,9 +97,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="BUS\" />
-    <Folder Include="DAO\" />
-    <Folder Include="GUI\" />
     <Folder Include="Resource\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
