@@ -77,11 +77,9 @@ as
 select *from TRINHDOHOCVAN
 	insert into TRINHDOHOCVAN values ('','Expert','Marketing')
 select *from THOIGIANCONGTAC
-<<<<<<< HEAD
-select *from Luongthuan
-=======
 select *from Luonghung
->>>>>>> 818d6b4b149d1b0667cd3d6fe2af726c9912eb03
 select *from NHANVIENTHUANoccho
 
 select *from CHUCVU
+
+abcdec
