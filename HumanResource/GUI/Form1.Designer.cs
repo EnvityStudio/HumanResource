@@ -43,14 +43,15 @@
             this.navBarItem1 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem2 = new DevExpress.XtraNavBar.NavBarItem();
             this.panelControl = new DevExpress.XtraEditors.PanelControl();
-            this.gridControlNhanVien = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridControlNhanVien = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.navBarItem3 = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl)).BeginInit();
             this.panelControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlNhanVien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlNhanVien)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl1
@@ -69,7 +70,7 @@
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
             this.ribbonControl1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010;
-            this.ribbonControl1.Size = new System.Drawing.Size(907, 144);
+            this.ribbonControl1.Size = new System.Drawing.Size(907, 143);
             // 
             // barButtonItem1
             // 
@@ -140,11 +141,12 @@
             this.navBarGroup1});
             this.navBarControl1.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
             this.navBarItem1,
-            this.navBarItem2});
-            this.navBarControl1.Location = new System.Drawing.Point(0, 144);
+            this.navBarItem2,
+            this.navBarItem3});
+            this.navBarControl1.Location = new System.Drawing.Point(0, 143);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 140;
-            this.navBarControl1.Size = new System.Drawing.Size(140, 383);
+            this.navBarControl1.Size = new System.Drawing.Size(140, 384);
             this.navBarControl1.TabIndex = 1;
             this.navBarControl1.Text = "navBarControl1";
             // 
@@ -155,7 +157,8 @@
             this.navBarGroup1.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.LargeIconsText;
             this.navBarGroup1.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem1),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem2)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem2),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem3)});
             this.navBarGroup1.Name = "navBarGroup1";
             // 
             // navBarItem1
@@ -174,19 +177,14 @@
             // 
             this.panelControl.Controls.Add(this.gridControl1);
             this.panelControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl.Location = new System.Drawing.Point(140, 144);
+            this.panelControl.Location = new System.Drawing.Point(140, 143);
             this.panelControl.Name = "panelControl";
-            this.panelControl.Size = new System.Drawing.Size(767, 383);
+            this.panelControl.Size = new System.Drawing.Size(767, 384);
             this.panelControl.TabIndex = 2;
-            // 
-            // gridControlNhanVien
-            // 
-            this.gridControlNhanVien.GridControl = this.gridControl1;
-            this.gridControlNhanVien.Name = "gridControlNhanVien";
             // 
             // gridControl1
             // 
-            this.gridControl1.Location = new System.Drawing.Point(15, 21);
+            this.gridControl1.Location = new System.Drawing.Point(41, 72);
             this.gridControl1.MainView = this.gridControlNhanVien;
             this.gridControl1.MenuManager = this.ribbonControl1;
             this.gridControl1.Name = "gridControl1";
@@ -194,6 +192,16 @@
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridControlNhanVien});
+            // 
+            // gridControlNhanVien
+            // 
+            this.gridControlNhanVien.GridControl = this.gridControl1;
+            this.gridControlNhanVien.Name = "gridControlNhanVien";
+            // 
+            // navBarItem3
+            // 
+            this.navBarItem3.Caption = "navBarItem3";
+            this.navBarItem3.Name = "navBarItem3";
             // 
             // Form1
             // 
@@ -212,8 +220,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl)).EndInit();
             this.panelControl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlNhanVien)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlNhanVien)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -237,6 +245,7 @@
         private DevExpress.XtraNavBar.NavBarItem navBarItem2;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridControlNhanVien;
+        private DevExpress.XtraNavBar.NavBarItem navBarItem3;
     }
 }
 
