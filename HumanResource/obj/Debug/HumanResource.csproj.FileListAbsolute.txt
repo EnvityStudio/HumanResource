@@ -166,3 +166,5 @@ D:\Workspace\HumanResource\HumanResource\obj\Debug\HumanResource.GUI.UCHomePage.
 D:\Workspace\HumanResource\HumanResource\obj\Debug\HumanResource.GUI.UCNhanVien.resources
 D:\Workspace\HumanResource\HumanResource\obj\Debug\HumanResource.GUI.UCPhongBan.resources
 D:\Workspace\HumanResource\HumanResource\obj\Debug\HumanResource.GUI.Form1.resources
+C:\Users\khanhlq\Documents\Visual Studio 2015\Projects\HumanResource\HumanResource\obj\Debug\HumanResource.exe
+C:\Users\khanhlq\Documents\Visual Studio 2015\Projects\HumanResource\HumanResource\obj\Debug\HumanResource.pdb
