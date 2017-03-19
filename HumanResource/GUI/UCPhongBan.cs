@@ -16,5 +16,17 @@ namespace HumanResource.GUI
         {
             InitializeComponent();
         }
+
+        private void btnThemPB_Click(object sender, EventArgs e) {
+
+        }
+
+        private void btnSuaPB_Click(object sender, EventArgs e) {
+
+        }
+
+        private void btnXoaPB_Click(object sender, EventArgs e) {
+
+        }
     }
 }
