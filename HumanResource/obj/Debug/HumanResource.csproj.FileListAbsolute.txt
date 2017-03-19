@@ -165,4 +165,3 @@ D:\Workspace\HumanResource\HumanResource\obj\Debug\HumanResource.pdb
 D:\Workspace\HumanResource\HumanResource\obj\Debug\HumanResource.GUI.UCHomePage.resources
 D:\Workspace\HumanResource\HumanResource\obj\Debug\HumanResource.GUI.UCNhanVien.resources
 D:\Workspace\HumanResource\HumanResource\obj\Debug\HumanResource.GUI.UCPhongBan.resources
-D:\Workspace\HumanResource\HumanResource\obj\Debug\HumanResource.GUI.Form1.resources
