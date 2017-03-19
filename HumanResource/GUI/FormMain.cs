@@ -68,9 +68,6 @@ namespace HumanResource.GUI
                 e.Graphics.DrawString(this.tabControlHome.TabPages[e.Index].Text, e.Font, Brushes.Black, e.Bounds.Left + 3, e.Bounds.Top + 4);
                 e.DrawFocusRectangle();
         }
-        private void tabControlHome_TabButtonClicked(object sender, LidorSystems.IntegralUI.ObjectClickEventArgs e)
-        {
-
-        }
+       
     }
 }
