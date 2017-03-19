@@ -65,11 +65,29 @@
     <Compile Include="GUI\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\UserControl1.cs">
+    <Compile Include="GUI\FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UCHomePage.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GUI\UserControl1.Designer.cs">
-      <DependentUpon>UserControl1.cs</DependentUpon>
+    <Compile Include="GUI\UCHomePage.Designer.cs">
+      <DependentUpon>UCHomePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UCNhanVien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UCNhanVien.Designer.cs">
+      <DependentUpon>UCNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UCPhongBan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UCPhongBan.Designer.cs">
+      <DependentUpon>UCPhongBan.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -82,6 +100,18 @@
     <EmbeddedResource Include="GUI\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UCHomePage.resx">
+      <DependentUpon>UCHomePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UCNhanVien.resx">
+      <DependentUpon>UCNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UCPhongBan.resx">
+      <DependentUpon>UCPhongBan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -91,6 +121,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -102,8 +133,42 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Resource\" />
+    <None Include="Resource\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\cen1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\editicon.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\erroricon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\iconprint.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\noimage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\yes.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
