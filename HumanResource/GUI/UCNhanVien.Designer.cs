@@ -306,6 +306,8 @@
             // 
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Image = global::HumanResource.Properties.Resources.noimage;
+            this.pictureBox1.InitialImage = global::HumanResource.Properties.Resources.erroricon;
             this.pictureBox1.Location = new System.Drawing.Point(7, 16);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(105, 121);
