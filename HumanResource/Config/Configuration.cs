@@ -16,7 +16,7 @@ namespace HumanResource.Config
             string projectLink = Directory.GetParent(binLink).FullName;
             return projectLink;
         }
-        public string DATA_SOURCE = @"Data Source=DESKTOP-I324HJM\SQLEXPRESS;Initial Catalog=HumanResource;Integrated Security=True";
+        public string DATA_SOURCE = @"Data Source=HUNGTRAN;Initial Catalog=HumanResource;Integrated Security=True";
         //Properties of NhanVien
         public string NHANVIEN_MANV = "MANV";
         public string NHANVIEN_HOTEN = "HoTen";
@@ -28,10 +28,12 @@ namespace HumanResource.Config
         public string NHANVIEN_MAPB = "MaPB";
         public string NHANVIEN_MACV = "MaCV";
         // Proceduces of NhanVien
-        public string PROC_GET_LIST_NHANVIEN = "DanhSachNhanVien";
+        public string PROC_GET_LIST_NHANVIEN = "GetListNhanVien";
         public string PROC_UPDATE_NHANVIEN = "SuaNhanVien";
         public string PROC_DELETE_NHANVIEN = "XoaNhanVien";
         public string PROC_INSERT_NHANVIEN = "ThemNhanVien";
+
+        public string PROC_SEARCH_PHONGBAN = "SearchPB";
 
 
 

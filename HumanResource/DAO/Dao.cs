@@ -19,6 +19,17 @@ namespace HumanResource.DAO
             return DataProvider.GetData(config.PROC_GET_LIST_NHANVIEN);
 
         }
+
+        internal static DataTable GetNamePhongBan(String maPB)
+     
+        {
+            SqlParameter[] para = new SqlParameter[] {
+                new SqlParameter("@maPB",maPB),
+
+            };
+            return DataProvider.GetDataByParameter(config.PROC_SEARCH_PHONGBAN, para);
+        }
+
         public static int InsertNhanVien(NhanVien nv)
         {
             SqlParameter[] para = new SqlParameter[] {

@@ -16,5 +16,9 @@ namespace HumanResource.BUS
             return Dao.GetListNhanVien();
 
         }
+        public static DataTable GetNamePhongBan(string maPB)
+        {
+            return Dao.GetNamePhongBan(maPB);
+        }
     }
 }
