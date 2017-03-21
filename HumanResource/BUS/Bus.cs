@@ -39,5 +39,10 @@ namespace HumanResource.BUS
         {
             return Dao.GetListLUONG();
         }
+
+        public static DataTable GetListThanNhanNV(string maNV)
+        {
+            return Dao.GetListThanNhanNV(maNV);
+        }
     }
 }

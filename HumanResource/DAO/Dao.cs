@@ -94,6 +94,13 @@ namespace HumanResource.DAO
 
 
 
+        public static DataTable GetListThanNhanNV(String maNV)
+        {
+            SqlParameter[] para = new SqlParameter[] {
+                new SqlParameter("@"+config.NHANVIEN_MANV,maNV)
+            };
+            return DataProvider.GetDataByParameter(config.PROC_GET_LIST_THANNHAN_NV, para);
+        }
 
         public static DataTable GetMaNhanVien()
         {

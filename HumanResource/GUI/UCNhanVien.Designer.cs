@@ -30,6 +30,20 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.dataGridViewNhanVien = new System.Windows.Forms.DataGridView();
+            this.MANV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NGAY_SINH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SODT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QueQuan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CMND = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sdt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.luong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TDHV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PHONG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CHUCVU = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label26 = new System.Windows.Forms.Label();
             this.cbbCMND = new System.Windows.Forms.TextBox();
@@ -76,30 +90,16 @@
             this.txtMK = new System.Windows.Forms.TextBox();
             this.txtSoDT = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtQueQuan = new System.Windows.Forms.TextBox();
             this.txtNoiSinh = new System.Windows.Forms.TextBox();
             this.txtHoTen = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtQueQuan = new System.Windows.Forms.TextBox();
-            this.dataGridViewNhanVien = new System.Windows.Forms.DataGridView();
-            this.MANV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NGAY_SINH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SODT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.QueQuan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CMND = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sdt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.luong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TDHV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PHONG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CHUCVU = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNhanVien)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewThanNhan)).BeginInit();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNhanVien)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -118,6 +118,129 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1314, 354);
             this.panel2.TabIndex = 3;
+            // 
+            // dataGridViewNhanVien
+            // 
+            this.dataGridViewNhanVien.AllowUserToAddRows = false;
+            this.dataGridViewNhanVien.AllowUserToDeleteRows = false;
+            this.dataGridViewNhanVien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewNhanVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewNhanVien.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MANV,
+            this.HO,
+            this.GioiTinh,
+            this.NGAY_SINH,
+            this.SODT,
+            this.QueQuan,
+            this.CMND,
+            this.Email,
+            this.sdt,
+            this.luong,
+            this.TDHV,
+            this.PHONG,
+            this.CHUCVU});
+            this.dataGridViewNhanVien.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewNhanVien.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewNhanVien.MultiSelect = false;
+            this.dataGridViewNhanVien.Name = "dataGridViewNhanVien";
+            this.dataGridViewNhanVien.ReadOnly = true;
+            this.dataGridViewNhanVien.Size = new System.Drawing.Size(1314, 354);
+            this.dataGridViewNhanVien.TabIndex = 72;
+            this.dataGridViewNhanVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewNhanVien_CellClick);
+            this.dataGridViewNhanVien.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewNhanVien_CellFormatting);
+            this.dataGridViewNhanVien.SelectionChanged += new System.EventHandler(this.dataGridViewNhanVien_SelectionChanged);
+            // 
+            // MANV
+            // 
+            this.MANV.DataPropertyName = "MaNV";
+            this.MANV.HeaderText = "Mã Nhân Viên";
+            this.MANV.Name = "MANV";
+            this.MANV.ReadOnly = true;
+            // 
+            // HO
+            // 
+            this.HO.DataPropertyName = "HoTen";
+            this.HO.FillWeight = 200F;
+            this.HO.HeaderText = "Họ Tên";
+            this.HO.Name = "HO";
+            this.HO.ReadOnly = true;
+            // 
+            // GioiTinh
+            // 
+            this.GioiTinh.DataPropertyName = "GioiTinh";
+            this.GioiTinh.HeaderText = "Giới Tính";
+            this.GioiTinh.Name = "GioiTinh";
+            this.GioiTinh.ReadOnly = true;
+            // 
+            // NGAY_SINH
+            // 
+            this.NGAY_SINH.DataPropertyName = "NgaySinh";
+            this.NGAY_SINH.HeaderText = "Ngày Sinh";
+            this.NGAY_SINH.Name = "NGAY_SINH";
+            this.NGAY_SINH.ReadOnly = true;
+            // 
+            // SODT
+            // 
+            this.SODT.DataPropertyName = "SDT";
+            this.SODT.HeaderText = "Số Điện Thoại";
+            this.SODT.Name = "SODT";
+            this.SODT.ReadOnly = true;
+            // 
+            // QueQuan
+            // 
+            this.QueQuan.DataPropertyName = "QueQuan";
+            this.QueQuan.HeaderText = "Quê Quán";
+            this.QueQuan.Name = "QueQuan";
+            this.QueQuan.ReadOnly = true;
+            // 
+            // CMND
+            // 
+            this.CMND.DataPropertyName = "CMND";
+            this.CMND.HeaderText = "Chứng minh thư";
+            this.CMND.Name = "CMND";
+            this.CMND.ReadOnly = true;
+            // 
+            // Email
+            // 
+            this.Email.DataPropertyName = "Email";
+            this.Email.HeaderText = "Email";
+            this.Email.Name = "Email";
+            this.Email.ReadOnly = true;
+            // 
+            // sdt
+            // 
+            this.sdt.DataPropertyName = "SDT";
+            this.sdt.HeaderText = "Số ĐT";
+            this.sdt.Name = "sdt";
+            this.sdt.ReadOnly = true;
+            // 
+            // luong
+            // 
+            this.luong.DataPropertyName = "BacLuong";
+            this.luong.HeaderText = "Lương";
+            this.luong.Name = "luong";
+            this.luong.ReadOnly = true;
+            // 
+            // TDHV
+            // 
+            this.TDHV.DataPropertyName = "MaTDHV";
+            this.TDHV.HeaderText = "Trình độ học vấn";
+            this.TDHV.Name = "TDHV";
+            this.TDHV.ReadOnly = true;
+            // 
+            // PHONG
+            // 
+            this.PHONG.DataPropertyName = "MaPB";
+            this.PHONG.HeaderText = "Phòng Ban";
+            this.PHONG.Name = "PHONG";
+            this.PHONG.ReadOnly = true;
+            // 
+            // CHUCVU
+            // 
+            this.CHUCVU.DataPropertyName = "MaCV";
+            this.CHUCVU.HeaderText = "Chức Vụ";
+            this.CHUCVU.Name = "CHUCVU";
+            this.CHUCVU.ReadOnly = true;
             // 
             // groupBox4
             // 
@@ -232,6 +355,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 67;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // dataGridViewThanNhan
             // 
@@ -566,6 +690,13 @@
             this.txtEmail.Size = new System.Drawing.Size(125, 20);
             this.txtEmail.TabIndex = 24;
             // 
+            // txtQueQuan
+            // 
+            this.txtQueQuan.Location = new System.Drawing.Point(191, 86);
+            this.txtQueQuan.Name = "txtQueQuan";
+            this.txtQueQuan.Size = new System.Drawing.Size(167, 20);
+            this.txtQueQuan.TabIndex = 12;
+            // 
             // txtNoiSinh
             // 
             this.txtNoiSinh.Location = new System.Drawing.Point(186, 55);
@@ -589,134 +720,6 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Họ:";
             // 
-            // txtQueQuan
-            // 
-            this.txtQueQuan.Location = new System.Drawing.Point(191, 86);
-            this.txtQueQuan.Name = "txtQueQuan";
-            this.txtQueQuan.Size = new System.Drawing.Size(167, 20);
-            this.txtQueQuan.TabIndex = 12;
-            // 
-            // dataGridViewNhanVien
-            // 
-            this.dataGridViewNhanVien.AllowUserToAddRows = false;
-            this.dataGridViewNhanVien.AllowUserToDeleteRows = false;
-            this.dataGridViewNhanVien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewNhanVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewNhanVien.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.MANV,
-            this.HO,
-            this.GioiTinh,
-            this.NGAY_SINH,
-            this.SODT,
-            this.QueQuan,
-            this.CMND,
-            this.Email,
-            this.sdt,
-            this.luong,
-            this.TDHV,
-            this.PHONG,
-            this.CHUCVU});
-            this.dataGridViewNhanVien.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewNhanVien.Location = new System.Drawing.Point(0, 0);
-            this.dataGridViewNhanVien.MultiSelect = false;
-            this.dataGridViewNhanVien.Name = "dataGridViewNhanVien";
-            this.dataGridViewNhanVien.ReadOnly = true;
-            this.dataGridViewNhanVien.Size = new System.Drawing.Size(1314, 354);
-            this.dataGridViewNhanVien.TabIndex = 72;
-            this.dataGridViewNhanVien.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewNhanVien_CellFormatting);
-            // 
-            // MANV
-            // 
-            this.MANV.DataPropertyName = "MaNV";
-            this.MANV.HeaderText = "Mã Nhân Viên";
-            this.MANV.Name = "MANV";
-            this.MANV.ReadOnly = true;
-            // 
-            // HO
-            // 
-            this.HO.DataPropertyName = "HoTen";
-            this.HO.FillWeight = 200F;
-            this.HO.HeaderText = "Họ Tên";
-            this.HO.Name = "HO";
-            this.HO.ReadOnly = true;
-            // 
-            // GioiTinh
-            // 
-            this.GioiTinh.DataPropertyName = "GioiTinh";
-            this.GioiTinh.HeaderText = "Giới Tính";
-            this.GioiTinh.Name = "GioiTinh";
-            this.GioiTinh.ReadOnly = true;
-            // 
-            // NGAY_SINH
-            // 
-            this.NGAY_SINH.DataPropertyName = "NgaySinh";
-            this.NGAY_SINH.HeaderText = "Ngày Sinh";
-            this.NGAY_SINH.Name = "NGAY_SINH";
-            this.NGAY_SINH.ReadOnly = true;
-            // 
-            // SODT
-            // 
-            this.SODT.DataPropertyName = "SDT";
-            this.SODT.HeaderText = "Số Điện Thoại";
-            this.SODT.Name = "SODT";
-            this.SODT.ReadOnly = true;
-            // 
-            // QueQuan
-            // 
-            this.QueQuan.DataPropertyName = "QueQuan";
-            this.QueQuan.HeaderText = "Quê Quán";
-            this.QueQuan.Name = "QueQuan";
-            this.QueQuan.ReadOnly = true;
-            // 
-            // CMND
-            // 
-            this.CMND.DataPropertyName = "CMND";
-            this.CMND.HeaderText = "Chứng minh thư";
-            this.CMND.Name = "CMND";
-            this.CMND.ReadOnly = true;
-            // 
-            // Email
-            // 
-            this.Email.DataPropertyName = "Email";
-            this.Email.HeaderText = "Email";
-            this.Email.Name = "Email";
-            this.Email.ReadOnly = true;
-            // 
-            // sdt
-            // 
-            this.sdt.DataPropertyName = "SDT";
-            this.sdt.HeaderText = "Số ĐT";
-            this.sdt.Name = "sdt";
-            this.sdt.ReadOnly = true;
-            // 
-            // luong
-            // 
-            this.luong.DataPropertyName = "BacLuong";
-            this.luong.HeaderText = "Lương";
-            this.luong.Name = "luong";
-            this.luong.ReadOnly = true;
-            // 
-            // TDHV
-            // 
-            this.TDHV.DataPropertyName = "MaTDHV";
-            this.TDHV.HeaderText = "Trình độ học vấn";
-            this.TDHV.Name = "TDHV";
-            this.TDHV.ReadOnly = true;
-            // 
-            // PHONG
-            // 
-            this.PHONG.DataPropertyName = "MaPB";
-            this.PHONG.HeaderText = "Phòng Ban";
-            this.PHONG.Name = "PHONG";
-            this.PHONG.ReadOnly = true;
-            // 
-            // CHUCVU
-            // 
-            this.CHUCVU.DataPropertyName = "MaCV";
-            this.CHUCVU.HeaderText = "Chức Vụ";
-            this.CHUCVU.Name = "CHUCVU";
-            this.CHUCVU.ReadOnly = true;
-            // 
             // UCNhanVien
             // 
             this.AccessibleDescription = "Nhân Viên";
@@ -730,13 +733,13 @@
             this.Size = new System.Drawing.Size(1314, 633);
             this.Load += new System.EventHandler(this.UCNhanVien_Load);
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNhanVien)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewThanNhan)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNhanVien)).EndInit();
             this.ResumeLayout(false);
 
         }

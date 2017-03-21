@@ -61,5 +61,8 @@ namespace HumanResource.Config
         //Procdecues of LUONG
         public string PROC_GET_LIST_LUONG = "GetListLuong";
 
+        //Procdecues of ThanNhan
+        public string PROC_GET_LIST_THANNHAN_NV = "GetListThanNhanNV";
+
     }
 }

@@ -9,11 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using HumanResource.BUS;
 using HumanResource.Config;
+using static HumanResource.Config.HRUtils;
 
 namespace HumanResource.GUI
 {
     public partial class UCNhanVien : UserControl
     {
+        private infoTab tab = null;
         public UCNhanVien()
         {
             InitializeComponent();
@@ -122,6 +124,69 @@ namespace HumanResource.GUI
             }
 
 
+        }
+
+        private void dataGridViewNhanVien_SelectionChanged(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dataGridViewNhanVien.SelectedRows)
+            {
+                DataTable thanNhan = Bus.GetListThanNhanNV(row.Cells[0].ToString());
+                dataGridViewThanNhan.DataSource = thanNhan;
+            }
+        }
+
+        private void dataGridViewNhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridViewNhanVien.SelectedCells.Count > 0)
+            {
+                DataGridViewRow id = dataGridViewNhanVien.SelectedRows[0];
+                DataTable thanNhan = Bus.GetListThanNhanNV(id.Cells[0].ToString());
+                dataGridViewThanNhan.DataSource = thanNhan;
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            if ( dataGridViewNhanVien.CurrentRow != null)
+            {
+                string Path = "Resource" ;
+                OpenFileDialog open = new OpenFileDialog();
+                open.Filter = "Image|*.jpg;*.png;*.gif;*.bmp";
+
+                if (open.ShowDialog() == DialogResult.OK)
+                {
+                    
+                        if (pictureBox1.Image != null)
+                        {
+                            pictureBox1.Image.Dispose();
+                            pictureBox1.Image = null;
+                            if (System.IO.File.Exists(Path))
+                            {
+                                try
+                                {
+                                    System.IO.File.Delete(Path);
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show(ex.Message);
+                                }
+                            }
+                        }
+
+                        pictureBox1.Image = Image.FromFile(open.FileName);
+                        try
+                        {
+                            pictureBox1.Image.Save(Path);
+                        }
+                        catch { }
+                    }
+                    else
+                    {
+                        pictureBox1.Image = Image.FromFile(open.FileName);
+                   
+                    }
+                
+            }
         }
     }
 }
