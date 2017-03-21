@@ -68,6 +68,15 @@ namespace HumanResource.GUI
                 e.Graphics.DrawString(this.tabControlHome.TabPages[e.Index].Text, e.Font, Brushes.Black, e.Bounds.Left + 3, e.Bounds.Top + 4);
                 e.DrawFocusRectangle();
         }
-       
+
+        private void tabControlHome_MouseDown(object sender, MouseEventArgs e)
+        {
+            Rectangle r = tabControlHome.GetTabRect(this.tabControlHome.SelectedIndex);
+            Rectangle closeButton = new Rectangle(r.Right - 15, r.Top + 4, 9, 7);
+            if (closeButton.Contains(e.Location))
+            {
+                this.tabControlHome.TabPages.Remove(this.tabControlHome.SelectedTab);
+            }
+        }
     }
 }

@@ -163,3 +163,15 @@ C:\Users\khanhlq\Documents\Visual Studio 2015\Projects\HumanResource\HumanResour
 C:\Users\khanhlq\Documents\Visual Studio 2015\Projects\HumanResource\HumanResource\obj\Debug\HumanResource.csproj.GenerateResource.Cache
 C:\Users\khanhlq\Documents\Visual Studio 2015\Projects\HumanResource\HumanResource\obj\Debug\HumanResource.exe.licenses
 >>>>>>> 2f4d84b306b27a8a8e169c2a23e34d82269464e9
+E:\Hung\HumanResource\HumanResource\bin\Debug\HumanResource.exe
+E:\Hung\HumanResource\HumanResource\bin\Debug\HumanResource.pdb
+E:\Hung\HumanResource\HumanResource\obj\Debug\HumanResource.csprojResolveAssemblyReference.cache
+E:\Hung\HumanResource\HumanResource\obj\Debug\HumanResource.GUI.FormMain.resources
+E:\Hung\HumanResource\HumanResource\obj\Debug\HumanResource.GUI.UCHomePage.resources
+E:\Hung\HumanResource\HumanResource\obj\Debug\HumanResource.GUI.UCNhanVien.resources
+E:\Hung\HumanResource\HumanResource\obj\Debug\HumanResource.GUI.UCPhongBan.resources
+E:\Hung\HumanResource\HumanResource\obj\Debug\HumanResource.Properties.Resources.resources
+E:\Hung\HumanResource\HumanResource\obj\Debug\HumanResource.csproj.GenerateResource.Cache
+E:\Hung\HumanResource\HumanResource\obj\Debug\HumanResource.exe.licenses
+E:\Hung\HumanResource\HumanResource\obj\Debug\HumanResource.exe
+E:\Hung\HumanResource\HumanResource\obj\Debug\HumanResource.pdb

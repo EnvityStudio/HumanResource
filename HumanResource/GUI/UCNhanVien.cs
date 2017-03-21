@@ -20,23 +20,23 @@ namespace HumanResource.GUI
 
         private void UCNhanVien_Load(object sender, EventArgs e)
         {
-            dataGridViewNhanVien.DataSource = Bus.GetListNhanVien();
-            dataGridViewNhanVien.Columns["Anh"].Visible = false;
-            dataGridViewNhanVien.Columns["TrangThai"].Visible = false;
-            dataGridViewNhanVien.Columns["LoaiNV"].Visible = false;
+          //  dataGridViewNhanVien.DataSource = Bus.GetListNhanVien();
+          //  dataGridViewNhanVien.Columns["Anh"].Visible = false;
+          //  dataGridViewNhanVien.Columns["TrangThai"].Visible = false;
+          //  dataGridViewNhanVien.Columns["LoaiNV"].Visible = false;
            
 
-          int x =  dataGridViewNhanVien.ColumnCount;
-            int y = dataGridViewNhanVien.RowCount;
-            int z;
+          //int x =  dataGridViewNhanVien.ColumnCount;
+          //  int y = dataGridViewNhanVien.RowCount;
+          //  int z;
 
-            for (int i = 0; i < y; i++)
-            {
-                dataGridViewNhanVien.Rows[i].Cells[7].Value.ToString();
+          //  for (int i = 0; i < y; i++)
+          //  {
+          //      dataGridViewNhanVien.Rows[i].Cells[7].Value.ToString();
 
-                DataTable dt = Bus.GetNamePhongBan(dataGridViewNhanVien.Rows[i].Cells[7].Value.ToString());
+          //      DataTable dt = Bus.GetNamePhongBan(dataGridViewNhanVien.Rows[i].Cells[7].Value.ToString());
                
-            }
+          //  }
            
 
         }
