@@ -64,9 +64,11 @@ namespace HumanResource.GUI
         private Bitmap img = Properties.Resources.close;
         private void tabControlHome_DrawItem(object sender, DrawItemEventArgs e)
         {
+           if(e.Index != 0) { 
                 e.Graphics.DrawImage(img, new Point(e.Bounds.Right - 18, e.Bounds.Top + 1));
                 e.Graphics.DrawString(this.tabControlHome.TabPages[e.Index].Text, e.Font, Brushes.Black, e.Bounds.Left + 3, e.Bounds.Top + 4);
                 e.DrawFocusRectangle();
+            }
         }
 
         private void tabControlHome_MouseDown(object sender, MouseEventArgs e)
@@ -75,6 +77,7 @@ namespace HumanResource.GUI
             Rectangle closeButton = new Rectangle(r.Right - 15, r.Top + 4, 9, 7);
             if (closeButton.Contains(e.Location))
             {
+                
                 this.tabControlHome.TabPages.Remove(this.tabControlHome.SelectedTab);
             }
         }

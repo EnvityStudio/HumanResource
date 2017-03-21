@@ -44,5 +44,22 @@ namespace HumanResource.Config
         public string GET_ID_MATRINHDOHOCVAN = "GetMaTrinhDoHocVan";
 
 
+        // Proceduce of PhongBan
+
+        public string PROC_GET_LIST_PHONGBAN = "GetListPhongBan";
+
+
+
+        //Proceduces of ChucVu
+
+        public string PROC_GET_LIST_CHUC_VU = "GetlistChucVu";
+
+        //Procdecues of TDHV 
+
+        public string PROC_GET_LIST_TDHV = "GetListTrinhDoHocVan";
+
+        //Procdecues of LUONG
+        public string PROC_GET_LIST_LUONG = "GetListLuong";
+
     }
 }

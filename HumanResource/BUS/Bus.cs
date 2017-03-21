@@ -20,5 +20,24 @@ namespace HumanResource.BUS
         {
             return Dao.GetNamePhongBan(maPB);
         }
+
+        public static DataTable GetListPhongBan()
+        {
+            return Dao.GetListPhongBan();
+        }
+
+        public static DataTable GetListChucVu()
+        {
+            return Dao.GetListChucVu();
+        }
+
+        public static DataTable GetListTDHV()
+        {
+            return Dao.GetListTDHV();
+        }
+        public static DataTable GetListLUONG()
+        {
+            return Dao.GetListLUONG();
+        }
     }
 }

@@ -30,6 +30,24 @@ namespace HumanResource.DAO
             return DataProvider.GetDataByParameter(config.PROC_SEARCH_PHONGBAN, para);
         }
 
+        internal static DataTable GetListChucVu()
+        {
+            return DataProvider.GetData(config.PROC_GET_LIST_CHUC_VU);
+        }
+        internal static DataTable GetListLUONG()
+        {
+            return DataProvider.GetData(config.PROC_GET_LIST_LUONG);
+        }
+        internal static DataTable GetListTDHV()
+        {
+            return DataProvider.GetData(config.PROC_GET_LIST_TDHV);
+        }
+
+        internal static DataTable GetListPhongBan()
+        {
+            return DataProvider.GetData(config.PROC_GET_LIST_PHONGBAN);
+        }
+
         public static int InsertNhanVien(NhanVien nv)
         {
             SqlParameter[] para = new SqlParameter[] {
