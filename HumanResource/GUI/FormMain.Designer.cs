@@ -250,6 +250,7 @@
             this.btnAddNew.Size = new System.Drawing.Size(58, 22);
             this.btnAddNew.Text = "Thêm";
             this.btnAddNew.ToolTipText = "Thêm Mới (CTR + N)";
+            this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
             // 
             // btnEdit
             // 
@@ -285,6 +286,7 @@
             this.btnSave.Size = new System.Drawing.Size(47, 22);
             this.btnSave.Text = "Lưu";
             this.btnSave.ToolTipText = "Lưu (CTR + S)";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
@@ -295,6 +297,7 @@
             this.btnCancel.Size = new System.Drawing.Size(49, 22);
             this.btnCancel.Text = "Hủy";
             this.btnCancel.ToolTipText = "Hủy (CTR + Q)";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // toolStripSeparator2
             // 

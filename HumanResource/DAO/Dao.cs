@@ -43,6 +43,7 @@ namespace HumanResource.DAO
             return DataProvider.GetData(config.PROC_GET_LIST_TDHV);
         }
 
+      
         internal static DataTable GetListPhongBan()
         {
             return DataProvider.GetData(config.PROC_GET_LIST_PHONGBAN);
@@ -59,8 +60,16 @@ namespace HumanResource.DAO
                 new SqlParameter("@"+config.NHANVIEN_DANTOC,nv.DanToc),
                 new SqlParameter("@"+config.NHANVIEN_SDT,nv.Sdt),
                 new SqlParameter("@"+config.NHANVIEN_MAPB,nv.MaPB),
-                new SqlParameter("@"+config.NHANVIEN_MACV,nv.MaCV)
-      
+                new SqlParameter("@"+config.NHANVIEN_MACV,nv.MaCV),
+
+                new SqlParameter("@"+config.NHANVIEN_BACLUONG,nv.BacLuong),
+                new SqlParameter("@"+config.NHANVIEN_MATKHAU,nv.MatKhau),
+                new SqlParameter("@"+config.NHANVIEN_TDHV,nv.MaTDHV),
+                new SqlParameter("@"+config.NHANVIEN_EMAIL,nv.Email),
+                new SqlParameter("@"+config.NHANVIEN_ANH,nv.Anh),
+
+                new SqlParameter("@"+config.NHANVIEN_CMND,nv.CMND),
+
 
             };
             return DataProvider.ExecuteNonQuery(config.PROC_INSERT_NHANVIEN, para);
@@ -78,7 +87,6 @@ namespace HumanResource.DAO
                 new SqlParameter("@"+config.NHANVIEN_SDT,nv.Sdt),
                 new SqlParameter("@"+config.NHANVIEN_MAPB,nv.MaPB),
                 new SqlParameter("@"+config.NHANVIEN_MACV,nv.MaCV)
-
             };
             return DataProvider.ExecuteNonQuery(config.PROC_UPDATE_NHANVIEN, para);
 
@@ -117,6 +125,14 @@ namespace HumanResource.DAO
         public static DataTable GetMaTrinhDoHocVan()
         {
             return DataProvider.GetData(config.GET_ID_MATRINHDOHOCVAN);
+        }
+        public static DataTable GetMaNhanVienNext()
+        {
+            return DataProvider.GetData(config.PROC_GET_MANV_NEXT);
+        }
+        public static List<DataItem> GetList(string proc)
+        {
+            return DataProvider.GetList(proc);
         }
     }
 }

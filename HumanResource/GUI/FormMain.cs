@@ -1,4 +1,7 @@
-﻿using System;
+﻿using HumanResource.BUS;
+using HumanResource.Config;
+using HumanResource.VO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,14 +10,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace HumanResource.GUI
 {
     public partial class FormMain : Form
     {
+        UCNhanVien ucNhanVien;
+        UCPhongBan ucPhongBan;
+
         public FormMain()
         {
             InitializeComponent();
+            ucNhanVien = new UCNhanVien();
+            ucPhongBan = new UCPhongBan();
         }
 
         public void AddNewTab(UserControl userControl)
@@ -43,12 +52,14 @@ namespace HumanResource.GUI
 
         private void btnNhanVien_Click(object sender, EventArgs e)
         {
-            AddNewTab(new UCNhanVien());
+            AddNewTab(ucNhanVien);
+            disableButton();
         }
 
         private void btnPhongBan_Click(object sender, EventArgs e)
         {
-            AddNewTab(new UCPhongBan());
+            AddNewTab(ucPhongBan);
+            disableButton();
         }
 
         private void btnChucVu_Click(object sender, EventArgs e)
@@ -80,6 +91,54 @@ namespace HumanResource.GUI
                 
                 this.tabControlHome.TabPages.Remove(this.tabControlHome.SelectedTab);
             }
+        }
+
+        public void enableButton()
+        {
+            btnAddNew.Enabled = false;
+            btnEdit.Enabled = true;
+            btnSave.Enabled = true;
+            btnCancel.Enabled = true;
+            btnDelete.Enabled = true;
+        }
+        public void disableButton()
+        {
+            btnAddNew.Enabled = true;
+            btnEdit.Enabled = false;
+            btnSave.Enabled = false;
+            btnCancel.Enabled = false;
+            btnDelete.Enabled = false;
+        }
+
+        private void btnAddNew_Click(object sender, EventArgs e)
+        {
+            if (Configuration.TAB_CURRENT == Configuration.TAB_NHANVIEN)
+            {
+                ucNhanVien.setMaNV();
+            }
+            enableButton();
+        }
+
+        private void clearTextBox()
+        {
+           
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if(Configuration.TAB_CURRENT == Configuration.TAB_NHANVIEN)
+            {
+                ucNhanVien.IntsertNhanVien();
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            if (Configuration.TAB_CURRENT == Configuration.TAB_NHANVIEN)
+            {
+                ucNhanVien.ClearTextBoox();
+            }
+            disableButton();
         }
     }
 }

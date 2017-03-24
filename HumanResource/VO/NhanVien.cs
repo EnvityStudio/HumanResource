@@ -11,7 +11,7 @@ namespace HumanResource.VO
         public NhanVien()
         {
         }
-        public NhanVien(string maNV,string HoTen,DateTime NgaySinh,string QueQuan,string GioiTinh,string DanToc,string Sdt,string MaPB,string MaCV)
+        public NhanVien(string MaNV,string HoTen, DateTime NgaySinh,string QueQuan,string GioiTinh,string DanToc,string Sdt,string MaTDHV ,string MaPB,string MaCV, string BacLuong ,string Anh,string MatKhau , string CMND ,string Email)
 
         {
             this.MaNV = MaNV;
@@ -22,14 +22,16 @@ namespace HumanResource.VO
             this.DanToc = DanToc;
             this.Sdt = Sdt;
             this.MaPB = MaPB;
+            this.MaTDHV = MaTDHV;
             this.MaCV = MaCV;
+            this.Anh = Anh;
+            this.BacLuong = BacLuong;
+            this.CMND = CMND;
+            this.MatKhau = MatKhau;
+            this.Email = Email;
         }
-        public string MaNV
-        {
-            get;set;
-        }
-        public string HoTen
-        { get; set; }
+        public string MaNV  { get;set;}
+        public string HoTen { get; set; }
         public DateTime NgaySinh { get; set; }
         public string QueQuan { get; set; }
         public string GioiTinh { get; set; }
@@ -37,8 +39,11 @@ namespace HumanResource.VO
         public string Sdt { get; set; }
         public string MaPB { get; set; }
         public string MaCV { get; set; }
-
-
-
+        public string MaTDHV { get; set; }
+        public string Anh { get; set; }
+        public string BacLuong { get; set; }
+        public string Email { get; set; }
+        public string MatKhau { get; set; }
+        public string CMND { get; set; }
     }
 }

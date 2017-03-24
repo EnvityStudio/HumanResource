@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridViewNhanVien = new System.Windows.Forms.DataGridView();
@@ -46,7 +47,6 @@
             this.CHUCVU = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label26 = new System.Windows.Forms.Label();
-            this.cbbCMND = new System.Windows.Forms.TextBox();
             this.btnXoaTN = new System.Windows.Forms.Button();
             this.btnSuaTN = new System.Windows.Forms.Button();
             this.btnThemTN = new System.Windows.Forms.Button();
@@ -63,13 +63,11 @@
             this.btnResetPass = new System.Windows.Forms.Button();
             this.cbbLuong = new System.Windows.Forms.ComboBox();
             this.cbbChucVu = new System.Windows.Forms.ComboBox();
-            this.btnThemDT = new System.Windows.Forms.Button();
             this.cbbPhong = new System.Windows.Forms.ComboBox();
             this.cbbTrinhDo = new System.Windows.Forms.ComboBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.cbbDanToc = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
             this.dtNgaySInh = new System.Windows.Forms.DateTimePicker();
             this.label14 = new System.Windows.Forms.Label();
@@ -78,7 +76,6 @@
             this.rdGTNam = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
-            this.txtTen = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -86,20 +83,23 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.txtMK = new System.Windows.Forms.TextBox();
+            this.txtCMND = new System.Windows.Forms.TextBox();
+            this.txtDanToc = new System.Windows.Forms.TextBox();
             this.txtSoDT = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtQueQuan = new System.Windows.Forms.TextBox();
             this.txtNoiSinh = new System.Windows.Forms.TextBox();
             this.txtHoTen = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNhanVien)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewThanNhan)).BeginInit();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -245,7 +245,6 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.label26);
-            this.groupBox4.Controls.Add(this.cbbCMND);
             this.groupBox4.Controls.Add(this.btnXoaTN);
             this.groupBox4.Controls.Add(this.btnSuaTN);
             this.groupBox4.Controls.Add(this.btnThemTN);
@@ -255,19 +254,16 @@
             this.groupBox4.Controls.Add(this.btnResetPass);
             this.groupBox4.Controls.Add(this.cbbLuong);
             this.groupBox4.Controls.Add(this.cbbChucVu);
-            this.groupBox4.Controls.Add(this.btnThemDT);
             this.groupBox4.Controls.Add(this.cbbPhong);
             this.groupBox4.Controls.Add(this.cbbTrinhDo);
             this.groupBox4.Controls.Add(this.label21);
             this.groupBox4.Controls.Add(this.label23);
             this.groupBox4.Controls.Add(this.label16);
-            this.groupBox4.Controls.Add(this.cbbDanToc);
             this.groupBox4.Controls.Add(this.label15);
             this.groupBox4.Controls.Add(this.dtNgaySInh);
             this.groupBox4.Controls.Add(this.label14);
             this.groupBox4.Controls.Add(this.panel4);
             this.groupBox4.Controls.Add(this.label25);
-            this.groupBox4.Controls.Add(this.txtTen);
             this.groupBox4.Controls.Add(this.label6);
             this.groupBox4.Controls.Add(this.label11);
             this.groupBox4.Controls.Add(this.label13);
@@ -275,8 +271,9 @@
             this.groupBox4.Controls.Add(this.label8);
             this.groupBox4.Controls.Add(this.label5);
             this.groupBox4.Controls.Add(this.label4);
-            this.groupBox4.Controls.Add(this.label2);
             this.groupBox4.Controls.Add(this.txtMK);
+            this.groupBox4.Controls.Add(this.txtCMND);
+            this.groupBox4.Controls.Add(this.txtDanToc);
             this.groupBox4.Controls.Add(this.txtSoDT);
             this.groupBox4.Controls.Add(this.txtEmail);
             this.groupBox4.Controls.Add(this.txtQueQuan);
@@ -299,14 +296,6 @@
             this.label26.Size = new System.Drawing.Size(43, 13);
             this.label26.TabIndex = 1;
             this.label26.Text = "Mã NV:";
-            // 
-            // cbbCMND
-            // 
-            this.cbbCMND.Location = new System.Drawing.Point(624, 120);
-            this.cbbCMND.Name = "cbbCMND";
-            this.cbbCMND.ReadOnly = true;
-            this.cbbCMND.Size = new System.Drawing.Size(113, 20);
-            this.cbbCMND.TabIndex = 30;
             // 
             // btnXoaTN
             // 
@@ -452,15 +441,6 @@
             this.cbbChucVu.Size = new System.Drawing.Size(122, 21);
             this.cbbChucVu.TabIndex = 52;
             // 
-            // btnThemDT
-            // 
-            this.btnThemDT.Location = new System.Drawing.Point(516, 52);
-            this.btnThemDT.Name = "btnThemDT";
-            this.btnThemDT.Size = new System.Drawing.Size(25, 23);
-            this.btnThemDT.TabIndex = 15;
-            this.btnThemDT.Text = "+";
-            this.btnThemDT.UseVisualStyleBackColor = true;
-            // 
             // cbbPhong
             // 
             this.cbbPhong.FormattingEnabled = true;
@@ -468,6 +448,7 @@
             this.cbbPhong.Name = "cbbPhong";
             this.cbbPhong.Size = new System.Drawing.Size(122, 21);
             this.cbbPhong.TabIndex = 38;
+            this.cbbPhong.SelectedIndexChanged += new System.EventHandler(this.cbbPhong_SelectedIndexChanged);
             // 
             // cbbTrinhDo
             // 
@@ -503,14 +484,6 @@
             this.label16.Size = new System.Drawing.Size(51, 13);
             this.label16.TabIndex = 51;
             this.label16.Text = "Chức Vụ:";
-            // 
-            // cbbDanToc
-            // 
-            this.cbbDanToc.FormattingEnabled = true;
-            this.cbbDanToc.Location = new System.Drawing.Point(424, 53);
-            this.cbbDanToc.Name = "cbbDanToc";
-            this.cbbDanToc.Size = new System.Drawing.Size(86, 21);
-            this.cbbDanToc.TabIndex = 14;
             // 
             // label15
             // 
@@ -590,13 +563,6 @@
             this.label25.TabIndex = 65;
             this.label25.Text = "Thân Nhân:";
             // 
-            // txtTen
-            // 
-            this.txtTen.Location = new System.Drawing.Point(295, 22);
-            this.txtTen.Name = "txtTen";
-            this.txtTen.Size = new System.Drawing.Size(58, 20);
-            this.txtTen.TabIndex = 5;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -660,21 +626,26 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "Ngày Sinh:";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(260, 26);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Tên:";
-            // 
             // txtMK
             // 
             this.txtMK.Location = new System.Drawing.Point(466, 211);
             this.txtMK.Name = "txtMK";
             this.txtMK.Size = new System.Drawing.Size(144, 20);
             this.txtMK.TabIndex = 26;
+            // 
+            // txtCMND
+            // 
+            this.txtCMND.Location = new System.Drawing.Point(613, 118);
+            this.txtCMND.Name = "txtCMND";
+            this.txtCMND.Size = new System.Drawing.Size(129, 20);
+            this.txtCMND.TabIndex = 26;
+            // 
+            // txtDanToc
+            // 
+            this.txtDanToc.Location = new System.Drawing.Point(424, 55);
+            this.txtDanToc.Name = "txtDanToc";
+            this.txtDanToc.Size = new System.Drawing.Size(129, 20);
+            this.txtDanToc.TabIndex = 26;
             // 
             // txtSoDT
             // 
@@ -706,9 +677,9 @@
             // 
             // txtHoTen
             // 
-            this.txtHoTen.Location = new System.Drawing.Point(160, 22);
+            this.txtHoTen.Location = new System.Drawing.Point(186, 23);
             this.txtHoTen.Name = "txtHoTen";
-            this.txtHoTen.Size = new System.Drawing.Size(94, 20);
+            this.txtHoTen.Size = new System.Drawing.Size(167, 20);
             this.txtHoTen.TabIndex = 3;
             // 
             // label1
@@ -716,9 +687,13 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(130, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(24, 13);
+            this.label1.Size = new System.Drawing.Size(45, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Họ:";
+            this.label1.Text = "Họ tên :";
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // UCNhanVien
             // 
@@ -740,6 +715,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewThanNhan)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -749,7 +725,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.TextBox cbbCMND;
         private System.Windows.Forms.Button btnXoaTN;
         private System.Windows.Forms.Button btnSuaTN;
         private System.Windows.Forms.Button btnThemTN;
@@ -766,13 +741,11 @@
         private System.Windows.Forms.Button btnResetPass;
         private System.Windows.Forms.ComboBox cbbLuong;
         private System.Windows.Forms.ComboBox cbbChucVu;
-        private System.Windows.Forms.Button btnThemDT;
         private System.Windows.Forms.ComboBox cbbPhong;
         private System.Windows.Forms.ComboBox cbbTrinhDo;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.ComboBox cbbDanToc;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.DateTimePicker dtNgaySInh;
         private System.Windows.Forms.Label label14;
@@ -781,7 +754,6 @@
         private System.Windows.Forms.RadioButton rdGTNam;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.TextBox txtTen;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label13;
@@ -789,7 +761,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtSoDT;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtNoiSinh;
@@ -811,5 +782,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TDHV;
         private System.Windows.Forms.DataGridViewTextBoxColumn PHONG;
         private System.Windows.Forms.DataGridViewTextBoxColumn CHUCVU;
+        private System.Windows.Forms.TextBox txtCMND;
+        private System.Windows.Forms.TextBox txtDanToc;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

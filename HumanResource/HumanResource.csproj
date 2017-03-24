@@ -60,6 +60,7 @@
     <Compile Include="Config\HRUtils.cs" />
     <Compile Include="DAO\Dao.cs" />
     <Compile Include="DAO\DataProvider.cs" />
+    <Compile Include="DataAccess\DataAccess.cs" />
     <Compile Include="GUI\FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +88,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VO\ChucVu.cs" />
+    <Compile Include="VO\DataItem.cs" />
     <Compile Include="VO\Luong.cs" />
     <Compile Include="VO\NhanVien.cs" />
     <Compile Include="VO\PhongBan.cs" />

@@ -1,4 +1,5 @@
 ﻿using HumanResource.Config;
+using HumanResource.VO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -84,11 +85,36 @@ namespace HumanResource.DAO
                 conn.Close();
                 return val;
             }
-            catch (SqlException)
+            catch (SqlException e)
             {
                 conn.Close();
                 return -1;
             }
+        }
+        public static List<DataItem> GetList(string query)
+        {
+            conn = Connect();
+            List<DataItem> l = new List<DataItem>();
+
+            try
+            {
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlDataReader read = cmd.ExecuteReader();
+                while (read.Read())
+                {
+                    DataItem item = new DataItem();
+                    item.Value = read.GetValue(0).ToString();
+                    item.Name = read.GetValue(1).ToString();
+                    l.Add(item);
+                }
+                read.Close();
+            }
+            catch (SqlException e)
+            {
+
+            }
+            conn.Close();
+            return l;
         }
     }
 }

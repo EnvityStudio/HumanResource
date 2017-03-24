@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using HumanResource.DAO;
 using HumanResource.Config;
 using System.Data;
+using HumanResource.VO;
 
 namespace HumanResource.BUS
 {
@@ -43,6 +44,19 @@ namespace HumanResource.BUS
         public static DataTable GetListThanNhanNV(string maNV)
         {
             return Dao.GetListThanNhanNV(maNV);
+        }
+        public static int InsertNhanVien(NhanVien nhanVien)
+        {
+            return Dao.InsertNhanVien(nhanVien);
+            
+        }
+        public static DataTable GetMaNVNext()
+        {
+            return Dao.GetMaNhanVienNext();
+        }
+        public static List<DataItem> GetList(string proc)
+        {
+            return Dao.GetList(proc);
         }
     }
 }
