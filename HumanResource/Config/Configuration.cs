@@ -9,7 +9,7 @@ namespace HumanResource.Config
 {
     class Configuration
     {
-        public string GetProjectLinkDirectory()
+        public static string GetProjectLinkDirectory()
         {
             string currentLink = Directory.GetCurrentDirectory();
             string binLink = Directory.GetParent(currentLink).FullName;
@@ -21,8 +21,13 @@ namespace HumanResource.Config
         //name tabpages
         public static string TAB_NHANVIEN = "NHANVIEN";
         public static string TAB_PHONGBAN = "PHONGBAN";
-
         public static string TAB_CURRENT;
+
+        //action
+        public static string ADD = "ADD";
+        public static string EDIT = "EDIT";
+        public static string DELETE = "DELETE";
+        public static string ACTION;
         
         //Properties of NhanVien
         public string NHANVIEN_MANV = "maNV";
@@ -43,8 +48,8 @@ namespace HumanResource.Config
 
         // Proceduces of NhanVien
         public string PROC_GET_LIST_NHANVIEN = "GetListNhanVien";
-        public string PROC_UPDATE_NHANVIEN = "SuaNhanVien";
-        public string PROC_DELETE_NHANVIEN = "XoaNhanVien";
+        public string PROC_UPDATE_NHANVIEN = "UpdateNhanVien";
+        public string PROC_DELETE_NHANVIEN = "DeleteNhanVien";
         public string PROC_INSERT_NHANVIEN = "InsertNhanVien";
         public string PROC_GET_MANV_NEXT = "GetMaNVNext";
         public string PROC_SEARCH_PHONGBAN = "SearchPB";

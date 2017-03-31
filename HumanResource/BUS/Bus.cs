@@ -58,5 +58,15 @@ namespace HumanResource.BUS
         {
             return Dao.GetList(proc);
         }
+
+        internal static int UpdateNhanVien(NhanVien nhanVien)
+        {
+            return Dao.UpdateNhanVien(nhanVien);
+        }
+
+        internal static int DeleteNhanVien(NhanVien nhanVien)
+        {
+            return Dao.DeleteNhanVien(nhanVien);
+        }
     }
 }

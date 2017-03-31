@@ -96,22 +96,23 @@ namespace HumanResource.GUI
         public void enableButton()
         {
             btnAddNew.Enabled = false;
-            btnEdit.Enabled = true;
-            btnSave.Enabled = true;
+            btnEdit.Enabled = false;
+            btnSave.Enabled = false;
             btnCancel.Enabled = true;
             btnDelete.Enabled = true;
         }
         public void disableButton()
         {
             btnAddNew.Enabled = true;
-            btnEdit.Enabled = false;
-            btnSave.Enabled = false;
-            btnCancel.Enabled = false;
-            btnDelete.Enabled = false;
+            btnEdit.Enabled = true;
+            btnSave.Enabled = true;
+            btnCancel.Enabled = true;
+            btnDelete.Enabled = true;
         }
 
         private void btnAddNew_Click(object sender, EventArgs e)
         {
+            Configuration.ACTION = Configuration.ADD;
             if (Configuration.TAB_CURRENT == Configuration.TAB_NHANVIEN)
             {
                 ucNhanVien.setMaNV();
@@ -126,17 +127,51 @@ namespace HumanResource.GUI
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if(Configuration.TAB_CURRENT == Configuration.TAB_NHANVIEN)
+            if (Configuration.ACTION == Configuration.ADD)
             {
-                ucNhanVien.IntsertNhanVien();
+                if (Configuration.TAB_CURRENT == Configuration.TAB_NHANVIEN)
+                {
+                    ucNhanVien.IntsertNhanVien();
+                }
+            } else if (Configuration.ACTION == Configuration.EDIT)
+            {
+                if (Configuration.TAB_CURRENT == Configuration.TAB_NHANVIEN)
+                {
+                    ucNhanVien.UpdateNhanVien();
+                }
             }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            DialogResult result = MessageBox.Show("Hủy thao tác", "Thông báo", MessageBoxButtons.OKCancel);
+            if(result == DialogResult.OK)
+            {
+                if (Configuration.TAB_CURRENT == Configuration.TAB_NHANVIEN)
+                {
+                    ucNhanVien.ClearTextBoox();
+                }
+                disableButton();
+            }
+            
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            Configuration.ACTION = Configuration.EDIT;
             if (Configuration.TAB_CURRENT == Configuration.TAB_NHANVIEN)
             {
-                ucNhanVien.ClearTextBoox();
+                ucNhanVien.EditClick();
+            }
+            disableButton();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            Configuration.ACTION = Configuration.DELETE;
+            if (Configuration.TAB_CURRENT == Configuration.TAB_NHANVIEN)
+            {
+                ucNhanVien.DeleteNhanVien();
             }
             disableButton();
         }

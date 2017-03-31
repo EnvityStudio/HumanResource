@@ -24,11 +24,20 @@ namespace HumanResource.GUI
         public string PROC_GET_LIST_TDHV = "GetListTrinhDoHocVan";
         public string PROC_GET_LIST_LUONG = "GetListLuong";
         public string PROC_GET_LIST_THANNHAN_NV = "GetListThanNhanNV";
+        Dictionary<String, String> phongBan = new Dictionary<string, string>();
+        Dictionary<String, String> chucVu = new Dictionary<string, string>();
+        Dictionary<String, String> tdhv = new Dictionary<string, string>();
+        Dictionary<string, string> luong = new Dictionary<string, string>();
+        List<DataItem> listPhongBan;
+        List<DataItem> listChucVu;
+        List<DataItem> listTDHV;
+        List<DataItem> listLuong;
+   
+
         public UCNhanVien()
         {
             InitializeComponent();
             Configuration.TAB_CURRENT = Configuration.TAB_NHANVIEN;
-
         }
 
         private void UCNhanVien_Load(object sender, EventArgs e)
@@ -42,6 +51,10 @@ namespace HumanResource.GUI
             dataGridViewNhanVien.DataSource = Bus.GetListNhanVien();
             dataGridViewNhanVien.Columns["Anh"].Visible = false;
             dataGridViewNhanVien.Columns["TrangThai"].Visible = false;
+            listPhongBan = Bus.GetList(PROC_GET_LIST_PHONGBAN);
+            listChucVu = Bus.GetList(PROC_GET_LIST_CHUC_VU);
+            listTDHV = Bus.GetList(PROC_GET_LIST_TDHV);
+            listLuong = Bus.GetList(PROC_GET_LIST_LUONG);
         }
 
         private void dataGridViewNhanVien_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -75,7 +88,7 @@ namespace HumanResource.GUI
             {
                 tdhv.Add(row["MaTDHV"].ToString(), row["TenTDHV"].ToString());
             }
-            if (this.dataGridViewNhanVien.Columns[e.ColumnIndex].Name == "CHUCVU")
+            if (this.dataGridViewNhanVien.Columns[e.ColumnIndex].Name == "MaCV")
             {
                 if (e.Value != null)
                 {
@@ -89,7 +102,7 @@ namespace HumanResource.GUI
                     }
                 }
             }
-            if (this.dataGridViewNhanVien.Columns[e.ColumnIndex].Name == "PHONG")
+            if (this.dataGridViewNhanVien.Columns[e.ColumnIndex].Name == "MaPB")
             {
                 if (e.Value != null)
                 {
@@ -106,7 +119,7 @@ namespace HumanResource.GUI
                 }
             }
             
-            if (this.dataGridViewNhanVien.Columns[e.ColumnIndex].Name == "TDHV")
+            if (this.dataGridViewNhanVien.Columns[e.ColumnIndex].Name == "MaTDHV")
             {
                 if (e.Value != null)
                 {
@@ -122,7 +135,7 @@ namespace HumanResource.GUI
 
                 }
             }
-            if (this.dataGridViewNhanVien.Columns[e.ColumnIndex].Name == "luong")
+            if (this.dataGridViewNhanVien.Columns[e.ColumnIndex].Name == "BacLuong")
             {
                 if (e.Value != null)
                 {
@@ -137,6 +150,17 @@ namespace HumanResource.GUI
                     }
 
                 }
+            }
+        }
+
+        internal void EditClick()
+        {
+            if (txtMaNV.Text.Equals("") || txtMaNV.Text.Equals(null)) {
+                MessageBox.Show("Vui lòng chọn nhân viên để sửa", "Thông báo", MessageBoxButtons.OK);
+            }
+            else
+            {
+                enableBox(true);
             }
         }
 
@@ -229,17 +253,13 @@ namespace HumanResource.GUI
             setCombobox();
             enableBox(true);
         }
-
+       
         public void setCombobox()
         {
             DataTable dtPB = Bus.GetListPhongBan();
-            Dictionary<String, String> phongBan = new Dictionary<string, string>();
             DataTable dtChucVu = Bus.GetListChucVu();
-            Dictionary<String, String> chucVu = new Dictionary<string, string>();
             DataTable dtTdhv = Bus.GetListTDHV();
-            Dictionary<String, String> tdhv = new Dictionary<string, string>();
             DataTable dtLuong = Bus.GetListLUONG();
-            Dictionary<string, string> luong = new Dictionary<string, string>();
             foreach (DataRow dr in dtPB.Rows)
             {
                 phongBan.Add(dr[0].ToString(), dr[1].ToString());
@@ -257,12 +277,10 @@ namespace HumanResource.GUI
                 tdhv.Add(dr[0].ToString(), dr[1].ToString());
             }
 
-            LoadComboboxData(cbbPhong, Bus.GetList(PROC_GET_LIST_PHONGBAN));
-            LoadComboboxData(cbbChucVu, Bus.GetList(PROC_GET_LIST_CHUC_VU));
-            LoadComboboxData(cbbTrinhDo, Bus.GetList(PROC_GET_LIST_TDHV));
-            LoadComboboxData(cbbLuong, Bus.GetList(PROC_GET_LIST_LUONG));
-
-
+            LoadComboboxData(cbbPhong, listPhongBan);
+            LoadComboboxData(cbbChucVu, listChucVu);
+            LoadComboboxData(cbbTrinhDo, listTDHV);
+            LoadComboboxData(cbbLuong, listLuong);
         }
 
         private void cbbPhong_SelectedIndexChanged(object sender, EventArgs e)
@@ -274,6 +292,24 @@ namespace HumanResource.GUI
             cbb.ValueMember = "Value";
             cbb.DisplayMember = "Name";
         }
+        private void LoadNameFromID(ComboBox cbb, string id, List<DataItem> list)
+        {
+            // cbb.DataSource = list;
+            LoadComboboxData(cbb, list);
+            int i = 0;
+            foreach(DataItem di in list)
+            {
+                if(di.Value.Contains(id))
+                {
+                    //cbb.DisplayMember = di.Name;
+                    //cbb.ValueMember = di.Value;
+                    cbb.SelectedIndex = i;
+                    return ;
+                }
+                i++;
+ 
+            }
+        }
         public void ClearTextBoox()
         {
             txtCMND.Text = "";
@@ -282,7 +318,6 @@ namespace HumanResource.GUI
             txtHoTen.Text = "";
             rdGTNam.Checked = false;
             rdGTNu.Checked = false;
-            txtNoiSinh.Text = "";
             txtQueQuan.Text = "";
             txtEmail.Text = "";
             txtSoDT.Text = "";
@@ -295,10 +330,10 @@ namespace HumanResource.GUI
         }
         private bool checkTextBox()
         {
-            if (!checkEmpty(txtCMND) || !checkEmpty(txtMaNV) || !checkEmpty(txtNoiSinh) || !checkEmpty(txtQueQuan) 
+            if (!checkEmpty(txtCMND) || !checkEmpty(txtMaNV)  || !checkEmpty(txtQueQuan) 
                 || !checkEmpty(txtEmail) || !checkEmpty(txtSoDT) || !checkEmpty(txtDanToc) )
             {
-                MessageBox.Show("Có lỗi không thể lưu");
+                MessageBox.Show("Có lỗi không thể thực hiện");
                 return false ;
             }
             return true;
@@ -322,14 +357,14 @@ namespace HumanResource.GUI
             int result = Bus.InsertNhanVien(getDataNhanVien());
             if (result > 0)
             {
-                MessageBox.Show("Success", "notification", MessageBoxButtons.OK);
+                MessageBox.Show("Thêm Thành Công", "Thông báo", MessageBoxButtons.OK);
                 LoadData();
                 ClearTextBoox();
                 enableBox(false);
             }
             else
             {
-                MessageBox.Show("Fales", "notification", MessageBoxButtons.OK);
+                MessageBox.Show("Thêm không thành công", "Thông báo", MessageBoxButtons.OK);
             }
         }
         private void enableBox(bool bol)
@@ -339,8 +374,9 @@ namespace HumanResource.GUI
             txtCMND.Enabled = bol;
             txtMaNV.Enabled = bol;
             txtMK.Enabled = bol;
-            txtNoiSinh.Enabled = bol;
+            dtNgaySInh.Enabled = bol;
             txtQueQuan.Enabled = bol;
+            pictureBox1.Enabled = bol;
             txtEmail.Enabled = bol;
             txtSoDT.Enabled = bol;
             cbbChucVu.Enabled = bol;
@@ -351,6 +387,81 @@ namespace HumanResource.GUI
             rdGTNu.Enabled = bol;
             rdGTNam.Enabled = bol;
         }
+
+        private void dataGridViewNhanVien_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtHoTen.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[1].Value.ToString();
+            txtCMND.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells["CMND"].Value.ToString();
+            txtMaNV.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[0].Value.ToString();
+            txtMK.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[11].Value.ToString();
+            if (dataGridViewNhanVien.Rows[e.RowIndex].Cells[5].Value.ToString().Contains("Nam"))
+            {
+                rdGTNam.Checked = true;
+                rdGTNu.Checked = false;
+            } else
+            {
+                rdGTNam.Checked = false;
+                rdGTNu.Checked = true;
+            }
+            txtQueQuan.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[4].Value.ToString();
+            txtEmail.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells["Email"].Value.ToString();
+            txtSoDT.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[3].Value.ToString();
+            LoadNameFromID(cbbChucVu, dataGridViewNhanVien.Rows[e.RowIndex].Cells[8].Value.ToString(), listChucVu);
+            LoadNameFromID(cbbLuong, dataGridViewNhanVien.Rows[e.RowIndex].Cells[10].Value.ToString(), listLuong);
+            LoadNameFromID(cbbPhong, dataGridViewNhanVien.Rows[e.RowIndex].Cells[7].Value.ToString(), listPhongBan);
+            LoadNameFromID(cbbTrinhDo, dataGridViewNhanVien.Rows[e.RowIndex].Cells[9].Value.ToString(), listTDHV);
+            txtDanToc.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[6].Value.ToString();
+            dtNgaySInh.Text  = dataGridViewNhanVien.Rows[e.RowIndex].Cells[2].Value.ToString();
+            string pathImg = dataGridViewNhanVien.Rows[e.RowIndex].Cells["Anh"].Value.ToString();
+            if(!pathImg.Equals(""))
+            {
+                pictureBox1.Image = Image.FromFile(dataGridViewNhanVien.Rows[e.RowIndex].Cells["Anh"].Value.ToString());
+            } else
+            {
+                string pathImage = Configuration.GetProjectLinkDirectory() + @"\Resource\noimage.PNG"; 
+                pictureBox1.Image = Image.FromFile(pathImage);
+            }
+      
+        }
+        public void UpdateNhanVien()
+        {
+            if (!checkTextBox())
+            {
+                return;
+            }
+            int result = Bus.UpdateNhanVien(getDataNhanVien());
+            if (result > 0)
+            {
+                MessageBox.Show("Cập nhật thành công", "Thông báo", MessageBoxButtons.OK);
+                LoadData();
+                ClearTextBoox();
+                enableBox(false);
+            }
+            else
+            {
+                MessageBox.Show("Không thành công", "Thông báo", MessageBoxButtons.OK);
+            }
+        }
+        public void DeleteNhanVien()
+        {
+            if (txtMaNV.Text.Equals("") || txtMaNV.Text == null)
+            {
+                return;
+            }
+            int result = Bus.DeleteNhanVien(getDataNhanVien());
+            if (result > 0)
+            {
+                MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK);
+                LoadData();
+                ClearTextBoox();
+                enableBox(false);
+            }
+            else
+            {
+                MessageBox.Show("Xóa không thành công", "Thông báo", MessageBoxButtons.OK);
+            }
+        }
+
     }
 
 }

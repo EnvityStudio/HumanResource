@@ -75,6 +75,7 @@ namespace HumanResource.DAO
             return DataProvider.ExecuteNonQuery(config.PROC_INSERT_NHANVIEN, para);
 
         }
+
         public static int UpdateNhanVien(NhanVien nv)
         {
             SqlParameter[] para = new SqlParameter[] {
@@ -86,7 +87,13 @@ namespace HumanResource.DAO
                 new SqlParameter("@"+config.NHANVIEN_DANTOC,nv.DanToc),
                 new SqlParameter("@"+config.NHANVIEN_SDT,nv.Sdt),
                 new SqlParameter("@"+config.NHANVIEN_MAPB,nv.MaPB),
-                new SqlParameter("@"+config.NHANVIEN_MACV,nv.MaCV)
+                new SqlParameter("@"+config.NHANVIEN_MACV,nv.MaCV),
+                new SqlParameter("@"+config.NHANVIEN_TDHV,nv.MaTDHV),
+                new SqlParameter("@"+config.NHANVIEN_ANH,nv.Anh),
+                new SqlParameter("@"+config.NHANVIEN_EMAIL,nv.Email),
+                new SqlParameter("@"+config.NHANVIEN_CMND,nv.CMND),
+                new SqlParameter("@"+config.NHANVIEN_BACLUONG,nv.BacLuong),
+                new SqlParameter("@"+config.NHANVIEN_MATKHAU,nv.MatKhau)
             };
             return DataProvider.ExecuteNonQuery(config.PROC_UPDATE_NHANVIEN, para);
 

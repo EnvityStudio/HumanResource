@@ -261,6 +261,7 @@
             this.btnEdit.Size = new System.Drawing.Size(46, 22);
             this.btnEdit.Text = "Sửa";
             this.btnEdit.ToolTipText = "Sửa (CTR + E)";
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDelete
             // 
@@ -271,6 +272,7 @@
             this.btnDelete.Size = new System.Drawing.Size(47, 22);
             this.btnDelete.Text = "Xóa";
             this.btnDelete.ToolTipText = "Xóa (Delete)";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // toolStripSeparator1
             // 
