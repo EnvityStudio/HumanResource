@@ -22,6 +22,11 @@ namespace HumanResource.BUS
             return Dao.GetNamePhongBan(maPB);
         }
 
+        internal static DataTable GetListTheoDoi()
+        {
+            return Dao.GetListTheoDoi();
+        }
+
         public static DataTable GetListPhongBan()
         {
             return Dao.GetListPhongBan();
@@ -30,6 +35,11 @@ namespace HumanResource.BUS
         public static DataTable GetListChucVu()
         {
             return Dao.GetListChucVu();
+        }
+
+        internal static int InsertThanNhan(ThanNhan thanNhan)
+        {
+            return Dao.InsertThanNhan(thanNhan);
         }
 
         public static DataTable GetListTDHV()
@@ -50,6 +60,12 @@ namespace HumanResource.BUS
             return Dao.InsertNhanVien(nhanVien);
             
         }
+
+        internal static int UpdateThanNhan(ThanNhan thanNhan)
+        {
+            return Dao.UpdateThanNhan(thanNhan);
+        }
+
         public static DataTable GetMaNVNext()
         {
             return Dao.GetMaNhanVienNext();
@@ -57,6 +73,11 @@ namespace HumanResource.BUS
         public static List<DataItem> GetList(string proc)
         {
             return Dao.GetList(proc);
+        }
+
+        internal static DataTable GetMaThanNhanNext()
+        {
+            return Dao.GetMaThanNhanNext();
         }
 
         internal static int UpdateNhanVien(NhanVien nhanVien)
@@ -67,6 +88,15 @@ namespace HumanResource.BUS
         internal static int DeleteNhanVien(NhanVien nhanVien)
         {
             return Dao.DeleteNhanVien(nhanVien);
+        }
+
+        internal static int DeleteThanNhan(string maTNCurent)
+        {
+            return Dao.DeleteThanNhan(maTNCurent);
+        }
+        public static DataTable SearchThanNhan(string maTN)
+        {
+            return Dao.SearchThanNhan(maTN);
         }
     }
 }

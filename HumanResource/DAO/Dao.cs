@@ -30,14 +30,57 @@ namespace HumanResource.DAO
             return DataProvider.GetDataByParameter(config.PROC_SEARCH_PHONGBAN, para);
         }
 
+        internal static DataTable GetListTheoDoi()
+        {
+            return DataProvider.GetData(config.PROC_GET_LIST_THEO_DOI);
+        }
+
         internal static DataTable GetListChucVu()
         {
             return DataProvider.GetData(config.PROC_GET_LIST_CHUC_VU);
         }
+        
+        internal static int InsertThanNhan(ThanNhan thanNhan)
+        {
+            SqlParameter[] para = new SqlParameter[] {
+                new SqlParameter("@"+config.THAN_NHAN_MANV,thanNhan.MaNV),
+                new SqlParameter("@"+config.THAN_NHAN_MATN,thanNhan.MaTN),
+                new SqlParameter("@"+config.THAN_NHAN_HOTEN,thanNhan.HoTen),
+                new SqlParameter("@"+config.THAN_NHAN_QUAN_HE,thanNhan.QuanHe),
+                 new SqlParameter("@"+config.THAN_NHAN_GIOI_TINH,thanNhan.GioiTinh)
+            };
+            return DataProvider.ExecuteNonQuery(config.PROC_INSERT_THANH_NHAN,para);
+        }
+
+        internal static int UpdateThanNhan(ThanNhan thanNhan)
+        {
+            SqlParameter[] para = new SqlParameter[] {
+                new SqlParameter("@"+config.THAN_NHAN_MANV,thanNhan.MaNV),
+                new SqlParameter("@"+config.THAN_NHAN_MATN,thanNhan.MaTN),
+                new SqlParameter("@"+config.THAN_NHAN_HOTEN,thanNhan.HoTen),
+                new SqlParameter("@"+config.THAN_NHAN_QUAN_HE,thanNhan.QuanHe),
+                 new SqlParameter("@"+config.THAN_NHAN_GIOI_TINH,thanNhan.GioiTinh)
+            };
+            return DataProvider.ExecuteNonQuery(config.PROC_UPDAT_THAN_NHAN, para);
+        }
+        public static DataTable SearchThanNhan(string maTN)
+        {
+            SqlParameter[] para = new SqlParameter[] {
+                new SqlParameter("@"+config.THAN_NHAN_MATN,maTN),        
+            };
+            return DataProvider.GetDataByParameter(config.PROC_SEARCH_THAN_NHAN, para);
+        }
+
         internal static DataTable GetListLUONG()
         {
             return DataProvider.GetData(config.PROC_GET_LIST_LUONG);
         }
+
+        internal static DataTable GetMaThanNhanNext()
+        {
+            return DataProvider.GetData(config.PROC_GET_MA_THAN_NHAN_NEXT);
+        }
+
         internal static DataTable GetListTDHV()
         {
             return DataProvider.GetData(config.PROC_GET_LIST_TDHV);
@@ -47,6 +90,13 @@ namespace HumanResource.DAO
         internal static DataTable GetListPhongBan()
         {
             return DataProvider.GetData(config.PROC_GET_LIST_PHONGBAN);
+        }
+
+        internal static int DeleteThanNhan(string maTNCurent)
+        {
+            SqlParameter[] para = new SqlParameter[] {
+                new SqlParameter("@"+config.THAN_NHAN_MATN,maTNCurent) };
+            return DataProvider.ExecuteNonQuery(config.PROC_DELETE_THAN_NHAN,para);
         }
 
         public static int InsertNhanVien(NhanVien nv)

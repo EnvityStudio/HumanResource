@@ -32,7 +32,7 @@ namespace HumanResource.GUI
         List<DataItem> listChucVu;
         List<DataItem> listTDHV;
         List<DataItem> listLuong;
-   
+        private string maNVCurrent;
 
         public UCNhanVien()
         {
@@ -301,8 +301,6 @@ namespace HumanResource.GUI
             {
                 if(di.Value.Contains(id))
                 {
-                    //cbb.DisplayMember = di.Name;
-                    //cbb.ValueMember = di.Value;
                     cbb.SelectedIndex = i;
                     return ;
                 }
@@ -421,7 +419,11 @@ namespace HumanResource.GUI
                 string pathImage = Configuration.GetProjectLinkDirectory() + @"\Resource\noimage.PNG"; 
                 pictureBox1.Image = Image.FromFile(pathImage);
             }
-      
+
+            maNVCurrent = dataGridViewNhanVien.Rows[e.RowIndex].Cells["MaNV"].Value.ToString();
+            GetThanNhanNhanVien(maNVCurrent);
+
+          
         }
         public void UpdateNhanVien()
         {
@@ -462,6 +464,50 @@ namespace HumanResource.GUI
             }
         }
 
+        public void GetThanNhanNhanVien(string maNV)
+        {
+            DataTable dataThanNhan = Bus.GetListThanNhanNV(maNV);
+            dataGridViewThanNhan.DataSource = dataThanNhan;
+            dataGridViewThanNhan.Columns["MaNV"].Visible = false;
+            dataGridViewThanNhan.Columns["MaTN"].Visible = false;
+        }
+       
+        private void btnThemTN_Click(object sender, EventArgs e)
+        {
+            FrmThanNhanNV frm = new FrmThanNhanNV(maNVCurrent,"",1);
+            frm.ShowDialog();
+            GetThanNhanNhanVien(maNVCurrent);
+             
+        }
+
+        private string maTNCurent;
+        private void dataGridViewThanNhan_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            maTNCurent = dataGridViewThanNhan.Rows[e.RowIndex].Cells["MaTN"].Value.ToString();
+            lblMaTN.Text = maTNCurent;
+        }
+
+        private void btnXoaTN_Click(object sender, EventArgs e)
+        {
+            int result = Bus.DeleteThanNhan(maTNCurent);
+            if (result > 0)
+            {
+                MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK);
+                GetThanNhanNhanVien(maNVCurrent);
+                enableBox(false);
+            }
+            else
+            {
+                MessageBox.Show("Xóa không thành công", "Thông báo", MessageBoxButtons.OK);
+            }
+        }
+
+        private void btnSuaTN_Click(object sender, EventArgs e)
+        {
+            FrmThanNhanNV frm = new FrmThanNhanNV(maNVCurrent, maTNCurent,2);
+            frm.ShowDialog();
+            GetThanNhanNhanVien(maNVCurrent);
+        }
     }
 
 }

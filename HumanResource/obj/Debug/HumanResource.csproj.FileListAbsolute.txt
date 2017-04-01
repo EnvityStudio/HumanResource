@@ -175,3 +175,6 @@ E:\Hung\HumanResource\HumanResource\obj\Debug\HumanResource.csproj.GenerateResou
 E:\Hung\HumanResource\HumanResource\obj\Debug\HumanResource.exe.licenses
 E:\Hung\HumanResource\HumanResource\obj\Debug\HumanResource.exe
 E:\Hung\HumanResource\HumanResource\obj\Debug\HumanResource.pdb
+D:\Workspace\HumanResource\HumanResource\obj\Debug\HumanResource.GUI.FrmThanNhanNV.resources
+D:\Workspace\HumanResource\HumanResource\obj\Debug\HumanResource.GUI.FrmThanNhan.resources
+D:\Workspace\HumanResource\HumanResource\obj\Debug\HumanResource.GUI.UCTheoDoi.resources

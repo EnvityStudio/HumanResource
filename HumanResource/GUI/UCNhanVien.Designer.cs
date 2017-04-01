@@ -33,6 +33,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridViewNhanVien = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.lblMaTN = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.btnXoaTN = new System.Windows.Forms.Button();
             this.btnSuaTN = new System.Windows.Forms.Button();
@@ -40,13 +41,6 @@
             this.txtMaNV = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridViewThanNhan = new System.Windows.Forms.DataGridView();
-            this.QUANHE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HOTEN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GIOI_TINHTN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NAMSINH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NGHENGHIEP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MAQHGD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MAHS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnResetPass = new System.Windows.Forms.Button();
             this.cbbLuong = new System.Windows.Forms.ComboBox();
             this.cbbChucVu = new System.Windows.Forms.ComboBox();
@@ -124,6 +118,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.lblMaTN);
             this.groupBox4.Controls.Add(this.label26);
             this.groupBox4.Controls.Add(this.btnXoaTN);
             this.groupBox4.Controls.Add(this.btnSuaTN);
@@ -166,6 +161,16 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Thông Tin Nhân Viên";
             // 
+            // lblMaTN
+            // 
+            this.lblMaTN.AutoSize = true;
+            this.lblMaTN.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.lblMaTN.Location = new System.Drawing.Point(1251, 38);
+            this.lblMaTN.Name = "lblMaTN";
+            this.lblMaTN.Size = new System.Drawing.Size(35, 13);
+            this.lblMaTN.TabIndex = 68;
+            this.lblMaTN.Text = "label2";
+            // 
             // label26
             // 
             this.label26.AutoSize = true;
@@ -183,6 +188,7 @@
             this.btnXoaTN.TabIndex = 66;
             this.btnXoaTN.Text = "Xóa";
             this.btnXoaTN.UseVisualStyleBackColor = true;
+            this.btnXoaTN.Click += new System.EventHandler(this.btnXoaTN_Click);
             // 
             // btnSuaTN
             // 
@@ -192,6 +198,7 @@
             this.btnSuaTN.TabIndex = 66;
             this.btnSuaTN.Text = "Sửa";
             this.btnSuaTN.UseVisualStyleBackColor = true;
+            this.btnSuaTN.Click += new System.EventHandler(this.btnSuaTN_Click);
             // 
             // btnThemTN
             // 
@@ -201,6 +208,7 @@
             this.btnThemTN.TabIndex = 66;
             this.btnThemTN.Text = "Thêm";
             this.btnThemTN.UseVisualStyleBackColor = true;
+            this.btnThemTN.Click += new System.EventHandler(this.btnThemTN_Click);
             // 
             // txtMaNV
             // 
@@ -228,71 +236,13 @@
             // 
             this.dataGridViewThanNhan.AllowUserToAddRows = false;
             this.dataGridViewThanNhan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewThanNhan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.QUANHE,
-            this.HOTEN,
-            this.GIOI_TINHTN,
-            this.NAMSINH,
-            this.NGHENGHIEP,
-            this.MAQHGD,
-            this.MAHS});
-            this.dataGridViewThanNhan.Location = new System.Drawing.Point(748, 38);
+            this.dataGridViewThanNhan.Location = new System.Drawing.Point(853, 38);
             this.dataGridViewThanNhan.MultiSelect = false;
             this.dataGridViewThanNhan.Name = "dataGridViewThanNhan";
             this.dataGridViewThanNhan.ReadOnly = true;
-            this.dataGridViewThanNhan.Size = new System.Drawing.Size(540, 181);
+            this.dataGridViewThanNhan.Size = new System.Drawing.Size(392, 181);
             this.dataGridViewThanNhan.TabIndex = 67;
-            // 
-            // QUANHE
-            // 
-            this.QUANHE.DataPropertyName = "QUAN_HE";
-            this.QUANHE.HeaderText = "Quan Hệ";
-            this.QUANHE.Name = "QUANHE";
-            this.QUANHE.ReadOnly = true;
-            // 
-            // HOTEN
-            // 
-            this.HOTEN.DataPropertyName = "HOTEN";
-            this.HOTEN.HeaderText = "Họ Tên";
-            this.HOTEN.Name = "HOTEN";
-            this.HOTEN.ReadOnly = true;
-            // 
-            // GIOI_TINHTN
-            // 
-            this.GIOI_TINHTN.DataPropertyName = "GIOI_TINH";
-            this.GIOI_TINHTN.HeaderText = "Giới Tính";
-            this.GIOI_TINHTN.Name = "GIOI_TINHTN";
-            this.GIOI_TINHTN.ReadOnly = true;
-            // 
-            // NAMSINH
-            // 
-            this.NAMSINH.DataPropertyName = "NAM_SINH";
-            this.NAMSINH.HeaderText = "Năm Sinh";
-            this.NAMSINH.Name = "NAMSINH";
-            this.NAMSINH.ReadOnly = true;
-            // 
-            // NGHENGHIEP
-            // 
-            this.NGHENGHIEP.DataPropertyName = "NGHE_NGHIEP";
-            this.NGHENGHIEP.HeaderText = "Nghề Nghiệp";
-            this.NGHENGHIEP.Name = "NGHENGHIEP";
-            this.NGHENGHIEP.ReadOnly = true;
-            // 
-            // MAQHGD
-            // 
-            this.MAQHGD.DataPropertyName = "MAQHGD";
-            this.MAQHGD.HeaderText = "MAQHGD";
-            this.MAQHGD.Name = "MAQHGD";
-            this.MAQHGD.ReadOnly = true;
-            this.MAQHGD.Visible = false;
-            // 
-            // MAHS
-            // 
-            this.MAHS.DataPropertyName = "MAHS";
-            this.MAHS.HeaderText = "MAHS";
-            this.MAHS.Name = "MAHS";
-            this.MAHS.ReadOnly = true;
-            this.MAHS.Visible = false;
+            this.dataGridViewThanNhan.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewThanNhan_CellContentClick);
             // 
             // btnResetPass
             // 
@@ -435,9 +385,10 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(745, 22);
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(850, 17);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(64, 13);
+            this.label25.Size = new System.Drawing.Size(87, 16);
             this.label25.TabIndex = 65;
             this.label25.Text = "Thân Nhân:";
             // 
@@ -593,13 +544,6 @@
         private System.Windows.Forms.TextBox txtMaNV;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridView dataGridViewThanNhan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn QUANHE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HOTEN;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GIOI_TINHTN;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NAMSINH;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NGHENGHIEP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MAQHGD;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MAHS;
         private System.Windows.Forms.Button btnResetPass;
         private System.Windows.Forms.ComboBox cbbLuong;
         private System.Windows.Forms.ComboBox cbbChucVu;
@@ -632,5 +576,6 @@
         private System.Windows.Forms.TextBox txtCMND;
         private System.Windows.Forms.TextBox txtDanToc;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Label lblMaTN;
     }
 }

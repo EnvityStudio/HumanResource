@@ -18,12 +18,14 @@ namespace HumanResource.GUI
     {
         UCNhanVien ucNhanVien;
         UCPhongBan ucPhongBan;
+        UCTheoDoi ucTheoDoi;
 
         public FormMain()
         {
             InitializeComponent();
             ucNhanVien = new UCNhanVien();
             ucPhongBan = new UCPhongBan();
+            ucTheoDoi = new UCTheoDoi();
         }
 
         public void AddNewTab(UserControl userControl)
@@ -173,6 +175,12 @@ namespace HumanResource.GUI
             {
                 ucNhanVien.DeleteNhanVien();
             }
+            disableButton();
+        }
+
+        private void TheoDoiNhanVienToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddNewTab(ucTheoDoi);
             disableButton();
         }
     }

@@ -80,8 +80,25 @@ namespace HumanResource.Config
         //Procdecues of LUONG
         public string PROC_GET_LIST_LUONG = "GetListLuong";
 
+
+
+        //Properties of ThanNhan
+        public string THAN_NHAN_MANV = "maNV";
+        public string THAN_NHAN_MATN = "maTN";
+        public string THAN_NHAN_HOTEN = "hoTen";
+        public string THAN_NHAN_GIOI_TINH = "gioiTinh";
+        public string THAN_NHAN_QUAN_HE = "quanHe";
+
         //Procdecues of ThanNhan
         public string PROC_GET_LIST_THANNHAN_NV = "GetListThanNhanNV";
+        public string PROC_INSERT_THANH_NHAN = "InsertThanNhan";
+        public string PROC_GET_MA_THAN_NHAN_NEXT = "GetMaTNNext";
+        public string PROC_DELETE_THAN_NHAN = "DeleteThanNhan";
+        public string PROC_UPDAT_THAN_NHAN = "UpdateThanNhan";
+        public string PROC_SEARCH_THAN_NHAN = "SearchThanNhan";
+
+        // Procdecues of TheoDoi
+        public string PROC_GET_LIST_THEO_DOI = "GetListTheoDoi";
 
     }
 }
