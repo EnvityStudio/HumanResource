@@ -63,12 +63,51 @@ namespace HumanResource.DAO
             };
             return DataProvider.ExecuteNonQuery(config.PROC_UPDAT_THAN_NHAN, para);
         }
+
+        internal static int InsertTheoDoi(TheoDoi theoDoi)
+        {
+            SqlParameter[] para = new SqlParameter[] {
+                new SqlParameter("@"+config.THEO_DOI_MANV,theoDoi.MaNV),
+                new SqlParameter("@"+config.THEO_DOI_MATD,theoDoi.MaTD),
+                new SqlParameter("@"+config.THEO_DOI_THOI_GIAN,theoDoi.NgayThang),
+                new SqlParameter("@"+config.THEO_DOI_SU_KIEN,theoDoi.SuKien)
+             
+            };
+            return DataProvider.ExecuteNonQuery(config.PROC_INSERT_THEO_DOI, para);
+        }
+
+        internal static int UpdateTheoDoi(TheoDoi theoDoi)
+        {
+            SqlParameter[] para = new SqlParameter[] {
+                new SqlParameter("@"+config.THEO_DOI_MANV,theoDoi.MaNV),
+                new SqlParameter("@"+config.THEO_DOI_MATD,theoDoi.MaTD),
+                new SqlParameter("@"+config.THEO_DOI_THOI_GIAN,theoDoi.NgayThang),
+                new SqlParameter("@"+config.THEO_DOI_SU_KIEN,theoDoi.SuKien)
+
+            };
+            return DataProvider.ExecuteNonQuery(config.PROC_UPDATE_THEO_DOI, para);
+        }
+
+        internal static int DeleteTheoDoi(string MaTD)
+        {
+            SqlParameter[] para = new SqlParameter[] {
+                new SqlParameter("@"+config.THEO_DOI_MATD,MaTD),
+
+            };
+            return DataProvider.ExecuteNonQuery(config.PROC_DELETE_THEO_DOI,para);
+        }
+
         public static DataTable SearchThanNhan(string maTN)
         {
             SqlParameter[] para = new SqlParameter[] {
                 new SqlParameter("@"+config.THAN_NHAN_MATN,maTN),        
             };
             return DataProvider.GetDataByParameter(config.PROC_SEARCH_THAN_NHAN, para);
+        }
+
+        public static DataTable GetMaTheoDoiNext()
+        {
+            return DataProvider.GetData(config.PROC_GET_MA_THEO_DOI_NEXT);
         }
 
         internal static DataTable GetListLUONG()

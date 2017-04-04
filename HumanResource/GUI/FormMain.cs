@@ -30,6 +30,8 @@ namespace HumanResource.GUI
 
         public void AddNewTab(UserControl userControl)
         {
+
+            
             foreach (TabPage tab in tabControlHome.TabPages)
             {
                 if(tab.Name == userControl.Name)
@@ -40,16 +42,36 @@ namespace HumanResource.GUI
             }
 
             userControl.Dock = DockStyle.Fill;
-            TabPage newTab = new TabPage(userControl.AccessibleDescription + "         ");//Create new tabpage
+            TabPage newTab = new TabPage(userControl.AccessibleDescription + "         ");//Create new tabpage , set name tab
             newTab.Controls.Add(userControl);
             newTab.Name = userControl.Name;
             tabControlHome.TabPages.Add(newTab);
             tabControlHome.SelectedTab = newTab;
         }
 
+        private void SetTabCurrent()
+        {
+            if(tabControlHome.SelectedTab.Name == "UCHomePage")
+            {
+                Configuration.TAB_CURRENT = Configuration.TAB_HOME;
+            } else if (tabControlHome.SelectedTab.Name == "UCNhanVien")
+            {
+                Configuration.TAB_CURRENT = Configuration.TAB_NHANVIEN;
+            }
+            else if(tabControlHome.SelectedTab.Name == "UCTheoDoi")
+            {
+                Configuration.TAB_CURRENT = Configuration.TAB_THEODOI;
+            }
+            else if (tabControlHome.SelectedTab.Name == "UCPhongBan")
+            {
+                Configuration.TAB_CURRENT = Configuration.TAB_PHONGBAN;
+            }
+        }
+
         private void FormMain_Load(object sender, EventArgs e)
         {
             AddNewTab(new UCHomePage());
+            SetTabCurrent();
         }
 
         private void btnNhanVien_Click(object sender, EventArgs e)
@@ -97,9 +119,9 @@ namespace HumanResource.GUI
 
         public void enableButton()
         {
-            btnAddNew.Enabled = false;
-            btnEdit.Enabled = false;
-            btnSave.Enabled = false;
+            btnAddNew.Enabled = true;
+            btnEdit.Enabled = true;
+            btnSave.Enabled = true;
             btnCancel.Enabled = true;
             btnDelete.Enabled = true;
         }
@@ -114,11 +136,19 @@ namespace HumanResource.GUI
 
         private void btnAddNew_Click(object sender, EventArgs e)
         {
+            SetTabCurrent();
             Configuration.ACTION = Configuration.ADD;
             if (Configuration.TAB_CURRENT == Configuration.TAB_NHANVIEN)
             {
+                ucNhanVien.ClearTextBoox();
                 ucNhanVien.setMaNV();
             }
+            else if (Configuration.TAB_CURRENT == Configuration.TAB_THEODOI)
+            {
+                ucTheoDoi.ClearTextBox();
+  
+            }
+
             enableButton();
         }
 
@@ -129,19 +159,30 @@ namespace HumanResource.GUI
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            SetTabCurrent();
             if (Configuration.ACTION == Configuration.ADD)
             {
                 if (Configuration.TAB_CURRENT == Configuration.TAB_NHANVIEN)
                 {
                     ucNhanVien.IntsertNhanVien();
                 }
+                if (Configuration.TAB_CURRENT == Configuration.TAB_THEODOI)
+                {
+                    ucTheoDoi.InsertTheoDoi();
+                }
+                
             } else if (Configuration.ACTION == Configuration.EDIT)
             {
                 if (Configuration.TAB_CURRENT == Configuration.TAB_NHANVIEN)
                 {
                     ucNhanVien.UpdateNhanVien();
                 }
-            }
+                if (Configuration.TAB_CURRENT == Configuration.TAB_THEODOI)
+                {
+                    ucTheoDoi.UpdateTheoDoi();
+                }
+
+            } 
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -160,20 +201,30 @@ namespace HumanResource.GUI
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            SetTabCurrent();
             Configuration.ACTION = Configuration.EDIT;
             if (Configuration.TAB_CURRENT == Configuration.TAB_NHANVIEN)
             {
                 ucNhanVien.EditClick();
+            }
+            if (Configuration.TAB_CURRENT == Configuration.TAB_THEODOI)
+            {
+                ucTheoDoi.EditClick();
             }
             disableButton();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            SetTabCurrent();
             Configuration.ACTION = Configuration.DELETE;
             if (Configuration.TAB_CURRENT == Configuration.TAB_NHANVIEN)
             {
                 ucNhanVien.DeleteNhanVien();
+            }
+            if (Configuration.TAB_CURRENT == Configuration.TAB_THEODOI)
+            {
+                ucTheoDoi.DeleteTheoDoi();
             }
             disableButton();
         }

@@ -111,6 +111,7 @@
     <Compile Include="VO\NhanVien.cs" />
     <Compile Include="VO\PhongBan.cs" />
     <Compile Include="VO\ThanNhan.cs" />
+    <Compile Include="VO\TheoDoi.cs" />
     <Compile Include="VO\ThoiGianCongTac.cs" />
     <Compile Include="VO\TrinhDoHocVan.cs" />
     <EmbeddedResource Include="GUI\Form1.resx">

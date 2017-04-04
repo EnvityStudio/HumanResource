@@ -19,8 +19,10 @@ namespace HumanResource.Config
         public string DATA_SOURCE = @"Data Source=HUNGTRAN;Initial Catalog=HumanResource;Integrated Security=True";
 
         //name tabpages
+        public static string TAB_THEODOI = "THEODOI";
         public static string TAB_NHANVIEN = "NHANVIEN";
         public static string TAB_PHONGBAN = "PHONGBAN";
+        public static string TAB_HOME = "HOMEPAGE";
         public static string TAB_CURRENT;
 
         //action
@@ -97,8 +99,21 @@ namespace HumanResource.Config
         public string PROC_UPDAT_THAN_NHAN = "UpdateThanNhan";
         public string PROC_SEARCH_THAN_NHAN = "SearchThanNhan";
 
+
+
+        //Properties ofr TheoDoi 
+        public string THEO_DOI_MANV = "maNV";
+        public string THEO_DOI_MATD = "maTD";
+        public string THEO_DOI_THOI_GIAN = "ngayThang";
+        public string THEO_DOI_SU_KIEN = "suKien";
         // Procdecues of TheoDoi
         public string PROC_GET_LIST_THEO_DOI = "GetListTheoDoi";
+        public string PROC_GET_MA_THEO_DOI_NEXT = "GetMaTheoDoiNext";
+        public string PROC_INSERT_THEO_DOI = "InsertTheoDoi";
+        public string PROC_UPDATE_THEO_DOI = "UpdateTheoDoi";
+        public string PROC_DELETE_THEO_DOI = "DeleteTheoDoi";
+    
+
 
     }
 }

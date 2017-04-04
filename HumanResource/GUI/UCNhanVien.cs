@@ -135,6 +135,7 @@ namespace HumanResource.GUI
 
                 }
             }
+
             if (this.dataGridViewNhanVien.Columns[e.ColumnIndex].Name == "BacLuong")
             {
                 if (e.Value != null)
@@ -175,12 +176,7 @@ namespace HumanResource.GUI
 
         private void dataGridViewNhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridViewNhanVien.SelectedCells.Count > 0)
-            {
-                //DataGridViewRow id = dataGridViewNhanVien.SelectedRows[0];
-                //DataTable thanNhan = Bus.GetListThanNhanNV(id.Cells[0].ToString());
-                //dataGridViewThanNhan.DataSource = thanNhan;
-            }
+            
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -260,6 +256,10 @@ namespace HumanResource.GUI
             DataTable dtChucVu = Bus.GetListChucVu();
             DataTable dtTdhv = Bus.GetListTDHV();
             DataTable dtLuong = Bus.GetListLUONG();
+            phongBan.Clear();
+            chucVu.Clear();
+            luong.Clear();
+            tdhv.Clear();
             foreach (DataRow dr in dtPB.Rows)
             {
                 phongBan.Add(dr[0].ToString(), dr[1].ToString());
@@ -305,7 +305,6 @@ namespace HumanResource.GUI
                     return ;
                 }
                 i++;
- 
             }
         }
         public void ClearTextBoox()
@@ -508,6 +507,7 @@ namespace HumanResource.GUI
             frm.ShowDialog();
             GetThanNhanNhanVien(maNVCurrent);
         }
+       
     }
 
 }

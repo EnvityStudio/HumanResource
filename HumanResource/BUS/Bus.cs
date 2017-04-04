@@ -80,6 +80,12 @@ namespace HumanResource.BUS
             return Dao.GetMaThanNhanNext();
         }
 
+        internal static int InsertTheoDoi(TheoDoi theoDoi)
+        {
+            return Dao.InsertTheoDoi(theoDoi);
+               
+        }
+
         internal static int UpdateNhanVien(NhanVien nhanVien)
         {
             return Dao.UpdateNhanVien(nhanVien);
@@ -97,6 +103,21 @@ namespace HumanResource.BUS
         public static DataTable SearchThanNhan(string maTN)
         {
             return Dao.SearchThanNhan(maTN);
+        }
+
+        public static DataTable GetMaTDNext()
+        {
+            return Dao.GetMaTheoDoiNext();
+        }
+
+        internal static int UpdateTheoDoi(TheoDoi theoDoi)
+        {
+            return Dao.UpdateTheoDoi(theoDoi);
+        }
+
+        internal static int DeleteTheoDoi(string maTDCurrent)
+        {
+            return Dao.DeleteTheoDoi(maTDCurrent);
         }
     }
 }
