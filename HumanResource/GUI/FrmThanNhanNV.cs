@@ -121,5 +121,7 @@ namespace HumanResource.GUI
             string maTN = dtThanNhan.Rows[0][0].ToString();
             return maTN;
         }
+
+    
     }
 }

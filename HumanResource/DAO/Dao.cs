@@ -88,6 +88,11 @@ namespace HumanResource.DAO
             return DataProvider.ExecuteNonQuery(config.PROC_UPDATE_THEO_DOI, para);
         }
 
+        public static DataTable GetListThanNhan()
+        {
+            return DataProvider.GetData(config.PROC_GET_LIST_THANNHAN);
+        }
+
         internal static int DeleteTheoDoi(string MaTD)
         {
             SqlParameter[] para = new SqlParameter[] {

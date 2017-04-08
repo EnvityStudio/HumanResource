@@ -23,6 +23,7 @@ namespace HumanResource.Config
         public static string TAB_NHANVIEN = "NHANVIEN";
         public static string TAB_PHONGBAN = "PHONGBAN";
         public static string TAB_HOME = "HOMEPAGE";
+        public static string TAB_THAN_NHAN = "THANNHAN";
         public static string TAB_CURRENT;
 
         //action
@@ -93,6 +94,7 @@ namespace HumanResource.Config
 
         //Procdecues of ThanNhan
         public string PROC_GET_LIST_THANNHAN_NV = "GetListThanNhanNV";
+        public string PROC_GET_LIST_THANNHAN = "GetListThanNhan";
         public string PROC_INSERT_THANH_NHAN = "InsertThanNhan";
         public string PROC_GET_MA_THAN_NHAN_NEXT = "GetMaTNNext";
         public string PROC_DELETE_THAN_NHAN = "DeleteThanNhan";
@@ -112,6 +114,7 @@ namespace HumanResource.Config
         public string PROC_INSERT_THEO_DOI = "InsertTheoDoi";
         public string PROC_UPDATE_THEO_DOI = "UpdateTheoDoi";
         public string PROC_DELETE_THEO_DOI = "DeleteTheoDoi";
+
     
 
 

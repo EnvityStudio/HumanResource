@@ -178,3 +178,4 @@ E:\Hung\HumanResource\HumanResource\obj\Debug\HumanResource.pdb
 D:\Workspace\HumanResource\HumanResource\obj\Debug\HumanResource.GUI.FrmThanNhanNV.resources
 D:\Workspace\HumanResource\HumanResource\obj\Debug\HumanResource.GUI.FrmThanNhan.resources
 D:\Workspace\HumanResource\HumanResource\obj\Debug\HumanResource.GUI.UCTheoDoi.resources
+D:\Workspace\HumanResource\HumanResource\obj\Debug\HumanResource.GUI.UCThanNhan.resources

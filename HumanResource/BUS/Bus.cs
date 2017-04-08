@@ -119,5 +119,9 @@ namespace HumanResource.BUS
         {
             return Dao.DeleteTheoDoi(maTDCurrent);
         }
+        public static DataTable GetListThanNhan()
+        {
+            return Dao.GetListThanNhan();
+        }
     }
 }

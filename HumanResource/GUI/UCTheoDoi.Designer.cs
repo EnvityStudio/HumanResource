@@ -32,11 +32,11 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridViewTheoDoi = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.cbbMaNV = new System.Windows.Forms.ComboBox();
             this.dtNgayThang = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtSuKien = new System.Windows.Forms.TextBox();
-            this.cbbMaNV = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTheoDoi)).BeginInit();
@@ -84,6 +84,15 @@
             this.panel3.Size = new System.Drawing.Size(842, 270);
             this.panel3.TabIndex = 5;
             // 
+            // cbbMaNV
+            // 
+            this.cbbMaNV.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbMaNV.FormattingEnabled = true;
+            this.cbbMaNV.Location = new System.Drawing.Point(199, 55);
+            this.cbbMaNV.Name = "cbbMaNV";
+            this.cbbMaNV.Size = new System.Drawing.Size(121, 21);
+            this.cbbMaNV.TabIndex = 34;
+            // 
             // dtNgayThang
             // 
             this.dtNgayThang.CustomFormat = "";
@@ -118,14 +127,6 @@
             this.txtSuKien.Name = "txtSuKien";
             this.txtSuKien.Size = new System.Drawing.Size(589, 106);
             this.txtSuKien.TabIndex = 33;
-            // 
-            // cbbMaNV
-            // 
-            this.cbbMaNV.FormattingEnabled = true;
-            this.cbbMaNV.Location = new System.Drawing.Point(199, 55);
-            this.cbbMaNV.Name = "cbbMaNV";
-            this.cbbMaNV.Size = new System.Drawing.Size(121, 21);
-            this.cbbMaNV.TabIndex = 34;
             // 
             // label1
             // 

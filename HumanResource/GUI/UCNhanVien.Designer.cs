@@ -118,6 +118,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.AccessibleDescription = "Theo Dõi";
             this.groupBox4.Controls.Add(this.lblMaTN);
             this.groupBox4.Controls.Add(this.label26);
             this.groupBox4.Controls.Add(this.btnXoaTN);

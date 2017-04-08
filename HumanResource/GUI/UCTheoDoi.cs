@@ -68,7 +68,7 @@ namespace HumanResource.GUI
             txtSuKien.Text = "";
         }
 
-        public void InsertTheoDoi()
+        public void AddTheoDoi()
         {
             int result = Bus.InsertTheoDoi(GetDataFromFRM());
             if ( result > 0)

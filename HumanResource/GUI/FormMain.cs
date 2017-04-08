@@ -19,6 +19,7 @@ namespace HumanResource.GUI
         UCNhanVien ucNhanVien;
         UCPhongBan ucPhongBan;
         UCTheoDoi ucTheoDoi;
+        UCThanNhan ucThanNhan;
 
         public FormMain()
         {
@@ -26,6 +27,7 @@ namespace HumanResource.GUI
             ucNhanVien = new UCNhanVien();
             ucPhongBan = new UCPhongBan();
             ucTheoDoi = new UCTheoDoi();
+            ucThanNhan = new UCThanNhan();
         }
 
         public void AddNewTab(UserControl userControl)
@@ -65,6 +67,10 @@ namespace HumanResource.GUI
             else if (tabControlHome.SelectedTab.Name == "UCPhongBan")
             {
                 Configuration.TAB_CURRENT = Configuration.TAB_PHONGBAN;
+            }
+            else if (tabControlHome.SelectedTab.Name == "UCThanNhan")
+            {
+                Configuration.TAB_CURRENT = Configuration.TAB_THAN_NHAN;
             }
         }
 
@@ -146,7 +152,12 @@ namespace HumanResource.GUI
             else if (Configuration.TAB_CURRENT == Configuration.TAB_THEODOI)
             {
                 ucTheoDoi.ClearTextBox();
-  
+
+            }
+            else if (Configuration.TAB_CURRENT == Configuration.TAB_THAN_NHAN)
+            {
+                ucThanNhan.ClearTextBox();
+                ucThanNhan.setMaThanNhan();
             }
 
             enableButton();
@@ -164,13 +175,17 @@ namespace HumanResource.GUI
             {
                 if (Configuration.TAB_CURRENT == Configuration.TAB_NHANVIEN)
                 {
-                    ucNhanVien.IntsertNhanVien();
+                    ucNhanVien.AddNhanVien();
                 }
                 if (Configuration.TAB_CURRENT == Configuration.TAB_THEODOI)
                 {
-                    ucTheoDoi.InsertTheoDoi();
+                    ucTheoDoi.AddTheoDoi();
                 }
-                
+                if (Configuration.TAB_CURRENT == Configuration.TAB_THAN_NHAN)
+                {
+                    ucThanNhan.AddThanNhan();
+                }
+
             } else if (Configuration.ACTION == Configuration.EDIT)
             {
                 if (Configuration.TAB_CURRENT == Configuration.TAB_NHANVIEN)
@@ -180,6 +195,10 @@ namespace HumanResource.GUI
                 if (Configuration.TAB_CURRENT == Configuration.TAB_THEODOI)
                 {
                     ucTheoDoi.UpdateTheoDoi();
+                }
+                if (Configuration.TAB_CURRENT == Configuration.TAB_THAN_NHAN)
+                {
+                    ucThanNhan.UpdateThanNhan();
                 }
 
             } 
@@ -211,6 +230,10 @@ namespace HumanResource.GUI
             {
                 ucTheoDoi.EditClick();
             }
+            if (Configuration.TAB_CURRENT == Configuration.TAB_THAN_NHAN)
+            {
+                ucThanNhan.enableToolBox(true);
+            }
             disableButton();
         }
 
@@ -226,12 +249,22 @@ namespace HumanResource.GUI
             {
                 ucTheoDoi.DeleteTheoDoi();
             }
+            if (Configuration.TAB_CURRENT == Configuration.TAB_THAN_NHAN)
+            {
+                ucThanNhan.DeleteThanNhan();
+            }
             disableButton();
         }
 
         private void TheoDoiNhanVienToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddNewTab(ucTheoDoi);
+            disableButton();
+        }
+
+        private void btnThanNhan_Click(object sender, EventArgs e)
+        {
+            AddNewTab(ucThanNhan);
             disableButton();
         }
     }

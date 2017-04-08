@@ -345,7 +345,7 @@ namespace HumanResource.GUI
             errorProvider1.SetError(txt, "");
             return true;
         }
-        public void IntsertNhanVien()
+        public void AddNhanVien()
         {
             if(!checkTextBox())
             {

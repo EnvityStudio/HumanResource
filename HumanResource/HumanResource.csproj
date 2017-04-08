@@ -97,6 +97,12 @@
     <Compile Include="GUI\UCPhongBan.Designer.cs">
       <DependentUpon>UCPhongBan.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\UCThanNhan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UCThanNhan.Designer.cs">
+      <DependentUpon>UCThanNhan.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\UCTheoDoi.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -131,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\UCPhongBan.resx">
       <DependentUpon>UCPhongBan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UCThanNhan.resx">
+      <DependentUpon>UCThanNhan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\UCTheoDoi.resx">
       <DependentUpon>UCTheoDoi.cs</DependentUpon>
