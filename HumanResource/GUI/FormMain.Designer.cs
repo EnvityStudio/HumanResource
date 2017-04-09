@@ -95,31 +95,31 @@
             // btnDangNhap
             // 
             this.btnDangNhap.Name = "btnDangNhap";
-            this.btnDangNhap.Size = new System.Drawing.Size(152, 22);
+            this.btnDangNhap.Size = new System.Drawing.Size(146, 22);
             this.btnDangNhap.Text = "Đăng Nhập";
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(143, 6);
             // 
             // btnDoiMatKhau
             // 
             this.btnDoiMatKhau.Enabled = false;
             this.btnDoiMatKhau.Name = "btnDoiMatKhau";
-            this.btnDoiMatKhau.Size = new System.Drawing.Size(152, 22);
+            this.btnDoiMatKhau.Size = new System.Drawing.Size(146, 22);
             this.btnDoiMatKhau.Text = "Đổi Mật Khẩu";
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(143, 6);
             // 
             // btnDangXuat
             // 
             this.btnDangXuat.Enabled = false;
             this.btnDangXuat.Name = "btnDangXuat";
-            this.btnDangXuat.Size = new System.Drawing.Size(152, 22);
+            this.btnDangXuat.Size = new System.Drawing.Size(146, 22);
             this.btnDangXuat.Text = "Đăng Xuất";
             // 
             // menuStripQuanLy
@@ -184,6 +184,7 @@
             this.btnLuong.Name = "btnLuong";
             this.btnLuong.Size = new System.Drawing.Size(152, 22);
             this.btnLuong.Text = "Lương";
+            this.btnLuong.Click += new System.EventHandler(this.btnLuong_Click);
             // 
             // btnHocVan
             // 

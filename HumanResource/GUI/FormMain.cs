@@ -21,6 +21,7 @@ namespace HumanResource.GUI
         UCTheoDoi ucTheoDoi;
         UCThanNhan ucThanNhan;
         UCHocVan ucHocVan;
+        UCLuong ucLuong;
 
         public FormMain()
         {
@@ -30,6 +31,7 @@ namespace HumanResource.GUI
             ucTheoDoi = new UCTheoDoi();
             ucThanNhan = new UCThanNhan();
             ucHocVan = new UCHocVan();
+            ucLuong = new UCLuong();
         }
 
         public void AddNewTab(UserControl userControl)
@@ -77,6 +79,10 @@ namespace HumanResource.GUI
             else if (tabControlHome.SelectedTab.Name == "UCHocVan")
             {
                 Configuration.TAB_CURRENT = Configuration.TAB_HOC_VAN;
+            }
+            else if (tabControlHome.SelectedTab.Name == "UCLuong")
+            {
+                Configuration.TAB_CURRENT = Configuration.TAB_LUONG;
             }
         }
 
@@ -170,6 +176,11 @@ namespace HumanResource.GUI
                 ucHocVan.ClearTextBox();
                 ucHocVan.setMaNextToToolBox();
             }
+            else if (Configuration.TAB_CURRENT == Configuration.TAB_LUONG)
+            {
+                ucLuong.ClearTextBox();
+                ucLuong.setBacLuong();
+            }
             enableButton();
         }
 
@@ -199,6 +210,10 @@ namespace HumanResource.GUI
                 {
                     ucHocVan.AddHocVan();
                 }
+                if (Configuration.TAB_CURRENT == Configuration.TAB_LUONG)
+                {
+                    ucLuong.AddLuong();
+                }
 
             } else if (Configuration.ACTION == Configuration.EDIT)
             {
@@ -217,6 +232,10 @@ namespace HumanResource.GUI
                 if (Configuration.TAB_CURRENT == Configuration.TAB_HOC_VAN)
                 {
                     ucHocVan.UpdateHocVan();
+                }
+                if (Configuration.TAB_CURRENT == Configuration.TAB_LUONG)
+                {
+                    ucLuong.UpdateLuong();
                 }
 
             } 
@@ -256,6 +275,10 @@ namespace HumanResource.GUI
             {
                 ucHocVan.enableToolBox(true);
             }
+            if (Configuration.TAB_CURRENT == Configuration.TAB_LUONG)
+            {
+                ucLuong.enableTextBox(true);
+            }
             disableButton();
         }
 
@@ -279,6 +302,10 @@ namespace HumanResource.GUI
             {
                 ucHocVan.DeleteHocVan();
             }
+            if (Configuration.TAB_CURRENT == Configuration.TAB_LUONG)
+            {
+                ucLuong.DeleteLuong();
+            }
             disableButton();
         }
 
@@ -297,6 +324,12 @@ namespace HumanResource.GUI
         private void btnHocVan_Click(object sender, EventArgs e)
         {
             AddNewTab(ucHocVan);
+            disableButton();
+        }
+
+        private void btnLuong_Click(object sender, EventArgs e)
+        {
+            AddNewTab(ucLuong);
             disableButton();
         }
     }

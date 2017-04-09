@@ -91,6 +91,12 @@
     <Compile Include="GUI\UCHomePage.Designer.cs">
       <DependentUpon>UCHomePage.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\UCLuong.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UCLuong.Designer.cs">
+      <DependentUpon>UCLuong.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\UCNhanVien.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -140,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\UCHomePage.resx">
       <DependentUpon>UCHomePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UCLuong.resx">
+      <DependentUpon>UCLuong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\UCNhanVien.resx">
       <DependentUpon>UCNhanVien.cs</DependentUpon>

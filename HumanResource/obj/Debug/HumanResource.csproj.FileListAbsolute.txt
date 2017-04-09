@@ -180,3 +180,4 @@ D:\Workspace\HumanResource\HumanResource\obj\Debug\HumanResource.GUI.FrmThanNhan
 D:\Workspace\HumanResource\HumanResource\obj\Debug\HumanResource.GUI.UCTheoDoi.resources
 D:\Workspace\HumanResource\HumanResource\obj\Debug\HumanResource.GUI.UCThanNhan.resources
 D:\Workspace\HumanResource\HumanResource\obj\Debug\HumanResource.GUI.UCHocVan.resources
+D:\Workspace\HumanResource\HumanResource\obj\Debug\HumanResource.GUI.UCLuong.resources

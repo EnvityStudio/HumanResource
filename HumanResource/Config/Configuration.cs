@@ -25,6 +25,7 @@ namespace HumanResource.Config
         public static string TAB_HOME = "HOMEPAGE";
         public static string TAB_THAN_NHAN = "THANNHAN";
         public static string TAB_HOC_VAN = "HOCVAN";
+        public static string TAB_LUONG = "LUONG";
         public static string TAB_CURRENT;
 
         //action
@@ -93,9 +94,19 @@ namespace HumanResource.Config
 
 
 
+        //Properties of LUONG 
+
+        public string BAC_LUONG = "bacLuong";
+        public string HE_SO_LUONG = "heSoLuong";
+        public string HE_SO_PHU_CAP = "heSoPhuCap";
+        public string LUONG_CO_BAN = "luongCoBan";
+
         //Procdecues of LUONG
         public string PROC_GET_LIST_LUONG = "GetListLuong";
-
+        public string PROC_GET_BAC_LUONG_NEXT = "[GetBacLuongNext]";
+        public string PROC_INSERT_LUONG = "[InsertLuong]";
+        public string PROC_UPDATE_LUONG = "[UpdateLuong]";
+        public string PROC_DELETE_LUONG = "[DeleteLuong]";
 
 
         //Properties of ThanNhan

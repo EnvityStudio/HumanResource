@@ -20,7 +20,7 @@ namespace HumanResource.DAO
 
         }
 
-        internal static DataTable GetNamePhongBan(String maPB)
+        public static DataTable GetNamePhongBan(String maPB)
      
         {
             SqlParameter[] para = new SqlParameter[] {
@@ -30,17 +30,17 @@ namespace HumanResource.DAO
             return DataProvider.GetDataByParameter(config.PROC_SEARCH_PHONGBAN, para);
         }
 
-        internal static DataTable GetListTheoDoi()
+        public static DataTable GetListTheoDoi()
         {
             return DataProvider.GetData(config.PROC_GET_LIST_THEO_DOI);
         }
 
-        internal static DataTable GetListChucVu()
+        public static DataTable GetListChucVu()
         {
             return DataProvider.GetData(config.PROC_GET_LIST_CHUC_VU);
         }
         
-        internal static int InsertThanNhan(ThanNhan thanNhan)
+        public static int InsertThanNhan(ThanNhan thanNhan)
         {
             SqlParameter[] para = new SqlParameter[] {
                 new SqlParameter("@"+config.THAN_NHAN_MANV,thanNhan.MaNV),
@@ -52,7 +52,12 @@ namespace HumanResource.DAO
             return DataProvider.ExecuteNonQuery(config.PROC_INSERT_THANH_NHAN,para);
         }
 
-        internal static int UpdateThanNhan(ThanNhan thanNhan)
+        public static DataTable GetBacLuongNext()
+        {
+            return DataProvider.GetData(config.PROC_GET_BAC_LUONG_NEXT);
+        }
+
+        public static int UpdateThanNhan(ThanNhan thanNhan)
         {
             SqlParameter[] para = new SqlParameter[] {
                 new SqlParameter("@"+config.THAN_NHAN_MANV,thanNhan.MaNV),
@@ -64,7 +69,37 @@ namespace HumanResource.DAO
             return DataProvider.ExecuteNonQuery(config.PROC_UPDAT_THAN_NHAN, para);
         }
 
-        internal static int InsertTheoDoi(TheoDoi theoDoi)
+        internal static int InsertLuong(Luong luong)
+        {
+            SqlParameter[] para = new SqlParameter[] {
+                new SqlParameter("@"+config.BAC_LUONG,luong.BacLuong),
+                new SqlParameter("@"+config.HE_SO_LUONG,luong.HeSoLuong),
+                new SqlParameter("@"+config.HE_SO_PHU_CAP,luong.HeSoPhuCap),
+                new SqlParameter("@"+config.LUONG_CO_BAN,luong.LuongCoBan)
+            };
+            return DataProvider.ExecuteNonQuery(config.PROC_INSERT_LUONG, para);
+        }
+
+        public static int UpdateLuong(Luong luong)
+        {
+            SqlParameter[] para = new SqlParameter[] {
+                new SqlParameter("@"+config.BAC_LUONG,luong.BacLuong),
+                new SqlParameter("@"+config.HE_SO_LUONG,luong.HeSoLuong),
+                new SqlParameter("@"+config.HE_SO_PHU_CAP,luong.HeSoPhuCap),
+                new SqlParameter("@"+config.LUONG_CO_BAN,luong.LuongCoBan)
+            };
+            return DataProvider.ExecuteNonQuery(config.PROC_UPDATE_LUONG, para);
+        }
+
+        public static int DeleteLuong(string bacLuong)
+        {
+            SqlParameter[] para = new SqlParameter[] {
+                new SqlParameter("@"+config.BAC_LUONG,bacLuong)
+            };
+            return DataProvider.ExecuteNonQuery(config.PROC_DELETE_LUONG, para);
+        }
+
+        public static int InsertTheoDoi(TheoDoi theoDoi)
         {
             SqlParameter[] para = new SqlParameter[] {
                 new SqlParameter("@"+config.THEO_DOI_MANV,theoDoi.MaNV),
@@ -105,7 +140,7 @@ namespace HumanResource.DAO
             return DataProvider.ExecuteNonQuery(config.PROC_UPDATE_TDHV, para);
         }
 
-        internal static int UpdateTheoDoi(TheoDoi theoDoi)
+        public static int UpdateTheoDoi(TheoDoi theoDoi)
         {
             SqlParameter[] para = new SqlParameter[] {
                 new SqlParameter("@"+config.THEO_DOI_MANV,theoDoi.MaNV),
@@ -122,7 +157,7 @@ namespace HumanResource.DAO
             return DataProvider.GetData(config.PROC_GET_LIST_THANNHAN);
         }
 
-        internal static int DeleteTheoDoi(string MaTD)
+        public static int DeleteTheoDoi(string MaTD)
         {
             SqlParameter[] para = new SqlParameter[] {
                 new SqlParameter("@"+config.THEO_DOI_MATD,MaTD),
@@ -144,28 +179,28 @@ namespace HumanResource.DAO
             return DataProvider.GetData(config.PROC_GET_MA_THEO_DOI_NEXT);
         }
 
-        internal static DataTable GetListLUONG()
+        public static DataTable GetListLUONG()
         {
             return DataProvider.GetData(config.PROC_GET_LIST_LUONG);
         }
 
-        internal static DataTable GetMaThanNhanNext()
+        public static DataTable GetMaThanNhanNext()
         {
             return DataProvider.GetData(config.PROC_GET_MA_THAN_NHAN_NEXT);
         }
 
-        internal static DataTable GetListTDHV()
+        public static DataTable GetListTDHV()
         {
             return DataProvider.GetData(config.PROC_GET_LIST_TDHV);
         }
 
       
-        internal static DataTable GetListPhongBan()
+        public static DataTable GetListPhongBan()
         {
             return DataProvider.GetData(config.PROC_GET_LIST_PHONGBAN);
         }
 
-        internal static int DeleteThanNhan(string maTNCurent)
+        public static int DeleteThanNhan(string maTNCurent)
         {
             SqlParameter[] para = new SqlParameter[] {
                 new SqlParameter("@"+config.THAN_NHAN_MATN,maTNCurent) };
