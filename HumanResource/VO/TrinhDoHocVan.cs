@@ -8,16 +8,21 @@ namespace HumanResource.VO
 {
     class TrinhDoHocVan
     {
-        public TrinhDoHocVan()
-        { this.MaTDHV = MaTDHV;
-            this.TenTrinhDo = TenTrinhDo;
-            this.ChuyenNganh = ChuyenNganh;
-        }
-        public TrinhDoHocVan(string MaTDHV,string TenTrinhDo,string ChuyenNganh)
-        { }
+        
         public string MaTDHV { get; set; }
         public string TenTrinhDo { get; set; }
         public string ChuyenNganh { get; set; }
+        public int SoLuong { get; set; }
+        public TrinhDoHocVan(string maTDHV, string tenTrinhDo, string chuyenNganh, int soLuong)
+        {
+            this.MaTDHV = maTDHV;
+            this.TenTrinhDo = tenTrinhDo;
+            this.ChuyenNganh = chuyenNganh;
+            this.SoLuong = soLuong;
+        }
+        public TrinhDoHocVan()
+        {
+        }
 
     }
 }

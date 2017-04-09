@@ -96,6 +96,11 @@ namespace HumanResource.BUS
             return Dao.DeleteNhanVien(nhanVien);
         }
 
+        public static int AddHocVan(TrinhDoHocVan hocVan)
+        {
+            return Dao.AddHocVan(hocVan);
+        }
+
         internal static int DeleteThanNhan(string maTNCurent)
         {
             return Dao.DeleteThanNhan(maTNCurent);
@@ -119,9 +124,24 @@ namespace HumanResource.BUS
         {
             return Dao.DeleteTheoDoi(maTDCurrent);
         }
+
+        public static int DeleteHocVan(string maTDHV)
+        {
+            return Dao.DeleteHocVan(maTDHV);
+        }
+
         public static DataTable GetListThanNhan()
         {
             return Dao.GetListThanNhan();
+        }
+        public static DataTable GetMaTDHVNext()
+        {
+            return Dao.GetMaTDHVNext();
+        }
+
+        public static int UpdateHocVan(TrinhDoHocVan hocVan)
+        {
+            return Dao.UpdateHocVan(hocVan);
         }
     }
 }

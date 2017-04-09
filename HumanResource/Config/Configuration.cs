@@ -24,6 +24,7 @@ namespace HumanResource.Config
         public static string TAB_PHONGBAN = "PHONGBAN";
         public static string TAB_HOME = "HOMEPAGE";
         public static string TAB_THAN_NHAN = "THANNHAN";
+        public static string TAB_HOC_VAN = "HOCVAN";
         public static string TAB_CURRENT;
 
         //action
@@ -76,9 +77,21 @@ namespace HumanResource.Config
 
         public string PROC_GET_LIST_CHUC_VU = "GetlistChucVu";
 
-        //Procdecues of TDHV 
+        //Properties of TDHV 
+        public string HOC_VAN_MAHV = "MaTDHV";
+        public string HOC_VAN_TENHV = "TenTDHV";
+        public string HOC_VAN_CHUYENNGANH = "ChuyenNganh";
+        public string HOC_VAN_SOLUONG = "SoLuong    ";
 
+
+        //Procdecues of TDHV 
+        public string PROC_GET_MA_TDHV_NEXT = "[GetMaTDHVNext]";
         public string PROC_GET_LIST_TDHV = "GetListTrinhDoHocVan";
+        public string PROC_INSERT_TDHV = "[InsertTDHV]";
+        public string PROC_DELETE_TDHV = "[DeleteTDHV]";
+        public string PROC_UPDATE_TDHV = "[UpdateTDHV]";
+
+
 
         //Procdecues of LUONG
         public string PROC_GET_LIST_LUONG = "GetListLuong";

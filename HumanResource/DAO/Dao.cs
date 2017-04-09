@@ -76,6 +76,35 @@ namespace HumanResource.DAO
             return DataProvider.ExecuteNonQuery(config.PROC_INSERT_THEO_DOI, para);
         }
 
+        public static int AddHocVan(TrinhDoHocVan hocVan)
+        {
+            SqlParameter[] para = new SqlParameter[] {
+                new SqlParameter("@"+config.HOC_VAN_MAHV,hocVan.MaTDHV),
+                new SqlParameter("@"+config.HOC_VAN_TENHV,hocVan.TenTrinhDo),
+                new SqlParameter("@"+config.HOC_VAN_SOLUONG,hocVan.SoLuong),
+                new SqlParameter("@"+config.HOC_VAN_CHUYENNGANH,hocVan.ChuyenNganh)
+            };
+            return DataProvider.ExecuteNonQuery(config.PROC_INSERT_TDHV, para);
+        }
+
+        public static int DeleteHocVan(string maTDHV)
+        {
+            SqlParameter[] para = new SqlParameter[] {
+                new SqlParameter("@"+config.HOC_VAN_MAHV,maTDHV)
+                  };
+            return DataProvider.ExecuteNonQuery(config.PROC_DELETE_TDHV, para);
+        }
+
+        public static int UpdateHocVan(TrinhDoHocVan hocVan)
+        {
+            SqlParameter[] para = new SqlParameter[] {
+                new SqlParameter("@"+config.HOC_VAN_MAHV,hocVan.MaTDHV),
+                new SqlParameter("@"+config.HOC_VAN_TENHV,hocVan.TenTrinhDo),
+                new SqlParameter("@"+config.HOC_VAN_CHUYENNGANH,hocVan.ChuyenNganh)
+            };
+            return DataProvider.ExecuteNonQuery(config.PROC_UPDATE_TDHV, para);
+        }
+
         internal static int UpdateTheoDoi(TheoDoi theoDoi)
         {
             SqlParameter[] para = new SqlParameter[] {
@@ -234,6 +263,10 @@ namespace HumanResource.DAO
         public static List<DataItem> GetList(string proc)
         {
             return DataProvider.GetList(proc);
+        }
+        public static DataTable GetMaTDHVNext()
+        {
+            return DataProvider.GetData(config.PROC_GET_MA_TDHV_NEXT);
         }
     }
 }

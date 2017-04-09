@@ -20,6 +20,7 @@ namespace HumanResource.GUI
         UCPhongBan ucPhongBan;
         UCTheoDoi ucTheoDoi;
         UCThanNhan ucThanNhan;
+        UCHocVan ucHocVan;
 
         public FormMain()
         {
@@ -28,6 +29,7 @@ namespace HumanResource.GUI
             ucPhongBan = new UCPhongBan();
             ucTheoDoi = new UCTheoDoi();
             ucThanNhan = new UCThanNhan();
+            ucHocVan = new UCHocVan();
         }
 
         public void AddNewTab(UserControl userControl)
@@ -71,6 +73,10 @@ namespace HumanResource.GUI
             else if (tabControlHome.SelectedTab.Name == "UCThanNhan")
             {
                 Configuration.TAB_CURRENT = Configuration.TAB_THAN_NHAN;
+            }
+            else if (tabControlHome.SelectedTab.Name == "UCHocVan")
+            {
+                Configuration.TAB_CURRENT = Configuration.TAB_HOC_VAN;
             }
         }
 
@@ -159,7 +165,11 @@ namespace HumanResource.GUI
                 ucThanNhan.ClearTextBox();
                 ucThanNhan.setMaThanNhan();
             }
-
+            else if (Configuration.TAB_CURRENT == Configuration.TAB_HOC_VAN)
+            {
+                ucHocVan.ClearTextBox();
+                ucHocVan.setMaNextToToolBox();
+            }
             enableButton();
         }
 
@@ -185,6 +195,10 @@ namespace HumanResource.GUI
                 {
                     ucThanNhan.AddThanNhan();
                 }
+                if (Configuration.TAB_CURRENT == Configuration.TAB_HOC_VAN)
+                {
+                    ucHocVan.AddHocVan();
+                }
 
             } else if (Configuration.ACTION == Configuration.EDIT)
             {
@@ -199,6 +213,10 @@ namespace HumanResource.GUI
                 if (Configuration.TAB_CURRENT == Configuration.TAB_THAN_NHAN)
                 {
                     ucThanNhan.UpdateThanNhan();
+                }
+                if (Configuration.TAB_CURRENT == Configuration.TAB_HOC_VAN)
+                {
+                    ucHocVan.UpdateHocVan();
                 }
 
             } 
@@ -234,6 +252,10 @@ namespace HumanResource.GUI
             {
                 ucThanNhan.enableToolBox(true);
             }
+            if (Configuration.TAB_CURRENT == Configuration.TAB_HOC_VAN)
+            {
+                ucHocVan.enableToolBox(true);
+            }
             disableButton();
         }
 
@@ -253,6 +275,10 @@ namespace HumanResource.GUI
             {
                 ucThanNhan.DeleteThanNhan();
             }
+            if (Configuration.TAB_CURRENT == Configuration.TAB_HOC_VAN)
+            {
+                ucHocVan.DeleteHocVan();
+            }
             disableButton();
         }
 
@@ -265,6 +291,12 @@ namespace HumanResource.GUI
         private void btnThanNhan_Click(object sender, EventArgs e)
         {
             AddNewTab(ucThanNhan);
+            disableButton();
+        }
+
+        private void btnHocVan_Click(object sender, EventArgs e)
+        {
+            AddNewTab(ucHocVan);
             disableButton();
         }
     }
