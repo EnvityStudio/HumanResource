@@ -58,6 +58,7 @@ namespace HumanResource.Config
         public string PROC_INSERT_NHANVIEN = "InsertNhanVien";
         public string PROC_GET_MANV_NEXT = "GetMaNVNext";
         public string PROC_SEARCH_PHONGBAN = "SearchPB";
+        public string PROC_SEARCH_NHANVIEN_MANV = "[SearchNhanVienTheoMaNV]";
 
 
 
@@ -68,9 +69,21 @@ namespace HumanResource.Config
         public string GET_ID_MATRINHDOHOCVAN = "GetMaTrinhDoHocVan";
 
 
-        // Proceduce of PhongBan
+        //Properties of PhongBan
+        public string PHONGBAN_MAPB = "maPB";
+        public string PHONGBAN_TENPB = "tenPB";
+        public string PHONGBAN_MATP = "maTP";
+        public string PHONGBAN_DIACHI = "diaChi";
+        public string PHONGBAN_SOLUONG = "soLuong";
+        public string PHONGBAN_SDT = "sdt";
 
+        // Proceduce of PhongBan
         public string PROC_GET_LIST_PHONGBAN = "GetListPhongBan";
+        public string PROC_GET_MAPB_NEXT = "[GetMaPBNext]";
+        public string PROC_INSERT_PHONGBAN = "[InsertPhongBan]";
+        public string PROC_DELETE_PHONGBAN = "[DeletePhongBan]";
+        public string PROC_UPDATE_PHONGBAN = "[UpdatePhongBan]";
+
 
 
 
@@ -138,9 +151,6 @@ namespace HumanResource.Config
         public string PROC_INSERT_THEO_DOI = "InsertTheoDoi";
         public string PROC_UPDATE_THEO_DOI = "UpdateTheoDoi";
         public string PROC_DELETE_THEO_DOI = "DeleteTheoDoi";
-
-    
-
-
+      
     }
 }

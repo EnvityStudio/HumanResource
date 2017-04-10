@@ -116,6 +116,11 @@ namespace HumanResource.DAO
             conn.Close();
             return l;
         }
+
+        internal static DataTable GetData(object pROC_GET_MAPB_NEXT)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

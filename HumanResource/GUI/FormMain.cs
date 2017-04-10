@@ -181,6 +181,12 @@ namespace HumanResource.GUI
                 ucLuong.ClearTextBox();
                 ucLuong.setBacLuong();
             }
+            else if (Configuration.TAB_CURRENT == Configuration.TAB_PHONGBAN)
+            {
+                ucPhongBan.ClearTextBox();
+                ucPhongBan.setMaPBNext();
+                ucPhongBan.enableTextBox(true);
+            }
             enableButton();
         }
 
@@ -214,6 +220,10 @@ namespace HumanResource.GUI
                 {
                     ucLuong.AddLuong();
                 }
+                if (Configuration.TAB_CURRENT == Configuration.TAB_PHONGBAN)
+                {
+                    ucPhongBan.AddPhongBan();
+                }
 
             } else if (Configuration.ACTION == Configuration.EDIT)
             {
@@ -236,6 +246,10 @@ namespace HumanResource.GUI
                 if (Configuration.TAB_CURRENT == Configuration.TAB_LUONG)
                 {
                     ucLuong.UpdateLuong();
+                }
+                if (Configuration.TAB_CURRENT == Configuration.TAB_PHONGBAN)
+                {
+                    ucPhongBan.UpdatePhongBan();
                 }
 
             } 
@@ -279,6 +293,10 @@ namespace HumanResource.GUI
             {
                 ucLuong.enableTextBox(true);
             }
+            if (Configuration.TAB_CURRENT == Configuration.TAB_PHONGBAN)
+            {
+                ucPhongBan.enableTextBox(true);
+            }
             disableButton();
         }
 
@@ -305,6 +323,10 @@ namespace HumanResource.GUI
             if (Configuration.TAB_CURRENT == Configuration.TAB_LUONG)
             {
                 ucLuong.DeleteLuong();
+            }
+            if (Configuration.TAB_CURRENT == Configuration.TAB_PHONGBAN)
+            {
+                ucPhongBan.DeletePhongBan();
             }
             disableButton();
         }

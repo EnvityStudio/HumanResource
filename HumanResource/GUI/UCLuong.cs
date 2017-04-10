@@ -109,7 +109,7 @@ namespace HumanResource.GUI
             int result = Bus.DeleteLuong(luong.BacLuong);
             if (result != -1)
             {
-                MessageBox.Show("Xóa nhật thành công!", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK);
                 ClearTextBox();
                 enableTextBox(false);
                 LoadData();

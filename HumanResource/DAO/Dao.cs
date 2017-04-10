@@ -52,6 +52,14 @@ namespace HumanResource.DAO
             return DataProvider.ExecuteNonQuery(config.PROC_INSERT_THANH_NHAN,para);
         }
 
+        public static DataTable SearchNhanVienTheoMa(string maTP)
+        {
+            SqlParameter[] para = new SqlParameter[] {
+                new SqlParameter("@"+config.NHANVIEN_MANV,maTP),
+            };
+            return DataProvider.GetDataByParameter(config.PROC_SEARCH_NHANVIEN_MANV, para);
+        }
+
         public static DataTable GetBacLuongNext()
         {
             return DataProvider.GetData(config.PROC_GET_BAC_LUONG_NEXT);
@@ -91,12 +99,49 @@ namespace HumanResource.DAO
             return DataProvider.ExecuteNonQuery(config.PROC_UPDATE_LUONG, para);
         }
 
+        public static int InsertPhongBan(PhongBan phongBan)
+        {
+            SqlParameter[] para = new SqlParameter[] {
+                new SqlParameter("@"+config.PHONGBAN_MAPB,phongBan.MaPB),
+                new SqlParameter("@"+config.PHONGBAN_TENPB,phongBan.TenPB),
+                new SqlParameter("@"+config.PHONGBAN_MATP,phongBan.MaTP),
+                new SqlParameter("@"+config.PHONGBAN_SDT,phongBan.SDT),
+                new SqlParameter("@"+config.PHONGBAN_DIACHI,phongBan.DiaChi)
+            };
+            return DataProvider.ExecuteNonQuery(config.PROC_INSERT_PHONGBAN, para);
+        }
+
+        public static DataTable GetMaPBNext()
+        {
+            return DataProvider.GetData(config.PROC_GET_MAPB_NEXT);
+        }
+
         public static int DeleteLuong(string bacLuong)
         {
             SqlParameter[] para = new SqlParameter[] {
                 new SqlParameter("@"+config.BAC_LUONG,bacLuong)
             };
             return DataProvider.ExecuteNonQuery(config.PROC_DELETE_LUONG, para);
+        }
+
+        public static int UpdatePhongBan(PhongBan phongBan)
+        {
+            SqlParameter[] para = new SqlParameter[] {
+                new SqlParameter("@"+config.PHONGBAN_MAPB,phongBan.MaPB),
+                new SqlParameter("@"+config.PHONGBAN_TENPB,phongBan.TenPB),
+                new SqlParameter("@"+config.PHONGBAN_MATP,phongBan.MaTP),
+                new SqlParameter("@"+config.PHONGBAN_SDT,phongBan.SDT),
+                new SqlParameter("@"+config.PHONGBAN_DIACHI,phongBan.DiaChi)
+            };
+            return DataProvider.ExecuteNonQuery(config.PROC_UPDATE_PHONGBAN, para);
+        }
+
+        public static int DeletePhongBan(string maPB)
+        {
+            SqlParameter[] para = new SqlParameter[] {
+                new SqlParameter("@"+config.PHONGBAN_MAPB,maPB)
+            };
+            return DataProvider.ExecuteNonQuery(config.PROC_DELETE_PHONGBAN, para);
         }
 
         public static int InsertTheoDoi(TheoDoi theoDoi)

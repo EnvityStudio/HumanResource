@@ -7,6 +7,7 @@ using HumanResource.DAO;
 using HumanResource.Config;
 using System.Data;
 using HumanResource.VO;
+using System.Windows.Forms;
 
 namespace HumanResource.BUS
 {
@@ -54,6 +55,11 @@ namespace HumanResource.BUS
         public static DataTable GetListThanNhanNV(string maNV)
         {
             return Dao.GetListThanNhanNV(maNV);
+        }
+
+        public static DataTable SearchNhanVienTheoMa(string MaTP)
+        {
+            return Dao.SearchNhanVienTheoMa(MaTP);
         }
 
         public  static DataTable GetBacLuongNext()
@@ -127,6 +133,17 @@ namespace HumanResource.BUS
             return Dao.SearchThanNhan(maTN);
         }
 
+        public static int InsertPhongBan(PhongBan phongBan)
+        {
+            return Dao.InsertPhongBan(phongBan);
+             
+        }
+
+        public static DataTable GetMaPBNext()
+        {
+            return Dao.GetMaPBNext();
+        }
+
         public static DataTable GetMaTDNext()
         {
             return Dao.GetMaTheoDoiNext();
@@ -164,6 +181,16 @@ namespace HumanResource.BUS
         public static int UpdateHocVan(TrinhDoHocVan hocVan)
         {
             return Dao.UpdateHocVan(hocVan);
+        }
+
+        public static int DeletePhongBan(string maPB)
+        {
+            return Dao.DeletePhongBan(maPB);
+        }
+
+        public static int UpdatePhongBan(PhongBan phongBan)
+        {
+            return Dao.UpdatePhongBan(phongBan);
         }
     }
 }

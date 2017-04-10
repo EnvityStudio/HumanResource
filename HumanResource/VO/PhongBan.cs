@@ -10,18 +10,19 @@ namespace HumanResource.VO
     {
         public PhongBan()
         { }
-        public PhongBan(string MaPB,string TenPB,string DiaChi,string SdtPB,int TongSoNV)
+        public PhongBan(string maPB,string tenPB,string maTP ,string diaChi,string sdt,int soLuong)
         {
             this.MaPB = MaPB;
             this.TenPB = TenPB;
             this.DiaChi = DiaChi;
-            this.SdtPB = SdtPB;
-            this.TongSoNV = TongSoNV;
+            this.SDT = sdt;
+            this.SoLuong = soLuong;
         }
         public string MaPB { get; set; }
         public string TenPB { get; set; }
         public string DiaChi { get; set; }
-        public string SdtPB { get; set; }
-        public int TongSoNV { get; set; }
+        public string SDT { get; set; }
+        public int SoLuong { get; set; }
+        public string MaTP { get; set; }
     }
 }
