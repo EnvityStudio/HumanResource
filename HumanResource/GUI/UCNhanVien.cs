@@ -233,7 +233,14 @@ namespace HumanResource.GUI
             MaTDHV = ((DataItem)cbbTrinhDo.SelectedItem).Value;
             QueQuan = txtQueQuan.Text;
             Sdt = txtSoDT.Text;
-            Anh = avataPath;
+            if(avataPath != null)
+            {
+                Anh = avataPath;
+            } else
+            {
+                Anh = Configuration.GetProjectLinkDirectory() + @"/Resource/noimage.png";
+            }
+            
             Email = txtEmail.Text;
             NgaySinh = (DateTime)dtNgaySInh.Value; 
             MatKhau = txtMK.Text;
