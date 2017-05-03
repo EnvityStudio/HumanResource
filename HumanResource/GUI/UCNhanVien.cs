@@ -322,7 +322,7 @@ namespace HumanResource.GUI
             txtMaNV.Text = "";
             txtMK.Text = "";
             txtHoTen.Text = "";
-            rdGTNam.Checked = false;
+            rdGTNam.Checked = true;
             rdGTNu.Checked = false;
             txtQueQuan.Text = "";
             txtEmail.Text = "";
@@ -378,7 +378,7 @@ namespace HumanResource.GUI
             txtHoTen.Enabled = bol;
             txtCMND.Enabled = bol;
             txtCMND.Enabled = bol;
-            txtMaNV.Enabled = bol;
+            //txtMaNV.Enabled = bol;
             txtMK.Enabled = bol;
             dtNgaySInh.Enabled = bol;
             txtQueQuan.Enabled = bol;
@@ -396,45 +396,47 @@ namespace HumanResource.GUI
 
         private void dataGridViewNhanVien_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtHoTen.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[1].Value.ToString();
-            txtCMND.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells["CMND"].Value.ToString();
-            txtMaNV.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[0].Value.ToString();
-            txtMK.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[11].Value.ToString();
-            if (dataGridViewNhanVien.Rows[e.RowIndex].Cells[5].Value.ToString().Contains("Nam"))
-            {
-                rdGTNam.Checked = true;
-                rdGTNu.Checked = false;
+            try {
+                txtHoTen.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[1].Value.ToString();
+                txtCMND.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells["CMND"].Value.ToString();
+                txtMaNV.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[0].Value.ToString();
+                txtMK.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[11].Value.ToString();
+                if (dataGridViewNhanVien.Rows[e.RowIndex].Cells[5].Value.ToString().Contains("Nam"))
+                {
+                    rdGTNam.Checked = true;
+                    rdGTNu.Checked = false;
+                }
+                else
+                {
+                    rdGTNam.Checked = false;
+                    rdGTNu.Checked = true;
+                }
+                txtQueQuan.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[4].Value.ToString();
+                txtEmail.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells["Email"].Value.ToString();
+                txtSoDT.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[3].Value.ToString();
+                LoadNameFromID(cbbChucVu, dataGridViewNhanVien.Rows[e.RowIndex].Cells[8].Value.ToString(), listChucVu);
+                LoadNameFromID(cbbLuong, dataGridViewNhanVien.Rows[e.RowIndex].Cells[10].Value.ToString(), listLuong);
+                LoadNameFromID(cbbPhong, dataGridViewNhanVien.Rows[e.RowIndex].Cells[7].Value.ToString(), listPhongBan);
+                LoadNameFromID(cbbTrinhDo, dataGridViewNhanVien.Rows[e.RowIndex].Cells[9].Value.ToString(), listTDHV);
+                txtDanToc.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[6].Value.ToString();
+                dtNgaySInh.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[2].Value.ToString();
+                string pathImg = dataGridViewNhanVien.Rows[e.RowIndex].Cells["Anh"].Value.ToString();
+                if (!pathImg.Equals(""))
+                {
+                    pictureBox1.Image = Image.FromFile(dataGridViewNhanVien.Rows[e.RowIndex].Cells["Anh"].Value.ToString());
+                }
+                else
+                {
+                    string pathImage = Configuration.GetProjectLinkDirectory() + @"\Resource\noimage.PNG";
+                    pictureBox1.Image = Image.FromFile(pathImage);
+                }
+                maNVCurrent = dataGridViewNhanVien.Rows[e.RowIndex].Cells["MaNV"].Value.ToString();
+                GetThanNhanNhanVien(maNVCurrent);
+            } catch (Exception error) {
+                Console.WriteLine(error.Message);
             }
-            else
-            {
-                rdGTNam.Checked = false;
-                rdGTNu.Checked = true;
-            }
-            txtQueQuan.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[4].Value.ToString();
-            txtEmail.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells["Email"].Value.ToString();
-            txtSoDT.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[3].Value.ToString();
-            LoadNameFromID(cbbChucVu, dataGridViewNhanVien.Rows[e.RowIndex].Cells[8].Value.ToString(), listChucVu);
-            LoadNameFromID(cbbLuong, dataGridViewNhanVien.Rows[e.RowIndex].Cells[10].Value.ToString(), listLuong);
-            LoadNameFromID(cbbPhong, dataGridViewNhanVien.Rows[e.RowIndex].Cells[7].Value.ToString(), listPhongBan);
-            LoadNameFromID(cbbTrinhDo, dataGridViewNhanVien.Rows[e.RowIndex].Cells[9].Value.ToString(), listTDHV);
-            txtDanToc.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[6].Value.ToString();
-            dtNgaySInh.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[2].Value.ToString();
-            string pathImg = dataGridViewNhanVien.Rows[e.RowIndex].Cells["Anh"].Value.ToString();
-            if (!pathImg.Equals(""))
-            {
-                pictureBox1.Image = Image.FromFile(dataGridViewNhanVien.Rows[e.RowIndex].Cells["Anh"].Value.ToString());
-            }
-            else
-            {
-                string pathImage = Configuration.GetProjectLinkDirectory() + @"\Resource\noimage.PNG";
-                pictureBox1.Image = Image.FromFile(pathImage);
-            }
-
-            maNVCurrent = dataGridViewNhanVien.Rows[e.RowIndex].Cells["MaNV"].Value.ToString();
-            GetThanNhanNhanVien(maNVCurrent);
-
-
         }
+
         public void UpdateNhanVien()
         {
             if (!checkTextBox())
