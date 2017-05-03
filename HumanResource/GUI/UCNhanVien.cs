@@ -12,6 +12,7 @@ using HumanResource.Config;
 using static HumanResource.Config.HRUtils;
 using HumanResource.VO;
 using System.Collections;
+using System.Drawing.Imaging;
 
 namespace HumanResource.GUI
 {
@@ -49,7 +50,7 @@ namespace HumanResource.GUI
         public void LoadData()
         {
             dataGridViewNhanVien.DataSource = Bus.GetListNhanVien();
-            dataGridViewNhanVien.Columns["Anh"].Visible = false;
+            //dataGridViewNhanVien.Columns["Anh"].Visible = false;
             dataGridViewNhanVien.Columns["TrangThai"].Visible = false;
             listPhongBan = Bus.GetList(PROC_GET_LIST_PHONGBAN);
             listChucVu = Bus.GetList(PROC_GET_LIST_CHUC_VU);
@@ -184,7 +185,7 @@ namespace HumanResource.GUI
         {
             if (dataGridViewNhanVien.CurrentRow != null)
             {
-                string Path = "Reesource";
+                string Path = "/Resource/";
                 OpenFileDialog open = new OpenFileDialog();
                 open.Filter = "Image|*.jpg;*.png;*.gif;*.bmp";
 
@@ -207,10 +208,13 @@ namespace HumanResource.GUI
                         }
                     }
                     pictureBox1.Image = Image.FromFile(open.FileName);
-                    avataPath = open.FileName;
+                    avataPath = open.SafeFileName;
+                    avataPath = Path + avataPath;
                     try
                     {
-                        pictureBox1.Image.Save(Path);
+                        var savePath = Configuration.GetProjectLinkDirectory();
+                        savePath = savePath + avataPath;
+                        pictureBox1.Image.Save(Path, ImageFormat.Jpeg);
                     }
                     catch { }
                 }
@@ -400,7 +404,7 @@ namespace HumanResource.GUI
                 txtHoTen.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[1].Value.ToString();
                 txtCMND.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells["CMND"].Value.ToString();
                 txtMaNV.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[0].Value.ToString();
-                txtMK.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[11].Value.ToString();
+                txtMK.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells["MatKhau"].Value.ToString().Trim();
                 if (dataGridViewNhanVien.Rows[e.RowIndex].Cells[5].Value.ToString().Contains("Nam"))
                 {
                     rdGTNam.Checked = true;
@@ -423,7 +427,9 @@ namespace HumanResource.GUI
                 string pathImg = dataGridViewNhanVien.Rows[e.RowIndex].Cells["Anh"].Value.ToString();
                 if (!pathImg.Equals(""))
                 {
-                    pictureBox1.Image = Image.FromFile(dataGridViewNhanVien.Rows[e.RowIndex].Cells["Anh"].Value.ToString());
+                    var path = Configuration.GetProjectLinkDirectory();
+                    path = path + dataGridViewNhanVien.Rows[e.RowIndex].Cells["Anh"].Value.ToString();
+                    pictureBox1.Image = Image.FromFile(path);
                 }
                 else
                 {
@@ -443,7 +449,8 @@ namespace HumanResource.GUI
             {
                 return;
             }
-            int result = Bus.UpdateNhanVien(getDataNhanVien());
+            NhanVien nv = getDataNhanVien();
+            int result = Bus.UpdateNhanVien(nv);
             if (result > 0)
             {
                 MessageBox.Show("Cập nhật thành công", "Thông báo", MessageBoxButtons.OK);
