@@ -482,7 +482,7 @@ namespace HumanResource.GUI
         {
             FrmThanNhanNV frm = new FrmThanNhanNV(maNVCurrent,"",1);
             frm.ShowDialog();
-            GetThanNhanNhanVien(maNVCurrent);
+            GetThanNhanNhanVien(maNVCurrent);  
              
         }
 
@@ -490,7 +490,7 @@ namespace HumanResource.GUI
         private void dataGridViewThanNhan_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             maTNCurent = dataGridViewThanNhan.Rows[e.RowIndex].Cells["MaTN"].Value.ToString();
-            lblMaTN.Text = maTNCurent;
+            
         }
 
         private void btnXoaTN_Click(object sender, EventArgs e)
@@ -514,7 +514,16 @@ namespace HumanResource.GUI
             frm.ShowDialog();
             GetThanNhanNhanVien(maNVCurrent);
         }
-       
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox4_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }
