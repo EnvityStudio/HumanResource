@@ -11,6 +11,7 @@ namespace HumanResource.Config
         public static float getLuong(decimal luongCB , float heSoLuong, float heSoPhuCap)
         {
             float luong = float.Parse(luongCB.ToString());
+            float x = luong * heSoLuong + luong * heSoPhuCap * heSoLuong;
             return luong*heSoLuong + luong*heSoPhuCap*heSoLuong;
         }
     }

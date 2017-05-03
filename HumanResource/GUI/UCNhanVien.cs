@@ -15,7 +15,7 @@ using System.Collections;
 
 namespace HumanResource.GUI
 {
-     partial class UCNhanVien : UserControl
+    partial class UCNhanVien : UserControl
     {
         private string avataPath;
         private NhanVien nhanVien;
@@ -78,7 +78,7 @@ namespace HumanResource.GUI
             }
             foreach (DataRow row in dtPB.Rows)
             {
-                phongBan.Add(row["MaPB"].ToString(),row["TenPB"].ToString());
+                phongBan.Add(row["MaPB"].ToString(), row["TenPB"].ToString());
             }
             foreach (DataRow row in dtChucVu.Rows)
             {
@@ -106,19 +106,19 @@ namespace HumanResource.GUI
             {
                 if (e.Value != null)
                 {
-                   for(int i = 0; i < phongBan.Count; i++)
+                    for (int i = 0; i < phongBan.Count; i++)
                     {
                         string x;
                         if (phongBan.TryGetValue(e.Value.ToString(), out x))
                         {
                             e.Value = phongBan[e.Value.ToString()];
-                           
+
                         }
                     }
-                  
+
                 }
             }
-            
+
             if (this.dataGridViewNhanVien.Columns[e.ColumnIndex].Name == "MaTDHV")
             {
                 if (e.Value != null)
@@ -129,7 +129,7 @@ namespace HumanResource.GUI
                         if (tdhv.TryGetValue(e.Value.ToString(), out x))
                         {
                             e.Value = tdhv[e.Value.ToString()];
-                          
+
                         }
                     }
 
@@ -145,7 +145,7 @@ namespace HumanResource.GUI
                         List<decimal> x = new List<decimal>();
                         if (luong.TryGetValue(e.Value.ToString(), out x))
                         {
-                            e.Value = HRUtils.getLuong(x[0],float.Parse(x[1].ToString()), float.Parse(x[2].ToString())).ToString();
+                            e.Value = HRUtils.getLuong(x[0], float.Parse(x[1].ToString()), float.Parse(x[2].ToString())).ToString();
 
                         }
                     }
@@ -156,7 +156,8 @@ namespace HumanResource.GUI
 
         internal void EditClick()
         {
-            if (txtMaNV.Text.Equals("") || txtMaNV.Text.Equals(null)) {
+            if (txtMaNV.Text.Equals("") || txtMaNV.Text.Equals(null))
+            {
                 MessageBox.Show("Vui lòng chọn nhân viên để sửa", "Thông báo", MessageBoxButtons.OK);
             }
             else
@@ -176,12 +177,12 @@ namespace HumanResource.GUI
 
         private void dataGridViewNhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            if ( dataGridViewNhanVien.CurrentRow != null)
+            if (dataGridViewNhanVien.CurrentRow != null)
             {
                 string Path = "Reesource";
                 OpenFileDialog open = new OpenFileDialog();
@@ -219,7 +220,7 @@ namespace HumanResource.GUI
 
         public NhanVien getDataNhanVien()
         {
-            string MaNV , HoTen, GioiTinh ,MaCV ,MaPB ,MaTDHV ,QueQuan ,Anh ,Sdt, Email, MatKhau, DanToc ,BacLuong, CMND;
+            string MaNV, HoTen, GioiTinh, MaCV, MaPB, MaTDHV, QueQuan, Anh, Sdt, Email, MatKhau, DanToc, BacLuong, CMND;
             DateTime NgaySinh;
             MaNV = txtMaNV.Text;
             HoTen = txtHoTen.Text;
@@ -233,21 +234,22 @@ namespace HumanResource.GUI
             MaTDHV = ((DataItem)cbbTrinhDo.SelectedItem).Value;
             QueQuan = txtQueQuan.Text;
             Sdt = txtSoDT.Text;
-            if(avataPath != null)
+            if (avataPath != null)
             {
                 Anh = avataPath;
-            } else
+            }
+            else
             {
                 Anh = Configuration.GetProjectLinkDirectory() + @"/Resource/noimage.png";
             }
-            
+
             Email = txtEmail.Text;
-            NgaySinh = (DateTime)dtNgaySInh.Value; 
+            NgaySinh = (DateTime)dtNgaySInh.Value;
             MatKhau = txtMK.Text;
             DanToc = txtDanToc.Text;
             BacLuong = ((DataItem)cbbLuong.SelectedItem).Value;
             CMND = txtCMND.Text;
-            return new NhanVien( MaNV,  HoTen,  NgaySinh,  QueQuan,  GioiTinh,  DanToc,  Sdt,  MaTDHV,  MaPB,  MaCV,  BacLuong,  Anh,  MatKhau,  CMND,  Email);
+            return new NhanVien(MaNV, HoTen, NgaySinh, QueQuan, GioiTinh, DanToc, Sdt, MaTDHV, MaPB, MaCV, BacLuong, Anh, MatKhau, CMND, Email);
         }
         public void setMaNV()
         {
@@ -256,7 +258,7 @@ namespace HumanResource.GUI
             setCombobox();
             enableBox(true);
         }
-       
+
         public void setCombobox()
         {
             DataTable dtPB = Bus.GetListPhongBan();
@@ -293,7 +295,7 @@ namespace HumanResource.GUI
         private void cbbPhong_SelectedIndexChanged(object sender, EventArgs e)
         {
         }
-        private void LoadComboboxData(ComboBox cbb , List<DataItem> list)
+        private void LoadComboboxData(ComboBox cbb, List<DataItem> list)
         {
             cbb.DataSource = list;
             cbb.ValueMember = "Value";
@@ -304,12 +306,12 @@ namespace HumanResource.GUI
             // cbb.DataSource = list;
             LoadComboboxData(cbb, list);
             int i = 0;
-            foreach(DataItem di in list)
+            foreach (DataItem di in list)
             {
-                if(di.Value.Contains(id))
+                if (di.Value.Contains(id))
                 {
                     cbb.SelectedIndex = i;
-                    return ;
+                    return;
                 }
                 i++;
             }
@@ -334,11 +336,11 @@ namespace HumanResource.GUI
         }
         private bool checkTextBox()
         {
-            if (!checkEmpty(txtCMND) || !checkEmpty(txtMaNV)  || !checkEmpty(txtQueQuan) 
-                || !checkEmpty(txtEmail) || !checkEmpty(txtSoDT) || !checkEmpty(txtDanToc) )
+            if (!checkEmpty(txtCMND) || !checkEmpty(txtMaNV) || !checkEmpty(txtQueQuan)
+                || !checkEmpty(txtEmail) || !checkEmpty(txtSoDT) || !checkEmpty(txtDanToc))
             {
                 MessageBox.Show("Có lỗi không thể thực hiện");
-                return false ;
+                return false;
             }
             return true;
         }
@@ -354,9 +356,9 @@ namespace HumanResource.GUI
         }
         public void AddNhanVien()
         {
-            if(!checkTextBox())
+            if (!checkTextBox())
             {
-                return ;
+                return;
             }
             int result = Bus.InsertNhanVien(getDataNhanVien());
             if (result > 0)
@@ -402,7 +404,8 @@ namespace HumanResource.GUI
             {
                 rdGTNam.Checked = true;
                 rdGTNu.Checked = false;
-            } else
+            }
+            else
             {
                 rdGTNam.Checked = false;
                 rdGTNu.Checked = true;
@@ -415,21 +418,22 @@ namespace HumanResource.GUI
             LoadNameFromID(cbbPhong, dataGridViewNhanVien.Rows[e.RowIndex].Cells[7].Value.ToString(), listPhongBan);
             LoadNameFromID(cbbTrinhDo, dataGridViewNhanVien.Rows[e.RowIndex].Cells[9].Value.ToString(), listTDHV);
             txtDanToc.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[6].Value.ToString();
-            dtNgaySInh.Text  = dataGridViewNhanVien.Rows[e.RowIndex].Cells[2].Value.ToString();
+            dtNgaySInh.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[2].Value.ToString();
             string pathImg = dataGridViewNhanVien.Rows[e.RowIndex].Cells["Anh"].Value.ToString();
-            if(!pathImg.Equals(""))
+            if (!pathImg.Equals(""))
             {
                 pictureBox1.Image = Image.FromFile(dataGridViewNhanVien.Rows[e.RowIndex].Cells["Anh"].Value.ToString());
-            } else
+            }
+            else
             {
-                string pathImage = Configuration.GetProjectLinkDirectory() + @"\Resource\noimage.PNG"; 
+                string pathImage = Configuration.GetProjectLinkDirectory() + @"\Resource\noimage.PNG";
                 pictureBox1.Image = Image.FromFile(pathImage);
             }
 
             maNVCurrent = dataGridViewNhanVien.Rows[e.RowIndex].Cells["MaNV"].Value.ToString();
             GetThanNhanNhanVien(maNVCurrent);
 
-          
+
         }
         public void UpdateNhanVien()
         {
@@ -477,20 +481,20 @@ namespace HumanResource.GUI
             dataGridViewThanNhan.Columns["MaNV"].Visible = false;
             dataGridViewThanNhan.Columns["MaTN"].Visible = false;
         }
-       
+
         private void btnThemTN_Click(object sender, EventArgs e)
         {
-            FrmThanNhanNV frm = new FrmThanNhanNV(maNVCurrent,"",1);
+            FrmThanNhanNV frm = new FrmThanNhanNV(maNVCurrent, "", 1);
             frm.ShowDialog();
-            GetThanNhanNhanVien(maNVCurrent);  
-             
+            GetThanNhanNhanVien(maNVCurrent);
+
         }
 
         private string maTNCurent;
         private void dataGridViewThanNhan_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             maTNCurent = dataGridViewThanNhan.Rows[e.RowIndex].Cells["MaTN"].Value.ToString();
-            
+
         }
 
         private void btnXoaTN_Click(object sender, EventArgs e)
@@ -510,7 +514,7 @@ namespace HumanResource.GUI
 
         private void btnSuaTN_Click(object sender, EventArgs e)
         {
-            FrmThanNhanNV frm = new FrmThanNhanNV(maNVCurrent, maTNCurent,2);
+            FrmThanNhanNV frm = new FrmThanNhanNV(maNVCurrent, maTNCurent, 2);
             frm.ShowDialog();
             GetThanNhanNhanVien(maNVCurrent);
         }
