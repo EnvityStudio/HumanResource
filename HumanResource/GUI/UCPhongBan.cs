@@ -76,7 +76,7 @@ namespace HumanResource.GUI
             txtMaPB.Text = "";
             txtTenPB.Text = "";
             txtDiaChi.Text = "";
-            txtTenTruongPhong.Text = "";
+           // txtTenTruongPhong.Text = "";
             txtSoDT.Text = "";
             txtTongNV.Text = "0";
             LoadComboboxData(cbbTruongPhong,Bus.GetList("GetListNhanVien"));

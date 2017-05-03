@@ -32,20 +32,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dgvPhongBan = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.cbbTruongPhong = new System.Windows.Forms.ComboBox();
             this.txtTongNV = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtDiaChi = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtSoDT = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtTenTruongPhong = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.txtTenPB = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.cbbTruongPhong = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPhongBan)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -64,9 +62,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(65, 36);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 13);
+            this.label1.Size = new System.Drawing.Size(85, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Mã phòng ban";
+            this.label1.Text = "Mã phòng ban : ";
             // 
             // dgvPhongBan
             // 
@@ -91,9 +89,7 @@
             this.groupBox4.Controls.Add(this.label6);
             this.groupBox4.Controls.Add(this.txtSoDT);
             this.groupBox4.Controls.Add(this.label3);
-            this.groupBox4.Controls.Add(this.txtTenTruongPhong);
             this.groupBox4.Controls.Add(this.label7);
-            this.groupBox4.Controls.Add(this.label4);
             this.groupBox4.Controls.Add(this.txtTenPB);
             this.groupBox4.Controls.Add(this.label2);
             this.groupBox4.Controls.Add(this.txtMaPB);
@@ -106,10 +102,20 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Thông Tin Phòng Ban";
             // 
+            // cbbTruongPhong
+            // 
+            this.cbbTruongPhong.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbTruongPhong.Enabled = false;
+            this.cbbTruongPhong.FormattingEnabled = true;
+            this.cbbTruongPhong.Location = new System.Drawing.Point(563, 32);
+            this.cbbTruongPhong.Name = "cbbTruongPhong";
+            this.cbbTruongPhong.Size = new System.Drawing.Size(175, 21);
+            this.cbbTruongPhong.TabIndex = 14;
+            // 
             // txtTongNV
             // 
             this.txtTongNV.Enabled = false;
-            this.txtTongNV.Location = new System.Drawing.Point(563, 164);
+            this.txtTongNV.Location = new System.Drawing.Point(563, 163);
             this.txtTongNV.Name = "txtTongNV";
             this.txtTongNV.Size = new System.Drawing.Size(175, 20);
             this.txtTongNV.TabIndex = 13;
@@ -117,16 +123,16 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(443, 164);
+            this.label5.Location = new System.Drawing.Point(443, 163);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(82, 13);
+            this.label5.Size = new System.Drawing.Size(88, 13);
             this.label5.TabIndex = 12;
-            this.label5.Text = "Tổng nhân viên";
+            this.label5.Text = "Tổng nhân viên :";
             // 
             // txtDiaChi
             // 
             this.txtDiaChi.Enabled = false;
-            this.txtDiaChi.Location = new System.Drawing.Point(185, 164);
+            this.txtDiaChi.Location = new System.Drawing.Point(185, 163);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(175, 20);
             this.txtDiaChi.TabIndex = 11;
@@ -134,16 +140,16 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(65, 164);
+            this.label6.Location = new System.Drawing.Point(104, 164);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(40, 13);
+            this.label6.Size = new System.Drawing.Size(46, 13);
             this.label6.TabIndex = 10;
-            this.label6.Text = "Địa chỉ";
+            this.label6.Text = "Địa chỉ :";
             // 
             // txtSoDT
             // 
             this.txtSoDT.Enabled = false;
-            this.txtSoDT.Location = new System.Drawing.Point(563, 101);
+            this.txtSoDT.Location = new System.Drawing.Point(563, 98);
             this.txtSoDT.Name = "txtSoDT";
             this.txtSoDT.Size = new System.Drawing.Size(175, 20);
             this.txtSoDT.TabIndex = 9;
@@ -151,42 +157,25 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(443, 101);
+            this.label3.Location = new System.Drawing.Point(443, 99);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 13);
+            this.label3.Size = new System.Drawing.Size(76, 13);
             this.label3.TabIndex = 8;
-            this.label3.Text = "Số điện thoại";
-            // 
-            // txtTenTruongPhong
-            // 
-            this.txtTenTruongPhong.Enabled = false;
-            this.txtTenTruongPhong.Location = new System.Drawing.Point(918, 33);
-            this.txtTenTruongPhong.Name = "txtTenTruongPhong";
-            this.txtTenTruongPhong.Size = new System.Drawing.Size(175, 20);
-            this.txtTenTruongPhong.TabIndex = 7;
+            this.label3.Text = "Số điện thoại :";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(798, 36);
+            this.label7.Location = new System.Drawing.Point(439, 35);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(92, 13);
+            this.label7.Size = new System.Drawing.Size(80, 13);
             this.label7.TabIndex = 6;
-            this.label7.Text = "Tên trưởng phòng";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(443, 36);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(88, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Mã trưởng phòng";
+            this.label7.Text = "Trưởng phòng :";
             // 
             // txtTenPB
             // 
             this.txtTenPB.Enabled = false;
-            this.txtTenPB.Location = new System.Drawing.Point(185, 101);
+            this.txtTenPB.Location = new System.Drawing.Point(185, 98);
             this.txtTenPB.Name = "txtTenPB";
             this.txtTenPB.Size = new System.Drawing.Size(175, 20);
             this.txtTenPB.TabIndex = 5;
@@ -194,11 +183,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(65, 101);
+            this.label2.Location = new System.Drawing.Point(64, 100);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 13);
+            this.label2.Size = new System.Drawing.Size(86, 13);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Tên phòng ban";
+            this.label2.Text = "Tên phòng ban :";
             // 
             // panel2
             // 
@@ -216,16 +205,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1270, 17);
             this.panel1.TabIndex = 5;
-            // 
-            // cbbTruongPhong
-            // 
-            this.cbbTruongPhong.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbTruongPhong.Enabled = false;
-            this.cbbTruongPhong.FormattingEnabled = true;
-            this.cbbTruongPhong.Location = new System.Drawing.Point(563, 32);
-            this.cbbTruongPhong.Name = "cbbTruongPhong";
-            this.cbbTruongPhong.Size = new System.Drawing.Size(175, 21);
-            this.cbbTruongPhong.TabIndex = 14;
             // 
             // UCPhongBan
             // 
@@ -260,8 +239,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtSoDT;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtTenTruongPhong;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cbbTruongPhong;
     }

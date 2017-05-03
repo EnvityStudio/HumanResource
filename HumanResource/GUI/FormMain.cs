@@ -100,6 +100,7 @@ namespace HumanResource.GUI
 
         private void btnPhongBan_Click(object sender, EventArgs e)
         {
+            ucPhongBan = new UCPhongBan();
             AddNewTab(ucPhongBan);
             disableButton();
         }
@@ -353,6 +354,14 @@ namespace HumanResource.GUI
         {
             AddNewTab(ucLuong);
             disableButton();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            if(Configuration.TAB_CURRENT == Configuration.TAB_PHONGBAN)
+            {
+                ucPhongBan = new UCPhongBan();
+            }
         }
     }
 }

@@ -49,20 +49,20 @@
             this.menuStripTroGiup = new System.Windows.Forms.ToolStripMenuItem();
             this.btnShowFormInfo = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.btnAddNew = new System.Windows.Forms.ToolStripButton();
+            this.btnEdit = new System.Windows.Forms.ToolStripButton();
+            this.btnDelete = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnSave = new System.Windows.Forms.ToolStripButton();
+            this.btnCancel = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnRefresh = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnPrint = new System.Windows.Forms.ToolStripButton();
             this.btnCloseAllTab = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.lblCurrentTab = new System.Windows.Forms.ToolStripLabel();
             this.tabControlHome = new System.Windows.Forms.TabControl();
-            this.btnAddNew = new System.Windows.Forms.ToolStripButton();
-            this.btnEdit = new System.Windows.Forms.ToolStripButton();
-            this.btnDelete = new System.Windows.Forms.ToolStripButton();
-            this.btnSave = new System.Windows.Forms.ToolStripButton();
-            this.btnCancel = new System.Windows.Forms.ToolStripButton();
-            this.btnRefresh = new System.Windows.Forms.ToolStripButton();
-            this.btnPrint = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -175,21 +175,21 @@
             // btnThanNhan
             // 
             this.btnThanNhan.Name = "btnThanNhan";
-            this.btnThanNhan.Size = new System.Drawing.Size(152, 22);
+            this.btnThanNhan.Size = new System.Drawing.Size(131, 22);
             this.btnThanNhan.Text = "Thân nhân";
             this.btnThanNhan.Click += new System.EventHandler(this.btnThanNhan_Click);
             // 
             // btnLuong
             // 
             this.btnLuong.Name = "btnLuong";
-            this.btnLuong.Size = new System.Drawing.Size(152, 22);
+            this.btnLuong.Size = new System.Drawing.Size(131, 22);
             this.btnLuong.Text = "Lương";
             this.btnLuong.Click += new System.EventHandler(this.btnLuong_Click);
             // 
             // btnHocVan
             // 
             this.btnHocVan.Name = "btnHocVan";
-            this.btnHocVan.Size = new System.Drawing.Size(152, 22);
+            this.btnHocVan.Size = new System.Drawing.Size(131, 22);
             this.btnHocVan.Text = "Học Vấn";
             this.btnHocVan.Click += new System.EventHandler(this.btnHocVan_Click);
             // 
@@ -245,20 +245,96 @@
             this.toolStrip1.TabIndex = 3;
             this.toolStrip1.Text = "toolStrip1";
             // 
+            // btnAddNew
+            // 
+            this.btnAddNew.Enabled = false;
+            this.btnAddNew.Image = global::HumanResource.Properties.Resources.add;
+            this.btnAddNew.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnAddNew.Name = "btnAddNew";
+            this.btnAddNew.Size = new System.Drawing.Size(58, 22);
+            this.btnAddNew.Text = "Thêm";
+            this.btnAddNew.ToolTipText = "Thêm Mới (CTR + N)";
+            this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Enabled = false;
+            this.btnEdit.Image = global::HumanResource.Properties.Resources.editicon;
+            this.btnEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(46, 22);
+            this.btnEdit.Text = "Sửa";
+            this.btnEdit.ToolTipText = "Sửa (CTR + E)";
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Enabled = false;
+            this.btnDelete.Image = global::HumanResource.Properties.Resources.delete;
+            this.btnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(47, 22);
+            this.btnDelete.Text = "Xóa";
+            this.btnDelete.ToolTipText = "Xóa (Delete)";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Enabled = false;
+            this.btnSave.Image = global::HumanResource.Properties.Resources.save;
+            this.btnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(47, 22);
+            this.btnSave.Text = "Lưu";
+            this.btnSave.ToolTipText = "Lưu (CTR + S)";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Enabled = false;
+            this.btnCancel.Image = global::HumanResource.Properties.Resources.cen1;
+            this.btnCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(49, 22);
+            this.btnCancel.Text = "Hủy";
+            this.btnCancel.ToolTipText = "Hủy (CTR + Q)";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Enabled = false;
+            this.btnRefresh.Image = global::HumanResource.Properties.Resources.refresh;
+            this.btnRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(77, 22);
+            this.btnRefresh.Text = "Cập Nhật";
+            this.btnRefresh.ToolTipText = "Cập nhật lại (CTR + R)";
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.Enabled = false;
+            this.btnPrint.Image = global::HumanResource.Properties.Resources.iconprint;
+            this.btnPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(37, 22);
+            this.btnPrint.Text = "In";
+            this.btnPrint.ToolTipText = "In (CTR + P)";
             // 
             // btnCloseAllTab
             // 
@@ -294,81 +370,6 @@
             this.tabControlHome.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControlHome_DrawItem);
             this.tabControlHome.SelectedIndexChanged += new System.EventHandler(this.tabControlHome_SelectedIndexChanged);
             this.tabControlHome.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tabControlHome_MouseDown);
-            // 
-            // btnAddNew
-            // 
-            this.btnAddNew.Enabled = false;
-            this.btnAddNew.Image = global::HumanResource.Properties.Resources.add;
-            this.btnAddNew.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnAddNew.Name = "btnAddNew";
-            this.btnAddNew.Size = new System.Drawing.Size(58, 22);
-            this.btnAddNew.Text = "Thêm";
-            this.btnAddNew.ToolTipText = "Thêm Mới (CTR + N)";
-            this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Enabled = false;
-            this.btnEdit.Image = global::HumanResource.Properties.Resources.editicon;
-            this.btnEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(46, 22);
-            this.btnEdit.Text = "Sửa";
-            this.btnEdit.ToolTipText = "Sửa (CTR + E)";
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Enabled = false;
-            this.btnDelete.Image = global::HumanResource.Properties.Resources.delete;
-            this.btnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(47, 22);
-            this.btnDelete.Text = "Xóa";
-            this.btnDelete.ToolTipText = "Xóa (Delete)";
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Enabled = false;
-            this.btnSave.Image = global::HumanResource.Properties.Resources.save;
-            this.btnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(47, 22);
-            this.btnSave.Text = "Lưu";
-            this.btnSave.ToolTipText = "Lưu (CTR + S)";
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Enabled = false;
-            this.btnCancel.Image = global::HumanResource.Properties.Resources.cen1;
-            this.btnCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(49, 22);
-            this.btnCancel.Text = "Hủy";
-            this.btnCancel.ToolTipText = "Hủy (CTR + Q)";
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.Enabled = false;
-            this.btnRefresh.Image = global::HumanResource.Properties.Resources.refresh;
-            this.btnRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(77, 22);
-            this.btnRefresh.Text = "Cập Nhật";
-            this.btnRefresh.ToolTipText = "Cập nhật lại (CTR + R)";
-            // 
-            // btnPrint
-            // 
-            this.btnPrint.Enabled = false;
-            this.btnPrint.Image = global::HumanResource.Properties.Resources.iconprint;
-            this.btnPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(37, 22);
-            this.btnPrint.Text = "In";
-            this.btnPrint.ToolTipText = "In (CTR + P)";
             // 
             // FormMain
             // 
