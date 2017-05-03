@@ -22,6 +22,7 @@ namespace HumanResource.GUI
         UCThanNhan ucThanNhan;
         UCHocVan ucHocVan;
         UCLuong ucLuong;
+        UCChucVu ucChucVu;
 
         public FormMain()
         {
@@ -32,6 +33,7 @@ namespace HumanResource.GUI
             ucThanNhan = new UCThanNhan();
             ucHocVan = new UCHocVan();
             ucLuong = new UCLuong();
+            ucChucVu = new UCChucVu();
         }
 
         public void AddNewTab(UserControl userControl)
@@ -83,6 +85,10 @@ namespace HumanResource.GUI
             else if (tabControlHome.SelectedTab.Name == "UCLuong")
             {
                 Configuration.TAB_CURRENT = Configuration.TAB_LUONG;
+            }
+            else if (tabControlHome.SelectedTab.Name == "UCChucVu")
+            {
+                Configuration.TAB_CURRENT = Configuration.TAB_CHUCVU;
             }
         }
 
@@ -188,6 +194,12 @@ namespace HumanResource.GUI
                 ucPhongBan.setMaPBNext();
                 ucPhongBan.enableTextBox(true);
             }
+            else if (Configuration.TAB_CURRENT == Configuration.TAB_CHUCVU)
+            {
+                ucChucVu.ClearTextBox();
+                ucChucVu.setMaCVNext();
+            }
+
             enableButton();
         }
 
@@ -225,6 +237,10 @@ namespace HumanResource.GUI
                 {
                     ucPhongBan.AddPhongBan();
                 }
+                if (Configuration.TAB_CURRENT == Configuration.TAB_CHUCVU)
+                {
+                    ucChucVu.AddChucVu();
+                }
 
             } else if (Configuration.ACTION == Configuration.EDIT)
             {
@@ -251,6 +267,10 @@ namespace HumanResource.GUI
                 if (Configuration.TAB_CURRENT == Configuration.TAB_PHONGBAN)
                 {
                     ucPhongBan.UpdatePhongBan();
+                }
+                if (Configuration.TAB_CURRENT == Configuration.TAB_CHUCVU)
+                {
+                    ucChucVu.EditChucVu();
                 }
 
             } 
@@ -298,6 +318,10 @@ namespace HumanResource.GUI
             {
                 ucPhongBan.enableTextBox(true);
             }
+            if (Configuration.TAB_CURRENT == Configuration.TAB_CHUCVU)
+            {
+                ucChucVu.EnableTextBox(true);
+            }
             disableButton();
         }
 
@@ -328,6 +352,10 @@ namespace HumanResource.GUI
             if (Configuration.TAB_CURRENT == Configuration.TAB_PHONGBAN)
             {
                 ucPhongBan.DeletePhongBan();
+            }
+            if (Configuration.TAB_CURRENT == Configuration.TAB_CHUCVU)
+            {
+                ucChucVu.DeleteChucVu();
             }
             disableButton();
         }
@@ -362,6 +390,55 @@ namespace HumanResource.GUI
             {
                 ucPhongBan = new UCPhongBan();
             }
+        }
+
+        private void NhanVienToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ucNhanVien = new UCNhanVien();
+            AddNewTab(ucNhanVien);
+            disableButton();
+        }
+
+        private void PhongBanToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ucPhongBan = new UCPhongBan();
+            AddNewTab(ucPhongBan);
+            disableButton();
+        }
+
+        private void ChucVuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ucChucVu = new UCChucVu();
+            AddNewTab(ucChucVu);
+            disableButton();
+        }
+
+        private void TheoDoiNVToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ucTheoDoi = new UCTheoDoi();
+            AddNewTab(ucTheoDoi);
+            disableButton();
+        }
+
+        private void LuongToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ucLuong = new UCLuong();
+            AddNewTab(ucLuong);
+            disableButton();
+        }
+
+        private void ThanNhanToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ucThanNhan = new UCThanNhan();
+            AddNewTab(ucThanNhan);
+            disableButton();
+        }
+
+        private void HocVanToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ucHocVan = new UCHocVan();
+            AddNewTab(ucHocVan);
+            disableButton();
         }
     }
 }

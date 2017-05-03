@@ -99,6 +99,15 @@ namespace HumanResource.DAO
             return DataProvider.ExecuteNonQuery(config.PROC_UPDATE_LUONG, para);
         }
 
+        public static int UpdateChucVu(ChucVu chucVu)
+        {
+            SqlParameter[] para = new SqlParameter[] {
+                new SqlParameter("@"+config.CHUCVU_MACV,chucVu.MaCV),
+                new SqlParameter("@"+config.CHUCVU_TENCV,chucVu.TenCV)
+            };
+            return DataProvider.ExecuteNonQuery(config.PROC_UPDATE_CHUCVU, para);
+        }
+
         public static int InsertPhongBan(PhongBan phongBan)
         {
             SqlParameter[] para = new SqlParameter[] {
@@ -124,6 +133,11 @@ namespace HumanResource.DAO
             return DataProvider.ExecuteNonQuery(config.PROC_DELETE_LUONG, para);
         }
 
+        public static DataTable getMaChucVuNext()
+        {
+            return DataProvider.GetData(config.PROC_GET_MA_CHUC_VU_NEXT);
+        }
+
         public static int UpdatePhongBan(PhongBan phongBan)
         {
             SqlParameter[] para = new SqlParameter[] {
@@ -134,6 +148,23 @@ namespace HumanResource.DAO
                 new SqlParameter("@"+config.PHONGBAN_DIACHI,phongBan.DiaChi)
             };
             return DataProvider.ExecuteNonQuery(config.PROC_UPDATE_PHONGBAN, para);
+        }
+
+        public static int DeleteChucVu(string maCV)
+        {
+            SqlParameter[] para = new SqlParameter[] {
+                new SqlParameter("@"+config.CHUCVU_MACV,maCV)
+            };
+            return DataProvider.ExecuteNonQuery(config.PROC_DELETE_CHUCVU, para);
+        }
+
+        public static int AddChucVu(ChucVu chucVu)
+        {
+            SqlParameter[] para = new SqlParameter[] {
+                new SqlParameter("@"+config.CHUCVU_MACV,chucVu.MaCV),
+                new SqlParameter("@"+config.CHUCVU_TENCV,chucVu.TenCV)
+            };
+            return DataProvider.ExecuteNonQuery(config.PROC_ADD_CHUCVU, para);
         }
 
         public static int DeletePhongBan(string maPB)

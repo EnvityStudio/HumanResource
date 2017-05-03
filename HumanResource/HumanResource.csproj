@@ -79,6 +79,12 @@
     <Compile Include="GUI\FrmThanNhanNV.Designer.cs">
       <DependentUpon>FrmThanNhanNV.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\UCChucVu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UCChucVu.Designer.cs">
+      <DependentUpon>UCChucVu.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\UCHocVan.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -140,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmThanNhanNV.resx">
       <DependentUpon>FrmThanNhanNV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UCChucVu.resx">
+      <DependentUpon>UCChucVu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\UCHocVan.resx">
       <DependentUpon>UCHocVan.cs</DependentUpon>

@@ -139,6 +139,11 @@ namespace HumanResource.BUS
              
         }
 
+        public static int UpdateChucVu(ChucVu chucVu)
+        {
+            return Dao.UpdateChucVu(chucVu);
+        }
+
         public static DataTable GetMaPBNext()
         {
             return Dao.GetMaPBNext();
@@ -192,5 +197,23 @@ namespace HumanResource.BUS
         {
             return Dao.UpdatePhongBan(phongBan);
         }
+
+        public static string getMaChucVuNext()
+        {
+            DataTable dt = Dao.getMaChucVuNext();
+            string ma = dt.Rows[0][0].ToString();
+            return ma;
+        }
+
+        public static int AddChucVu(ChucVu chucVu)
+        {
+            return Dao.AddChucVu(chucVu);
+        }
+
+        public static int DeleteChucVu(string maCV)
+        {
+            return Dao.DeleteChucVu(maCV);
+        }
+       
     }
 }

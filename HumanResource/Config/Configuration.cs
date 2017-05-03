@@ -27,6 +27,7 @@ namespace HumanResource.Config
         public static string TAB_THAN_NHAN = "THANNHAN";
         public static string TAB_HOC_VAN = "HOCVAN";
         public static string TAB_LUONG = "LUONG";
+        public static string TAB_CHUCVU = "CHUCVU";
         public static string TAB_CURRENT;
 
         //action
@@ -88,9 +89,20 @@ namespace HumanResource.Config
 
 
 
+        //Properties ò ChucVu
+        public string CHUCVU_MACV = "maCV";
+        public string CHUCVU_TENCV = "tenCV";
+
+
         //Proceduces of ChucVu
 
         public string PROC_GET_LIST_CHUC_VU = "GetlistChucVu";
+        public string PROC_ADD_CHUCVU = "[InsertChucVu]";
+        public string PROC_GET_MA_CHUC_VU_NEXT = "[GetMaChucVuNext]";
+        public string PROC_DELETE_CHUCVU = "[DeleteChucVu]";
+        public string PROC_UPDATE_CHUCVU = "[UpdateChucVu]";
+
+
 
         //Properties of TDHV 
         public string HOC_VAN_MAHV = "MaTDHV";
