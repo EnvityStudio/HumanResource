@@ -200,6 +200,7 @@
             // 
             // txtMaNV
             // 
+            this.txtMaNV.Enabled = false;
             this.txtMaNV.Location = new System.Drawing.Point(47, 139);
             this.txtMaNV.Name = "txtMaNV";
             this.txtMaNV.Size = new System.Drawing.Size(65, 20);
@@ -234,36 +235,40 @@
             // 
             // cbbLuong
             // 
+            this.cbbLuong.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbLuong.FormattingEnabled = true;
             this.cbbLuong.Location = new System.Drawing.Point(191, 208);
             this.cbbLuong.Name = "cbbLuong";
             this.cbbLuong.Size = new System.Drawing.Size(167, 21);
-            this.cbbLuong.TabIndex = 59;
+            this.cbbLuong.TabIndex = 11;
             // 
             // cbbChucVu
             // 
+            this.cbbChucVu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbChucVu.FormattingEnabled = true;
             this.cbbChucVu.Location = new System.Drawing.Point(682, 162);
             this.cbbChucVu.Name = "cbbChucVu";
             this.cbbChucVu.Size = new System.Drawing.Size(165, 21);
-            this.cbbChucVu.TabIndex = 52;
+            this.cbbChucVu.TabIndex = 10;
             // 
             // cbbPhong
             // 
+            this.cbbPhong.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbPhong.FormattingEnabled = true;
             this.cbbPhong.Location = new System.Drawing.Point(439, 162);
             this.cbbPhong.Name = "cbbPhong";
             this.cbbPhong.Size = new System.Drawing.Size(167, 21);
-            this.cbbPhong.TabIndex = 38;
+            this.cbbPhong.TabIndex = 9;
             this.cbbPhong.SelectedIndexChanged += new System.EventHandler(this.cbbPhong_SelectedIndexChanged);
             // 
             // cbbTrinhDo
             // 
+            this.cbbTrinhDo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbTrinhDo.FormattingEnabled = true;
             this.cbbTrinhDo.Location = new System.Drawing.Point(191, 161);
             this.cbbTrinhDo.Name = "cbbTrinhDo";
             this.cbbTrinhDo.Size = new System.Drawing.Size(167, 21);
-            this.cbbTrinhDo.TabIndex = 34;
+            this.cbbTrinhDo.TabIndex = 8;
             // 
             // label21
             // 
@@ -308,7 +313,7 @@
             this.dtNgaySInh.Location = new System.Drawing.Point(682, 66);
             this.dtNgaySInh.Name = "dtNgaySInh";
             this.dtNgaySInh.Size = new System.Drawing.Size(167, 20);
-            this.dtNgaySInh.TabIndex = 10;
+            this.dtNgaySInh.TabIndex = 4;
             // 
             // label14
             // 
@@ -328,7 +333,7 @@
             this.panel4.Location = new System.Drawing.Point(378, 22);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(228, 30);
-            this.panel4.TabIndex = 6;
+            this.panel4.TabIndex = 1;
             // 
             // rdGTNu
             // 
@@ -336,18 +341,18 @@
             this.rdGTNu.Location = new System.Drawing.Point(144, 7);
             this.rdGTNu.Name = "rdGTNu";
             this.rdGTNu.Size = new System.Drawing.Size(39, 17);
-            this.rdGTNu.TabIndex = 8;
-            this.rdGTNu.TabStop = true;
+            this.rdGTNu.TabIndex = 2;
             this.rdGTNu.Text = "Nữ";
             this.rdGTNu.UseVisualStyleBackColor = true;
             // 
             // rdGTNam
             // 
             this.rdGTNam.AutoSize = true;
+            this.rdGTNam.Checked = true;
             this.rdGTNam.Location = new System.Drawing.Point(81, 7);
             this.rdGTNam.Name = "rdGTNam";
             this.rdGTNam.Size = new System.Drawing.Size(47, 17);
-            this.rdGTNam.TabIndex = 8;
+            this.rdGTNam.TabIndex = 0;
             this.rdGTNam.TabStop = true;
             this.rdGTNam.Text = "Nam";
             this.rdGTNam.UseVisualStyleBackColor = true;
@@ -430,50 +435,51 @@
             // 
             this.txtMK.Location = new System.Drawing.Point(439, 210);
             this.txtMK.Name = "txtMK";
+            this.txtMK.PasswordChar = '*';
             this.txtMK.Size = new System.Drawing.Size(167, 20);
-            this.txtMK.TabIndex = 26;
+            this.txtMK.TabIndex = 12;
             // 
             // txtCMND
             // 
             this.txtCMND.Location = new System.Drawing.Point(682, 115);
             this.txtCMND.Name = "txtCMND";
             this.txtCMND.Size = new System.Drawing.Size(167, 20);
-            this.txtCMND.TabIndex = 26;
+            this.txtCMND.TabIndex = 7;
             // 
             // txtDanToc
             // 
             this.txtDanToc.Location = new System.Drawing.Point(439, 68);
             this.txtDanToc.Name = "txtDanToc";
             this.txtDanToc.Size = new System.Drawing.Size(167, 20);
-            this.txtDanToc.TabIndex = 26;
+            this.txtDanToc.TabIndex = 3;
             // 
             // txtSoDT
             // 
             this.txtSoDT.Location = new System.Drawing.Point(439, 115);
             this.txtSoDT.Name = "txtSoDT";
             this.txtSoDT.Size = new System.Drawing.Size(167, 20);
-            this.txtSoDT.TabIndex = 26;
+            this.txtSoDT.TabIndex = 6;
             // 
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(191, 115);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(167, 20);
-            this.txtEmail.TabIndex = 24;
+            this.txtEmail.TabIndex = 5;
             // 
             // txtQueQuan
             // 
             this.txtQueQuan.Location = new System.Drawing.Point(191, 69);
             this.txtQueQuan.Name = "txtQueQuan";
             this.txtQueQuan.Size = new System.Drawing.Size(167, 20);
-            this.txtQueQuan.TabIndex = 12;
+            this.txtQueQuan.TabIndex = 2;
             // 
             // txtHoTen
             // 
             this.txtHoTen.Location = new System.Drawing.Point(191, 23);
             this.txtHoTen.Name = "txtHoTen";
             this.txtHoTen.Size = new System.Drawing.Size(167, 20);
-            this.txtHoTen.TabIndex = 3;
+            this.txtHoTen.TabIndex = 0;
             // 
             // label1
             // 
@@ -481,7 +487,7 @@
             this.label1.Location = new System.Drawing.Point(130, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(45, 13);
-            this.label1.TabIndex = 2;
+            this.label1.TabIndex = 31;
             this.label1.Text = "Họ tên :";
             // 
             // errorProvider1
