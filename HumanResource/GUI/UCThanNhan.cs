@@ -173,5 +173,10 @@ namespace HumanResource.GUI
                 MessageBox.Show("Không thành công!", "Thông báo", MessageBoxButtons.OK);
             }
         }
+
+        private void UCThanNhan_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -59,6 +59,7 @@ namespace HumanResource.GUI
         public void setMaNextToToolBox()
         {
             txtMaHocVan.Text = getMaNext();
+            enableToolBox(true);
         }
 
         public void enableToolBox(bool bol)

@@ -104,7 +104,15 @@ namespace HumanResource.DAO
                 {
                     DataItem item = new DataItem();
                     item.Value = read.GetValue(0).ToString();
-                    item.Name = read.GetValue(1).ToString();
+                    if(query == "GetListTrinhDoHocVan")
+                    {
+                        item.Name = read.GetValue(1).ToString() + " - " + read.GetValue(2).ToString();
+                    }
+                    else
+                    {
+                        item.Name = read.GetValue(1).ToString();
+                    }
+                   
                     l.Add(item);
                 }
                 read.Close();
