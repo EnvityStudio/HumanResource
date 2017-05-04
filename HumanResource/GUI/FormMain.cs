@@ -440,5 +440,13 @@ namespace HumanResource.GUI
             AddNewTab(ucHocVan);
             disableButton();
         }
+
+        private void btnDangXuat_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var login = new FormLogin();
+            login.Closed += (s, args) => this.Close();
+            login.Show();
+        }
     }
 }

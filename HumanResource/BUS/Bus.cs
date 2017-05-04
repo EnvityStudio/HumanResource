@@ -13,6 +13,24 @@ namespace HumanResource.BUS
 {
     class Bus
     {
+        public static bool CheckAccount(NhanVien nhanVien)
+        {
+            DataTable dtNhanVien = GetListNhanVien();
+            var userName = nhanVien.MaNV;
+            var matKhau = nhanVien.MatKhau;
+            foreach (DataRow row in dtNhanVien.Rows)
+            {
+                var name = row["MaNV"].ToString();
+                var passw = row["MatKhau"].ToString();
+                if (userName == name && matKhau == passw)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+
         public static DataTable GetListNhanVien()
         {
             return Dao.GetListNhanVien();
