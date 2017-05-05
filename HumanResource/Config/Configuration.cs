@@ -164,6 +164,15 @@ namespace HumanResource.Config
         public string PROC_INSERT_THEO_DOI = "InsertTheoDoi";
         public string PROC_UPDATE_THEO_DOI = "UpdateTheoDoi";
         public string PROC_DELETE_THEO_DOI = "DeleteTheoDoi";
+
+        public string PROC_SEARCH_NV_BY_MANV = "[SearchNhanVienByMaNV]";
+        public string PROC_SEARCH_NV_BY_TENNV = "[SearchNhanVienByHoTen]";
+        public string PROC_SEARCH_NV_BY_QUEQUAN = "[SearchNhanVienByQueQuan]";
+        public string PROC_SEARCH_NV_BY_GIOITINH = "[SearchNhanVienTheoGT]";
+        public string PROC_SEARCH_NV_BY_MAPB = "[SearchNhanVienTheoPB]";
+        public string PROC_SEARCH_PB_BY_TENPB = "[SearchPhongBanByTenPhongBan]";
+        public string PROC_GET_NU_NV = "[getNuNhanVien]";
+        public string PROC_GET_NAM_NV = "[getNamNhanVien]";
       
     }
 }

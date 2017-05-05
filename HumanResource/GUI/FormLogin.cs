@@ -25,7 +25,7 @@ namespace HumanResource.GUI
             var matKhau = txtPassword.Text;
             NhanVien nhanVien = new NhanVien()
             {
-                MaNV = userName,
+                HoTen = userName,
                 MatKhau = matKhau
             };
             var isExist = Bus.CheckAccount(nhanVien);

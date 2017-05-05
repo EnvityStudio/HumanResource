@@ -40,11 +40,11 @@ namespace HumanResource.GUI
         {
 
             
-            foreach (TabPage tab in tabControlHome.TabPages)
+            foreach (TabPage tab in btnSearch.TabPages)
             {
                 if(tab.Name == userControl.Name)
                 {
-                    tabControlHome.SelectedTab = tab;
+                    btnSearch.SelectedTab = tab;
                     return;
                 }
             }
@@ -53,40 +53,40 @@ namespace HumanResource.GUI
             TabPage newTab = new TabPage(userControl.AccessibleDescription + "         ");//Create new tabpage , set name tab
             newTab.Controls.Add(userControl);
             newTab.Name = userControl.Name;
-            tabControlHome.TabPages.Add(newTab);
-            tabControlHome.SelectedTab = newTab;
+            btnSearch.TabPages.Add(newTab);
+            btnSearch.SelectedTab = newTab;
         }
 
         private void SetTabCurrent()
         {
-            if(tabControlHome.SelectedTab.Name == "UCHomePage")
+            if(btnSearch.SelectedTab.Name == "UCHomePage")
             {
                 Configuration.TAB_CURRENT = Configuration.TAB_HOME;
-            } else if (tabControlHome.SelectedTab.Name == "UCNhanVien")
+            } else if (btnSearch.SelectedTab.Name == "UCNhanVien")
             {
                 Configuration.TAB_CURRENT = Configuration.TAB_NHANVIEN;
             }
-            else if(tabControlHome.SelectedTab.Name == "UCTheoDoi")
+            else if(btnSearch.SelectedTab.Name == "UCTheoDoi")
             {
                 Configuration.TAB_CURRENT = Configuration.TAB_THEODOI;
             }
-            else if (tabControlHome.SelectedTab.Name == "UCPhongBan")
+            else if (btnSearch.SelectedTab.Name == "UCPhongBan")
             {
                 Configuration.TAB_CURRENT = Configuration.TAB_PHONGBAN;
             }
-            else if (tabControlHome.SelectedTab.Name == "UCThanNhan")
+            else if (btnSearch.SelectedTab.Name == "UCThanNhan")
             {
                 Configuration.TAB_CURRENT = Configuration.TAB_THAN_NHAN;
             }
-            else if (tabControlHome.SelectedTab.Name == "UCHocVan")
+            else if (btnSearch.SelectedTab.Name == "UCHocVan")
             {
                 Configuration.TAB_CURRENT = Configuration.TAB_HOC_VAN;
             }
-            else if (tabControlHome.SelectedTab.Name == "UCLuong")
+            else if (btnSearch.SelectedTab.Name == "UCLuong")
             {
                 Configuration.TAB_CURRENT = Configuration.TAB_LUONG;
             }
-            else if (tabControlHome.SelectedTab.Name == "UCChucVu")
+            else if (btnSearch.SelectedTab.Name == "UCChucVu")
             {
                 Configuration.TAB_CURRENT = Configuration.TAB_CHUCVU;
             }
@@ -126,19 +126,19 @@ namespace HumanResource.GUI
         {
            if(e.Index != 0) { 
                 e.Graphics.DrawImage(img, new Point(e.Bounds.Right - 18, e.Bounds.Top + 1));
-                e.Graphics.DrawString(this.tabControlHome.TabPages[e.Index].Text, e.Font, Brushes.Black, e.Bounds.Left + 3, e.Bounds.Top + 4);
+                e.Graphics.DrawString(this.btnSearch.TabPages[e.Index].Text, e.Font, Brushes.Black, e.Bounds.Left + 3, e.Bounds.Top + 4);
                 e.DrawFocusRectangle();
             }
         }
 
         private void tabControlHome_MouseDown(object sender, MouseEventArgs e)
         {
-            Rectangle r = tabControlHome.GetTabRect(this.tabControlHome.SelectedIndex);
+            Rectangle r = btnSearch.GetTabRect(this.btnSearch.SelectedIndex);
             Rectangle closeButton = new Rectangle(r.Right - 15, r.Top + 4, 9, 7);
             if (closeButton.Contains(e.Location))
             {
                 
-                this.tabControlHome.TabPages.Remove(this.tabControlHome.SelectedTab);
+                this.btnSearch.TabPages.Remove(this.btnSearch.SelectedTab);
             }
         }
 
@@ -448,5 +448,14 @@ namespace HumanResource.GUI
             login.Closed += (s, args) => this.Close();
             login.Show();
         }
+
+        private void btnSearchh_Click(object sender, EventArgs e)
+        {
+            Form frmSearch = new FormSearch();
+            frmSearch.FormBorderStyle = FormBorderStyle.FixedSingle;
+            frmSearch.ShowDialog();
+            
+        }
     }
 }
+ 

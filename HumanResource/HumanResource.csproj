@@ -79,6 +79,18 @@
     <Compile Include="GUI\FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FormSearchDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormSearchDialog.Designer.cs">
+      <DependentUpon>FormSearchDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormSearch.Designer.cs">
+      <DependentUpon>FormSearch.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FrmThanNhanNV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +165,12 @@
     <EmbeddedResource Include="GUI\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormSearchDialog.resx">
+      <DependentUpon>FormSearchDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormSearch.resx">
+      <DependentUpon>FormSearch.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmThanNhanNV.resx">
       <DependentUpon>FrmThanNhanNV.cs</DependentUpon>
     </EmbeddedResource>
@@ -201,7 +219,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resource\search.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resource\add.png" />
   </ItemGroup>
@@ -237,6 +257,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resource\yes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\search2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

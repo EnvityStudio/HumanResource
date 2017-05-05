@@ -16,12 +16,14 @@ namespace HumanResource.BUS
         public static bool CheckAccount(NhanVien nhanVien)
         {
             DataTable dtNhanVien = GetListNhanVien();
-            var userName = nhanVien.MaNV;
+            var userName = nhanVien.HoTen;
             var matKhau = nhanVien.MatKhau;
+            
             foreach (DataRow row in dtNhanVien.Rows)
             {
-                var name = row["MaNV"].ToString();
+                var name = row["HoTen"].ToString();
                 var passw = row["MatKhau"].ToString();
+                if (passw == null) continue;
                 if (userName == name && matKhau == passw)
                 {
                     return true;
@@ -232,6 +234,67 @@ namespace HumanResource.BUS
         {
             return Dao.DeleteChucVu(maCV);
         }
-       
+
+        public static string formatKey(string key)
+        {
+            string newKey = "%" + key + "%";
+            return newKey;
+        }
+
+        public static DataTable SearchNhanVienByMaNV(string key)
+        {
+            key = formatKey(key);
+            return Dao.SearchNhanVienByMaNV(key);
+        }
+
+        public static DataTable SearchNhanVienByTenNV(string key)
+        {
+            key = formatKey(key);
+            return Dao.SearchNhanVienByTenNV(key);
+        }
+        public static DataTable SearchNhanVienByQueQuan(string key)
+        {
+            key = formatKey(key);
+            return Dao.SearchNhanVienByQueQuan(key);
+        }
+        public static DataTable SearchNhanVienByGioiTinh(string key)
+        {
+          //  key = key
+          if(key.Contains("nữ") || key.Contains("nu"))
+            {
+                return getNuNV();
+            }
+          else if (key.Contains("na"))
+            {
+                return Dao.getNamNhanVien();
+            }
+            else if (key.Contains("n"))
+            {
+                return Dao.GetListNhanVien();
+            }
+            return Dao.SearchNhanVienByGioiTinh(key);
+        }
+        public static DataTable SearchNhanVienByPhongBan(string key)
+        {
+            key = formatKey(key);
+            DataTable dtPB = Dao.SearchPhongBanByTenPB(key);
+            string maPB = "";
+            if(dtPB != null)
+            {
+                maPB = dtPB.Rows[0]["MaPB"].ToString();
+            }
+            return Dao.SearchNhanVienByMaPB(maPB);
+        }
+        public static string getTenPhongBanByMaPB(string key)
+        {
+            key = formatKey(key);
+            DataTable dtPB = Dao.SearchPhongBanByTenPB(key);
+            return dtPB.Rows[0]["TenPB"].ToString();
+        }
+        public static DataTable getNuNV()
+        {
+            return Dao.getNuNhanVien();
+        }
+
     }
 }

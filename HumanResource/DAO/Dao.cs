@@ -379,5 +379,59 @@ namespace HumanResource.DAO
         {
             return DataProvider.GetData(config.PROC_GET_MA_TDHV_NEXT);
         }
+
+        public static DataTable SearchNhanVienByMaNV(string key)
+        {
+            SqlParameter[] para = new SqlParameter[] {
+                new SqlParameter("@key",key)
+            };
+            return DataProvider.GetDataByParameter(config.PROC_SEARCH_NV_BY_MANV, para);
+        }
+
+        public static DataTable SearchNhanVienByTenNV(string key)
+        {
+            SqlParameter[] para = new SqlParameter[] {
+                new SqlParameter("@key",key)
+            };
+            return DataProvider.GetDataByParameter(config.PROC_SEARCH_NV_BY_TENNV, para);
+        }
+
+        public static DataTable SearchNhanVienByGioiTinh(string key)
+        {
+            SqlParameter[] para = new SqlParameter[] {
+                new SqlParameter("@key",key)
+            };
+            return DataProvider.GetDataByParameter(config.PROC_SEARCH_NV_BY_GIOITINH, para);
+        }
+        public static DataTable SearchNhanVienByQueQuan(string key)
+        {
+            SqlParameter[] para = new SqlParameter[] {
+                new SqlParameter("@key",key)
+            };
+            return DataProvider.GetDataByParameter(config.PROC_SEARCH_NV_BY_QUEQUAN, para);
+        }
+
+        public static DataTable SearchPhongBanByTenPB(string key)
+        {
+            SqlParameter[] para = new SqlParameter[] {
+                new SqlParameter("@key",key)
+            };
+            return DataProvider.GetDataByParameter(config.PROC_SEARCH_PB_BY_TENPB, para);
+        }
+        public static DataTable SearchNhanVienByMaPB(string key)
+        {
+            SqlParameter[] para = new SqlParameter[] {
+                new SqlParameter("@key",key)
+            };
+            return DataProvider.GetDataByParameter(config.PROC_SEARCH_NV_BY_MAPB, para);
+        }
+        public static DataTable getNuNhanVien()
+        {
+            return DataProvider.GetData(config.PROC_GET_NU_NV);
+        }
+        public static DataTable getNamNhanVien()
+        {
+            return DataProvider.GetData(config.PROC_GET_NAM_NV);
+        }
     }
 }
