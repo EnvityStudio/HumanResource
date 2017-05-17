@@ -91,8 +91,10 @@
             this.dgvThanNhan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvThanNhan.Location = new System.Drawing.Point(0, 0);
             this.dgvThanNhan.Name = "dgvThanNhan";
+            this.dgvThanNhan.ReadOnly = true;
             this.dgvThanNhan.Size = new System.Drawing.Size(802, 502);
             this.dgvThanNhan.TabIndex = 0;
+            this.dgvThanNhan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvThanNhan_CellClick);
             this.dgvThanNhan.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvThanNhan_CellContentClick);
             // 
             // lbl1
@@ -110,8 +112,7 @@
             this.textBoxTenThanNhan.Location = new System.Drawing.Point(153, 153);
             this.textBoxTenThanNhan.Name = "textBoxTenThanNhan";
             this.textBoxTenThanNhan.Size = new System.Drawing.Size(187, 20);
-            this.textBoxTenThanNhan.TabIndex = 5;
-            this.textBoxTenThanNhan.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBoxTenThanNhan.TabIndex = 2;
             // 
             // label2
             // 
@@ -137,7 +138,7 @@
             this.textBoxMaTN.Location = new System.Drawing.Point(153, 100);
             this.textBoxMaTN.Name = "textBoxMaTN";
             this.textBoxMaTN.Size = new System.Drawing.Size(187, 20);
-            this.textBoxMaTN.TabIndex = 3;
+            this.textBoxMaTN.TabIndex = 1;
             // 
             // label4
             // 
@@ -154,7 +155,7 @@
             this.rbNam.Location = new System.Drawing.Point(153, 211);
             this.rbNam.Name = "rbNam";
             this.rbNam.Size = new System.Drawing.Size(47, 17);
-            this.rbNam.TabIndex = 6;
+            this.rbNam.TabIndex = 3;
             this.rbNam.TabStop = true;
             this.rbNam.Text = "Nam";
             this.rbNam.UseVisualStyleBackColor = true;
@@ -165,7 +166,7 @@
             this.rbNu.Location = new System.Drawing.Point(258, 211);
             this.rbNu.Name = "rbNu";
             this.rbNu.Size = new System.Drawing.Size(39, 17);
-            this.rbNu.TabIndex = 6;
+            this.rbNu.TabIndex = 4;
             this.rbNu.TabStop = true;
             this.rbNu.Text = "Nữ";
             this.rbNu.UseVisualStyleBackColor = true;
@@ -186,7 +187,6 @@
             this.textBoxQuanHe.Name = "textBoxQuanHe";
             this.textBoxQuanHe.Size = new System.Drawing.Size(187, 20);
             this.textBoxQuanHe.TabIndex = 5;
-            this.textBoxQuanHe.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // cbxMaNV
             // 
@@ -196,7 +196,7 @@
             this.cbxMaNV.Location = new System.Drawing.Point(153, 50);
             this.cbxMaNV.Name = "cbxMaNV";
             this.cbxMaNV.Size = new System.Drawing.Size(187, 21);
-            this.cbxMaNV.TabIndex = 7;
+            this.cbxMaNV.TabIndex = 0;
             // 
             // panel3
             // 

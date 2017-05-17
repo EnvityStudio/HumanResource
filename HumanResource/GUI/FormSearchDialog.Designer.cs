@@ -95,7 +95,7 @@
             this.btnCancel.Text = "Hủy";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
-            // FormSearch
+            // FormSearchDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -106,9 +106,9 @@
             this.Controls.Add(this.txtKey);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "FormSearch";
+            this.Name = "FormSearchDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormSearch";
+            this.Text = "Tìm kiếm nhân viên";
             this.ResumeLayout(false);
             this.PerformLayout();
 

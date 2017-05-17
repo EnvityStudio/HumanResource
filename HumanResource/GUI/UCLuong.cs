@@ -14,6 +14,7 @@ namespace HumanResource.GUI
 {
     public partial class UCLuong : UserControl
     {
+        private bool isAction;
         public UCLuong()
         {
             InitializeComponent();
@@ -25,12 +26,22 @@ namespace HumanResource.GUI
 
         }
 
+        public void setIsAction(bool v)
+        {
+            isAction = v;
+        }
+
         private void dgvLuong_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtBacLuong.Text = dgvLuong.Rows[e.RowIndex].Cells["BacLuong"].Value.ToString();
-            txtHeSoLuong.Text = dgvLuong.Rows[e.RowIndex].Cells["HeSoLuong"].Value.ToString();
-            txtHeSoPhuCap.Text = dgvLuong.Rows[e.RowIndex].Cells["HeSoPhuCap"].Value.ToString();
-            txtLuongCoBan.Text = dgvLuong.Rows[e.RowIndex].Cells["LuongCoBan"].Value.ToString();
+            try
+            {
+                if (isAction) return;
+                txtBacLuong.Text = dgvLuong.Rows[e.RowIndex].Cells["BacLuong"].Value.ToString();
+                txtHeSoLuong.Text = dgvLuong.Rows[e.RowIndex].Cells["HeSoLuong"].Value.ToString();
+                txtHeSoPhuCap.Text = dgvLuong.Rows[e.RowIndex].Cells["HeSoPhuCap"].Value.ToString();
+                txtLuongCoBan.Text = dgvLuong.Rows[e.RowIndex].Cells["LuongCoBan"].Value.ToString();
+            } catch (Exception er) { }
+           
         }
 
         public void ClearTextBox()
@@ -68,7 +79,10 @@ namespace HumanResource.GUI
             luong.LuongCoBan = txtLuongCoBan.Text;
             return luong;
         }
-        
+        public bool getIsAction()
+        {
+            return this.isAction;
+        }
         public void AddLuong()
         {
             setBacLuong();
@@ -80,6 +94,7 @@ namespace HumanResource.GUI
                 ClearTextBox();
                 enableTextBox(false);
                 LoadData();
+                isAction = false;
             }
             else
             {
@@ -97,6 +112,7 @@ namespace HumanResource.GUI
                 ClearTextBox();
                 enableTextBox(false);
                 LoadData();
+                isAction = false;
             }
             else
             {
@@ -121,5 +137,17 @@ namespace HumanResource.GUI
             }
         }
 
+        private void dgvLuong_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (isAction) return;
+                txtBacLuong.Text = dgvLuong.Rows[e.RowIndex].Cells["BacLuong"].Value.ToString();
+                txtHeSoLuong.Text = dgvLuong.Rows[e.RowIndex].Cells["HeSoLuong"].Value.ToString();
+                txtHeSoPhuCap.Text = dgvLuong.Rows[e.RowIndex].Cells["HeSoPhuCap"].Value.ToString();
+                txtLuongCoBan.Text = dgvLuong.Rows[e.RowIndex].Cells["LuongCoBan"].Value.ToString();
+            }
+            catch (Exception er) { }
+        }
     }
 }

@@ -140,6 +140,7 @@ namespace HumanResource.DAO
 
         public static int UpdatePhongBan(PhongBan phongBan)
         {
+            if (phongBan == null) return -1;
             SqlParameter[] para = new SqlParameter[] {
                 new SqlParameter("@"+config.PHONGBAN_MAPB,phongBan.MaPB),
                 new SqlParameter("@"+config.PHONGBAN_TENPB,phongBan.TenPB),

@@ -14,6 +14,7 @@ namespace HumanResource.GUI
 {
     public partial class UCChucVu : UserControl
     {
+        private bool isAction;
         public UCChucVu()
         {
             InitializeComponent();
@@ -28,8 +29,20 @@ namespace HumanResource.GUI
 
         private void dgvChucVu_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtMaCV.Text =  dgvChucVu.Rows[e.RowIndex].Cells["MaCV"].Value.ToString();
-            txtTenChucVu.Text = dgvChucVu.Rows[e.RowIndex].Cells["TenCV"].Value.ToString();
+            try
+            {
+                if (isAction) return;
+                txtMaCV.Text = dgvChucVu.Rows[e.RowIndex].Cells["MaCV"].Value.ToString();
+                txtTenChucVu.Text = dgvChucVu.Rows[e.RowIndex].Cells["TenCV"].Value.ToString();
+            }
+            catch (Exception er){           
+            }
+           
+        }
+
+        public void setIsAction(bool v)
+        {
+            isAction = v;
         }
 
         public void ClearTextBox()
@@ -46,6 +59,7 @@ namespace HumanResource.GUI
         public void EnableTextBox(bool bol)
         {
             txtTenChucVu.Enabled = bol;
+
         }
 
         private bool isEmpty()
@@ -61,7 +75,10 @@ namespace HumanResource.GUI
         {
             return new ChucVu() { MaCV = txtMaCV.Text, TenCV = txtTenChucVu.Text};
         }
-
+        public bool getIsAction()
+        {
+            return this.isAction;
+        }
         public void AddChucVu()
         {
             if (!isEmpty())
@@ -77,6 +94,7 @@ namespace HumanResource.GUI
                 LoadData();
                 ClearTextBox();
                 EnableTextBox(false);
+                isAction = false;
             }
             else
             {
@@ -119,12 +137,26 @@ namespace HumanResource.GUI
                     MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK);
                     LoadData();
                     EnableTextBox(false);
+                    isAction = false;
                 }else
                 {
                     MessageBox.Show("Sửa không thành công", "Thông báo", MessageBoxButtons.OK);
                 }
             }
 
+        }
+
+        private void dgvChucVu_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (this.isAction) return;
+                txtMaCV.Text = dgvChucVu.Rows[e.RowIndex].Cells["MaCV"].Value.ToString();
+                txtTenChucVu.Text = dgvChucVu.Rows[e.RowIndex].Cells["TenCV"].Value.ToString();
+            }
+            catch (Exception er)
+            {
+            }
         }
     }
 }

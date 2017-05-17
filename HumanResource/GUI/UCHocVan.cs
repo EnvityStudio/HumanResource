@@ -15,15 +15,21 @@ namespace HumanResource.GUI
     public partial class UCHocVan : UserControl
     {
         private TrinhDoHocVan hocVanCurrent = new TrinhDoHocVan();
+        private bool isAction;
         public UCHocVan()
         {
             InitializeComponent();
             LoadData();
         }
-       
+
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        public void setIsAction(bool v)
+        {
+            isAction = v;
         }
 
         private void LoadData()
@@ -34,11 +40,19 @@ namespace HumanResource.GUI
 
         private void dgvHocVan_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-          hocVanCurrent.MaTDHV =   txtMaHocVan.Text = dgvHocVan.Rows[e.RowIndex].Cells["MaTDHV"].Value.ToString();
-          hocVanCurrent.TenTrinhDo =  txtTenHocVan.Text = dgvHocVan.Rows[e.RowIndex].Cells["TenTDHV"].Value.ToString();
-          hocVanCurrent.ChuyenNganh = txtChuyenNganh.Text = dgvHocVan.Rows[e.RowIndex].Cells["ChuyenNganh"].Value.ToString();
-          txtSoLuong.Text = dgvHocVan.Rows[e.RowIndex].Cells["SoLuong"].Value.ToString();
-          hocVanCurrent.SoLuong = int.Parse(txtSoLuong.Text);
+            try {
+                if (isAction) return;
+                hocVanCurrent.MaTDHV = txtMaHocVan.Text = dgvHocVan.Rows[e.RowIndex].Cells["MaTDHV"].Value.ToString();
+                hocVanCurrent.TenTrinhDo = txtTenHocVan.Text = dgvHocVan.Rows[e.RowIndex].Cells["TenTDHV"].Value.ToString();
+                hocVanCurrent.ChuyenNganh = txtChuyenNganh.Text = dgvHocVan.Rows[e.RowIndex].Cells["ChuyenNganh"].Value.ToString();
+                txtSoLuong.Text = dgvHocVan.Rows[e.RowIndex].Cells["SoLuong"].Value.ToString();
+                hocVanCurrent.SoLuong = int.Parse(txtSoLuong.Text);
+            }
+            catch(Exception er)
+            {
+
+            }
+           
         }
 
         public void ClearTextBox()
@@ -64,7 +78,7 @@ namespace HumanResource.GUI
 
         public void enableToolBox(bool bol)
         {
-   
+
             txtTenHocVan.Enabled = bol;
             txtChuyenNganh.Enabled = bol;
         }
@@ -78,18 +92,30 @@ namespace HumanResource.GUI
             hocVan.SoLuong = 0;
             hocVan.MaTDHV = txtMaHocVan.Text;
             return hocVan;
-        } 
+        }
+        public bool getIsAction()
+        {
+            return this.isAction;
+        }
+
+        public bool checkEmpty()
+        {
+            if (txtTenHocVan.Text == "" || txtChuyenNganh.Text == "") return false;
+            return true;
+        }
 
         public void AddHocVan()
         {
-            TrinhDoHocVan hocVan = getHocVanToAdd();
+            if (!checkEmpty()) return;
+             TrinhDoHocVan hocVan = getHocVanToAdd();
             int result = Bus.AddHocVan(hocVan);
-            if(result != -1)
+            if (result != -1)
             {
-                MessageBox.Show("Thêm học vấn thành công !","Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Thêm học vấn thành công !", "Thông báo", MessageBoxButtons.OK);
                 LoadData();
                 ClearTextBox();
                 enableToolBox(false);
+                isAction = false;
             }
             else
             {
@@ -98,22 +124,22 @@ namespace HumanResource.GUI
         }
         public void DeleteHocVan()
         {
-            if(hocVanCurrent.SoLuong > 0)
+            if (hocVanCurrent.SoLuong > 0)
             {
-                MessageBox.Show("Bạn không được phép xóa học vấn này!" ,"Thông báo" ,MessageBoxButtons.OK);
+                MessageBox.Show("Bạn không được phép xóa học vấn này!", "Thông báo", MessageBoxButtons.OK);
                 return;
             }
             int result = Bus.DeleteHocVan(hocVanCurrent.MaTDHV);
-            if(result != -1)
+            if (result != -1)
             {
-                MessageBox.Show("Xóa thành công!","Thông báo",MessageBoxButtons.OK);
+                MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK);
                 ClearTextBox();
                 enableToolBox(false);
                 LoadData();
             }
             else
             {
-                MessageBox.Show("Xóa không thành công!","Thông báo",MessageBoxButtons.OK);
+                MessageBox.Show("Xóa không thành công!", "Thông báo", MessageBoxButtons.OK);
             }
         }
 
@@ -130,16 +156,31 @@ namespace HumanResource.GUI
         public void UpdateHocVan()
         {
             int result = Bus.UpdateHocVan(getHocVanFromFRM());
-            if(result != -1)
+            if (result != -1)
             {
-                MessageBox.Show("Cập nhật thành công!","Thông báo",MessageBoxButtons.OK);
+                MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK);
                 ClearTextBox();
                 enableToolBox(false);
                 LoadData();
-            }else
+            }
+            else
             {
                 MessageBox.Show("Không thành công!", "Thông báo", MessageBoxButtons.OK);
             }
+        }
+
+        private void dgvHocVan_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (isAction) return;
+                hocVanCurrent.MaTDHV = txtMaHocVan.Text = dgvHocVan.Rows[e.RowIndex].Cells["MaTDHV"].Value.ToString();
+                hocVanCurrent.TenTrinhDo = txtTenHocVan.Text = dgvHocVan.Rows[e.RowIndex].Cells["TenTDHV"].Value.ToString();
+                hocVanCurrent.ChuyenNganh = txtChuyenNganh.Text = dgvHocVan.Rows[e.RowIndex].Cells["ChuyenNganh"].Value.ToString();
+                txtSoLuong.Text = dgvHocVan.Rows[e.RowIndex].Cells["SoLuong"].Value.ToString();
+                hocVanCurrent.SoLuong = int.Parse(txtSoLuong.Text);
+            } catch(Exception er) { }
+           
         }
     }
 }

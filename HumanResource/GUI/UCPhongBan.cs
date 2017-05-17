@@ -14,6 +14,7 @@ namespace HumanResource.GUI
 {
     public partial class UCPhongBan : UserControl
     {
+        private bool isAction;
         public UCPhongBan()
         {
             InitializeComponent();
@@ -23,6 +24,11 @@ namespace HumanResource.GUI
         private void LoadData()
         {
             dgvPhongBan.DataSource = Bus.GetListPhongBan();
+        }
+
+        public void setIsAction(bool v)
+        {
+            isAction = v;
         }
 
         private void LoadComboboxData(ComboBox cbb, List<DataItem> list)
@@ -49,12 +55,20 @@ namespace HumanResource.GUI
 
         private void dgvPhongBan_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtMaPB.Text = dgvPhongBan.Rows[e.RowIndex].Cells["MaPB"].Value.ToString();
-            txtTenPB.Text = dgvPhongBan.Rows[e.RowIndex].Cells["TenPB"].Value.ToString();
-            LoadNameFromID(cbbTruongPhong, dgvPhongBan.Rows[e.RowIndex].Cells["MaTP"].Value.ToString(), Bus.GetList("GetlistNhanVien"));
-            txtDiaChi.Text = dgvPhongBan.Rows[e.RowIndex].Cells["DiaChi"].Value.ToString();
-            txtSoDT.Text = dgvPhongBan.Rows[e.RowIndex].Cells["SDT"].Value.ToString();
-            txtTongNV.Text = dgvPhongBan.Rows[e.RowIndex].Cells["TongNV"].Value.ToString();
+            try
+            {
+                if (isAction) return;
+                txtMaPB.Text = dgvPhongBan.Rows[e.RowIndex].Cells["MaPB"].Value.ToString();
+                txtTenPB.Text = dgvPhongBan.Rows[e.RowIndex].Cells["TenPB"].Value.ToString();
+                LoadNameFromID(cbbTruongPhong, dgvPhongBan.Rows[e.RowIndex].Cells["MaTP"].Value.ToString(), Bus.GetList("GetlistNhanVien"));
+                txtDiaChi.Text = dgvPhongBan.Rows[e.RowIndex].Cells["DiaChi"].Value.ToString();
+                txtSoDT.Text = dgvPhongBan.Rows[e.RowIndex].Cells["SDT"].Value.ToString();
+                txtTongNV.Text = dgvPhongBan.Rows[e.RowIndex].Cells["TongNV"].Value.ToString();
+            }
+            catch (Exception er)
+            {
+
+            }
             //DataTable dt = Bus.SearchNhanVienTheoMa(txtMaTP.Text);
             //if (dt.Rows.Count > 0)
             //{
@@ -76,10 +90,10 @@ namespace HumanResource.GUI
             txtMaPB.Text = "";
             txtTenPB.Text = "";
             txtDiaChi.Text = "";
-           // txtTenTruongPhong.Text = "";
+            // txtTenTruongPhong.Text = "";
             txtSoDT.Text = "";
             txtTongNV.Text = "0";
-            LoadComboboxData(cbbTruongPhong,Bus.GetList("GetListNhanVien"));
+            LoadComboboxData(cbbTruongPhong, Bus.GetList("GetListNhanVien"));
         }
 
         public bool checkNullToolBox()
@@ -92,25 +106,32 @@ namespace HumanResource.GUI
             return true;
         }
 
+        public bool getIsAction()
+        {
+            return this.isAction;
+        }
+
         public void AddPhongBan()
         {
             bool isEmpty = checkNullToolBox();
             if (!isEmpty)
             {
                 MessageBox.Show("Hãy điền đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK);
-                return ;
+                return;
             }
             PhongBan phongBan = getPhongBan();
             int result = Bus.InsertPhongBan(phongBan);
-            if(result != -1)
+            if (result != -1)
             {
-                MessageBox.Show("Thêm mới phòng ban thành công!","Thông báo",MessageBoxButtons.OK);
+                MessageBox.Show("Thêm mới phòng ban thành công!", "Thông báo", MessageBoxButtons.OK);
                 enableTextBox(false);
                 ClearTextBox();
                 LoadData();
-            } else
+                isAction = false;
+            }
+            else
             {
-                MessageBox.Show("Không thành công!","Thông báo",MessageBoxButtons.OK);
+                MessageBox.Show("Không thành công!", "Thông báo", MessageBoxButtons.OK);
             }
         }
         public string getMaPBNext()
@@ -126,14 +147,20 @@ namespace HumanResource.GUI
 
         private PhongBan getPhongBan()
         {
-            PhongBan phongBan = new PhongBan();
-            phongBan.MaPB = txtMaPB.Text;
-            phongBan.TenPB = txtTenPB.Text;
-            phongBan.MaTP = cbbTruongPhong.SelectedValue.ToString();
-            phongBan.SDT = txtSoDT.Text;
-            phongBan.DiaChi = txtDiaChi.Text;
-            phongBan.SoLuong = int.Parse(txtTongNV.Text);
-            return phongBan;
+            try
+            {
+                PhongBan phongBan = new PhongBan();
+                phongBan.MaPB = txtMaPB.Text;
+                phongBan.TenPB = txtTenPB.Text;
+                phongBan.MaTP = cbbTruongPhong.SelectedValue.ToString();
+                phongBan.SDT = txtSoDT.Text;
+                phongBan.DiaChi = txtDiaChi.Text;
+                phongBan.SoLuong = int.Parse(txtTongNV.Text);
+                return phongBan;
+            } catch(Exception e) {
+                return null;
+            }
+           
         }
 
         public void DeletePhongBan()
@@ -150,7 +177,7 @@ namespace HumanResource.GUI
             }
             else
             {
-                MessageBox.Show("Không thành công!","Thông báo",MessageBoxButtons.OK);
+                MessageBox.Show("Không thành công!", "Thông báo", MessageBoxButtons.OK);
             }
         }
 
@@ -165,6 +192,7 @@ namespace HumanResource.GUI
                 ClearTextBox();
                 enableTextBox(false);
                 LoadData();
+                isAction = false;
             }
             else
             {
@@ -172,5 +200,22 @@ namespace HumanResource.GUI
             }
         }
 
+        private void dgvPhongBan_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (isAction) return;
+                txtMaPB.Text = dgvPhongBan.Rows[e.RowIndex].Cells["MaPB"].Value.ToString();
+                txtTenPB.Text = dgvPhongBan.Rows[e.RowIndex].Cells["TenPB"].Value.ToString();
+                LoadNameFromID(cbbTruongPhong, dgvPhongBan.Rows[e.RowIndex].Cells["MaTP"].Value.ToString(), Bus.GetList("GetlistNhanVien"));
+                txtDiaChi.Text = dgvPhongBan.Rows[e.RowIndex].Cells["DiaChi"].Value.ToString();
+                txtSoDT.Text = dgvPhongBan.Rows[e.RowIndex].Cells["SDT"].Value.ToString();
+                txtTongNV.Text = dgvPhongBan.Rows[e.RowIndex].Cells["TongNV"].Value.ToString();
+            }
+            catch (Exception er)
+            {
+
+            }
+        }
     }
 }

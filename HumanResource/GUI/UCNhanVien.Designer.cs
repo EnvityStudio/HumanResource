@@ -224,6 +224,7 @@
             // dataGridViewThanNhan
             // 
             this.dataGridViewThanNhan.AllowUserToAddRows = false;
+            this.dataGridViewThanNhan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewThanNhan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewThanNhan.Location = new System.Drawing.Point(901, 43);
             this.dataGridViewThanNhan.MultiSelect = false;
@@ -231,6 +232,7 @@
             this.dataGridViewThanNhan.ReadOnly = true;
             this.dataGridViewThanNhan.Size = new System.Drawing.Size(392, 181);
             this.dataGridViewThanNhan.TabIndex = 67;
+            this.dataGridViewThanNhan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewThanNhan_CellClick);
             this.dataGridViewThanNhan.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewThanNhan_CellContentClick);
             // 
             // cbbLuong
@@ -445,6 +447,7 @@
             this.txtCMND.Name = "txtCMND";
             this.txtCMND.Size = new System.Drawing.Size(167, 20);
             this.txtCMND.TabIndex = 7;
+            this.txtCMND.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCMND_KeyPress);
             // 
             // txtDanToc
             // 
@@ -459,6 +462,7 @@
             this.txtSoDT.Name = "txtSoDT";
             this.txtSoDT.Size = new System.Drawing.Size(167, 20);
             this.txtSoDT.TabIndex = 6;
+            this.txtSoDT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoDT_KeyPress);
             // 
             // txtEmail
             // 

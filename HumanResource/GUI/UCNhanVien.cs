@@ -34,12 +34,14 @@ namespace HumanResource.GUI
         List<DataItem> listTDHV;
         List<DataItem> listLuong;
         private string maNVCurrent;
+        private bool isAcction;
 
         public UCNhanVien()
         {
             InitializeComponent();
             Configuration.TAB_CURRENT = Configuration.TAB_NHANVIEN;
         }
+
 
         private void UCNhanVien_Load(object sender, EventArgs e)
         {
@@ -50,12 +52,18 @@ namespace HumanResource.GUI
         public void LoadData()
         {
             dataGridViewNhanVien.DataSource = Bus.GetListNhanVien();
-            //dataGridViewNhanVien.Columns["Anh"].Visible = false;
+            dataGridViewNhanVien.Columns["Anh"].Visible = false;
+            dataGridViewNhanVien.Columns["MatKhau"].Visible = false;
             dataGridViewNhanVien.Columns["TrangThai"].Visible = false;
             listPhongBan = Bus.GetList(PROC_GET_LIST_PHONGBAN);
             listChucVu = Bus.GetList(PROC_GET_LIST_CHUC_VU);
             listTDHV = Bus.GetList(PROC_GET_LIST_TDHV);
             listLuong = Bus.GetList(PROC_GET_LIST_LUONG);
+        }
+
+        public void setIsAction(bool bol)
+        {
+            isAcction = bol;
         }
 
         private void dataGridViewNhanVien_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -164,6 +172,7 @@ namespace HumanResource.GUI
             else
             {
                 enableBox(true);
+                isAcction = true;
             }
         }
 
@@ -178,7 +187,60 @@ namespace HumanResource.GUI
 
         private void dataGridViewNhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (isAcction) return;
+            try
+            {
+                try
+                {
+                    dataGridViewThanNhan.Rows[0].Selected = true;
+                    maTNCurent = dataGridViewThanNhan.Rows[0].Cells[0].Value.ToString();
+                }
+                catch (Exception ex)
+                {
 
+                }
+                txtHoTen.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[1].Value.ToString();
+                txtCMND.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells["CMND"].Value.ToString();
+                txtMaNV.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[0].Value.ToString();
+                txtMK.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells["MatKhau"].Value.ToString().Trim();
+                if (dataGridViewNhanVien.Rows[e.RowIndex].Cells[5].Value.ToString().Contains("Nam"))
+                {
+                    rdGTNam.Checked = true;
+                    rdGTNu.Checked = false;
+                }
+                else
+                {
+                    rdGTNam.Checked = false;
+                    rdGTNu.Checked = true;
+                }
+                txtQueQuan.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[4].Value.ToString();
+                txtEmail.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells["Email"].Value.ToString();
+                txtSoDT.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[3].Value.ToString();
+                LoadNameFromID(cbbChucVu, dataGridViewNhanVien.Rows[e.RowIndex].Cells[8].Value.ToString(), listChucVu);
+                LoadNameFromID(cbbLuong, dataGridViewNhanVien.Rows[e.RowIndex].Cells[10].Value.ToString(), listLuong);
+                LoadNameFromID(cbbPhong, dataGridViewNhanVien.Rows[e.RowIndex].Cells[7].Value.ToString(), listPhongBan);
+                LoadNameFromID(cbbTrinhDo, dataGridViewNhanVien.Rows[e.RowIndex].Cells[9].Value.ToString(), listTDHV);
+                txtDanToc.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[6].Value.ToString();
+                dtNgaySInh.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[2].Value.ToString();
+                string pathImg = dataGridViewNhanVien.Rows[e.RowIndex].Cells["Anh"].Value.ToString();
+                if (!pathImg.Equals(""))
+                {
+                    var path = Configuration.GetProjectLinkDirectory();
+                    path = path + dataGridViewNhanVien.Rows[e.RowIndex].Cells["Anh"].Value.ToString();
+                    pictureBox1.Image = Image.FromFile(path);
+                }
+                else
+                {
+                    string pathImage = Configuration.GetProjectLinkDirectory() + @"\Resource\noimage.PNG";
+                    pictureBox1.Image = Image.FromFile(pathImage);
+                }
+                maNVCurrent = dataGridViewNhanVien.Rows[e.RowIndex].Cells["MaNV"].Value.ToString();
+                GetThanNhanNhanVien(maNVCurrent);
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error.Message);
+            }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -358,6 +420,10 @@ namespace HumanResource.GUI
             errorProvider1.SetError(txt, "");
             return true;
         }
+        public bool getIsAction()
+        {
+            return this.isAcction;
+        }
         public void AddNhanVien()
         {
             if (!checkTextBox())
@@ -371,13 +437,14 @@ namespace HumanResource.GUI
                 LoadData();
                 ClearTextBoox();
                 enableBox(false);
+                isAcction = false;
             }
             else
             {
                 MessageBox.Show("Thêm không thành công", "Thông báo", MessageBoxButtons.OK);
             }
         }
-        private void enableBox(bool bol)
+        public void enableBox(bool bol)
         {
             txtHoTen.Enabled = bol;
             txtCMND.Enabled = bol;
@@ -400,7 +467,18 @@ namespace HumanResource.GUI
 
         private void dataGridViewNhanVien_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (isAcction) return;
             try {
+                try
+                {
+                    dataGridViewThanNhan.Rows[0].Selected = true;
+                    maTNCurent = dataGridViewThanNhan.Rows[0].Cells[0].Value.ToString();
+                }
+                catch (Exception ex)
+                {
+
+                }
+
                 txtHoTen.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[1].Value.ToString();
                 txtCMND.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells["CMND"].Value.ToString();
                 txtMaNV.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[0].Value.ToString();
@@ -457,6 +535,7 @@ namespace HumanResource.GUI
                 LoadData();
                 ClearTextBoox();
                 enableBox(false);
+                isAcction = false;
             }
             else
             {
@@ -489,6 +568,15 @@ namespace HumanResource.GUI
             dataGridViewThanNhan.DataSource = dataThanNhan;
             dataGridViewThanNhan.Columns["MaNV"].Visible = false;
             dataGridViewThanNhan.Columns["MaTN"].Visible = false;
+            try
+            {
+                dataGridViewThanNhan.Rows[0].Selected = true;
+                maTNCurent = dataGridViewThanNhan.Rows[0].Cells[0].Value.ToString();
+            }
+            catch (Exception er)
+            {
+
+            }
         }
 
         private void btnThemTN_Click(object sender, EventArgs e)
@@ -536,6 +624,39 @@ namespace HumanResource.GUI
         private void groupBox4_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void dataGridViewThanNhan_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            maTNCurent = dataGridViewThanNhan.Rows[e.RowIndex].Cells["MaTN"].Value.ToString();
+        }
+
+        private void txtSoDT_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtCMND_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
         }
     }
 

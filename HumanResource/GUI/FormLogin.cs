@@ -32,7 +32,8 @@ namespace HumanResource.GUI
             if (isExist)
             {
                 this.Hide();
-                var main = new FormMain();
+               
+                var main = new FormMain(txtUserName.Text);
                 main.Closed += (s, args) => this.Close();
                 main.Show();
             }
@@ -45,6 +46,11 @@ namespace HumanResource.GUI
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void FormLogin_Load(object sender, EventArgs e)
+        {
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
         }
     }
 }

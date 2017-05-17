@@ -86,8 +86,10 @@
             this.dgvHocVan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvHocVan.Location = new System.Drawing.Point(0, 0);
             this.dgvHocVan.Name = "dgvHocVan";
+            this.dgvHocVan.ReadOnly = true;
             this.dgvHocVan.Size = new System.Drawing.Size(829, 443);
             this.dgvHocVan.TabIndex = 0;
+            this.dgvHocVan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHocVan_CellClick);
             this.dgvHocVan.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHocVan_CellContentClick);
             // 
             // lbMaHV
@@ -114,7 +116,7 @@
             this.txtTenHocVan.Location = new System.Drawing.Point(141, 96);
             this.txtTenHocVan.Name = "txtTenHocVan";
             this.txtTenHocVan.Size = new System.Drawing.Size(173, 20);
-            this.txtTenHocVan.TabIndex = 14;
+            this.txtTenHocVan.TabIndex = 2;
             this.txtTenHocVan.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // txtMaHocVan
@@ -123,7 +125,7 @@
             this.txtMaHocVan.Location = new System.Drawing.Point(141, 43);
             this.txtMaHocVan.Name = "txtMaHocVan";
             this.txtMaHocVan.Size = new System.Drawing.Size(173, 20);
-            this.txtMaHocVan.TabIndex = 14;
+            this.txtMaHocVan.TabIndex = 1;
             this.txtMaHocVan.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label2
@@ -141,7 +143,7 @@
             this.txtChuyenNganh.Location = new System.Drawing.Point(141, 149);
             this.txtChuyenNganh.Name = "txtChuyenNganh";
             this.txtChuyenNganh.Size = new System.Drawing.Size(173, 20);
-            this.txtChuyenNganh.TabIndex = 14;
+            this.txtChuyenNganh.TabIndex = 3;
             this.txtChuyenNganh.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label3
@@ -159,7 +161,7 @@
             this.txtSoLuong.Location = new System.Drawing.Point(141, 202);
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(173, 20);
-            this.txtSoLuong.TabIndex = 14;
+            this.txtSoLuong.TabIndex = 4;
             this.txtSoLuong.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // UCHocVan

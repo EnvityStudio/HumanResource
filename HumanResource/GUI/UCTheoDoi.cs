@@ -17,6 +17,7 @@ namespace HumanResource.GUI
     {
         string PROC_GET_LIST_NHAN_VIEN ="GetListNhanVien";
         string maTDCurrent;
+        private bool isAction;
         public UCTheoDoi()
         {
             InitializeComponent();
@@ -29,6 +30,11 @@ namespace HumanResource.GUI
             
             LoadComboboxData(cbbMaNV, Bus.GetList(PROC_GET_LIST_NHAN_VIEN));
             EnableDisableToolBox(false);
+        }
+
+        public void setIsAction(bool v)
+        {
+            isAction = v;
         }
 
         private void UCTheoDoi_Load(object sender, EventArgs e)
@@ -68,7 +74,10 @@ namespace HumanResource.GUI
             LoadComboboxData(cbbMaNV, Bus.GetList(PROC_GET_LIST_NHAN_VIEN));
             txtSuKien.Text = "";
         }
-
+        public bool getIsAction()
+        {
+            return this.isAction;
+        }
         public void AddTheoDoi()
         {
             int result = Bus.InsertTheoDoi(GetDataFromFRM());
@@ -77,6 +86,7 @@ namespace HumanResource.GUI
                 MessageBox.Show("Thêm thành công", "Thông Báo", MessageBoxButtons.OK);
                 txtSuKien.Text = "";
                 LoadData();
+                isAction = false;
             } else
             {
                 MessageBox.Show("Không thành công", "Thông Báo", MessageBoxButtons.OK);
@@ -100,11 +110,16 @@ namespace HumanResource.GUI
         }
 
         private void dataGridViewTheoDoi_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        { 
-            LoadNameFromID(cbbMaNV, dataGridViewTheoDoi.Rows[e.RowIndex].Cells["MaNV"].Value.ToString(),Bus.GetList("GetListNhanVien"));
-            txtSuKien.Text = dataGridViewTheoDoi.Rows[e.RowIndex].Cells["SuKien"].Value.ToString();
-            dtNgayThang.Text = dataGridViewTheoDoi.Rows[e.RowIndex].Cells["ThoiGian"].Value.ToString();
-            maTDCurrent = dataGridViewTheoDoi.Rows[e.RowIndex].Cells["MaSoTD"].Value.ToString();
+        {
+            try
+            {
+                if (isAction) return;
+                LoadNameFromID(cbbMaNV, dataGridViewTheoDoi.Rows[e.RowIndex].Cells["MaNV"].Value.ToString(), Bus.GetList("GetListNhanVien"));
+                txtSuKien.Text = dataGridViewTheoDoi.Rows[e.RowIndex].Cells["SuKien"].Value.ToString();
+                dtNgayThang.Text = dataGridViewTheoDoi.Rows[e.RowIndex].Cells["ThoiGian"].Value.ToString();
+                maTDCurrent = dataGridViewTheoDoi.Rows[e.RowIndex].Cells["MaSoTD"].Value.ToString();
+            } catch (Exception er) { }
+           
         }
         public void UpdateTheoDoi()
         {
@@ -115,6 +130,7 @@ namespace HumanResource.GUI
             {
                 MessageBox.Show("Update thành công", "Thông báo", MessageBoxButtons.OK);
                 LoadData();
+                isAction = false;
             } else
             {
                 MessageBox.Show("Update không thành công", "Thông báo", MessageBoxButtons.OK);
@@ -143,6 +159,19 @@ namespace HumanResource.GUI
             } else {
                  
             }
+        }
+
+        private void dataGridViewTheoDoi_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (isAction) return;
+                LoadNameFromID(cbbMaNV, dataGridViewTheoDoi.Rows[e.RowIndex].Cells["MaNV"].Value.ToString(), Bus.GetList("GetListNhanVien"));
+                txtSuKien.Text = dataGridViewTheoDoi.Rows[e.RowIndex].Cells["SuKien"].Value.ToString();
+                dtNgayThang.Text = dataGridViewTheoDoi.Rows[e.RowIndex].Cells["ThoiGian"].Value.ToString();
+                maTDCurrent = dataGridViewTheoDoi.Rows[e.RowIndex].Cells["MaSoTD"].Value.ToString();
+            }
+            catch (Exception er) { }
         }
     }
 }

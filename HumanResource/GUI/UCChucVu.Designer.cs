@@ -83,8 +83,10 @@
             this.dgvChucVu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvChucVu.Location = new System.Drawing.Point(0, 0);
             this.dgvChucVu.Name = "dgvChucVu";
+            this.dgvChucVu.ReadOnly = true;
             this.dgvChucVu.Size = new System.Drawing.Size(802, 578);
             this.dgvChucVu.TabIndex = 0;
+            this.dgvChucVu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvChucVu_CellClick);
             this.dgvChucVu.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvChucVu_CellContentClick);
             // 
             // txtTenChucVu
@@ -93,7 +95,7 @@
             this.txtTenChucVu.Location = new System.Drawing.Point(151, 111);
             this.txtTenChucVu.Name = "txtTenChucVu";
             this.txtTenChucVu.Size = new System.Drawing.Size(187, 20);
-            this.txtTenChucVu.TabIndex = 9;
+            this.txtTenChucVu.TabIndex = 2;
             // 
             // label2
             // 
@@ -110,7 +112,7 @@
             this.txtMaCV.Location = new System.Drawing.Point(151, 58);
             this.txtMaCV.Name = "txtMaCV";
             this.txtMaCV.Size = new System.Drawing.Size(187, 20);
-            this.txtMaCV.TabIndex = 7;
+            this.txtMaCV.TabIndex = 1;
             // 
             // label3
             // 

@@ -96,7 +96,10 @@ namespace HumanResource.GUI
             return thanNhan;
         }
 
-
+        public bool getIsAction()
+        {
+            return this.isAction;
+        }
         public void AddThanNhan()
         {
             ThanNhan thanNhan = getThanNhanToAdd();
@@ -107,6 +110,7 @@ namespace HumanResource.GUI
                 LoadData();
                 ClearTextBox();
                 enableToolBox(false);
+                isAction = false;
             } else
             {
                 MessageBox.Show("Không thành công!", "Thông báo", MessageBoxButtons.OK);
@@ -115,17 +119,23 @@ namespace HumanResource.GUI
 
         private void dgvThanNhan_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            LoadNameFromID(cbxMaNV, dgvThanNhan.Rows[e.RowIndex].Cells["MaNV"].Value.ToString()
-                ,Bus.GetList(PROC_GET_LIST_NHAN_VIEN));
-            textBoxMaTN.Text = dgvThanNhan.Rows[e.RowIndex].Cells["MaTN"].Value.ToString();
-            textBoxTenThanNhan.Text = dgvThanNhan.Rows[e.RowIndex].Cells["HoTen"].Value.ToString();
-            textBoxQuanHe.Text = dgvThanNhan.Rows[e.RowIndex].Cells["QuanHe"].Value.ToString();
-            string gioiTinh = dgvThanNhan.Rows[e.RowIndex].Cells["GioiTinh"].Value.ToString();
-            if (gioiTinh.Contains("Nam"))
+            try
             {
-                rbNam.Checked = true;
+                if (isAction) return;
+                LoadNameFromID(cbxMaNV, dgvThanNhan.Rows[e.RowIndex].Cells["MaNV"].Value.ToString()
+                   , Bus.GetList(PROC_GET_LIST_NHAN_VIEN));
+                textBoxMaTN.Text = dgvThanNhan.Rows[e.RowIndex].Cells["MaTN"].Value.ToString();
+                textBoxTenThanNhan.Text = dgvThanNhan.Rows[e.RowIndex].Cells["HoTen"].Value.ToString();
+                textBoxQuanHe.Text = dgvThanNhan.Rows[e.RowIndex].Cells["QuanHe"].Value.ToString();
+                string gioiTinh = dgvThanNhan.Rows[e.RowIndex].Cells["GioiTinh"].Value.ToString();
+                if (gioiTinh.Contains("Nam"))
+                {
+                    rbNam.Checked = true;
+                }
+                else rbNu.Checked = true;
             }
-            else rbNu.Checked = true;
+            catch (Exception er) { }
+            
         }
 
         private void LoadNameFromID(ComboBox cbb, string id, List<DataItem> list)
@@ -152,6 +162,7 @@ namespace HumanResource.GUI
                 LoadData();
                 ClearTextBox();
                 enableToolBox(false);
+                isAction = false;
             }
             else
             {
@@ -176,6 +187,31 @@ namespace HumanResource.GUI
 
         private void UCThanNhan_Load(object sender, EventArgs e)
         {
+
+        }
+        private bool isAction;
+        public void setIsAction(bool v)
+        {
+            isAction = v;
+        }
+        private void dgvThanNhan_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (isAction) return;
+                LoadNameFromID(cbxMaNV, dgvThanNhan.Rows[e.RowIndex].Cells["MaNV"].Value.ToString()
+                   , Bus.GetList(PROC_GET_LIST_NHAN_VIEN));
+                textBoxMaTN.Text = dgvThanNhan.Rows[e.RowIndex].Cells["MaTN"].Value.ToString();
+                textBoxTenThanNhan.Text = dgvThanNhan.Rows[e.RowIndex].Cells["HoTen"].Value.ToString();
+                textBoxQuanHe.Text = dgvThanNhan.Rows[e.RowIndex].Cells["QuanHe"].Value.ToString();
+                string gioiTinh = dgvThanNhan.Rows[e.RowIndex].Cells["GioiTinh"].Value.ToString();
+                if (gioiTinh.Contains("Nam"))
+                {
+                    rbNam.Checked = true;
+                }
+                else rbNu.Checked = true;
+            }
+            catch (Exception er) { }
 
         }
     }

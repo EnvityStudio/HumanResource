@@ -67,8 +67,10 @@
             this.dataGridViewTheoDoi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewTheoDoi.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewTheoDoi.Name = "dataGridViewTheoDoi";
+            this.dataGridViewTheoDoi.ReadOnly = true;
             this.dataGridViewTheoDoi.Size = new System.Drawing.Size(842, 277);
             this.dataGridViewTheoDoi.TabIndex = 0;
+            this.dataGridViewTheoDoi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTheoDoi_CellClick);
             this.dataGridViewTheoDoi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTheoDoi_CellContentClick);
             // 
             // panel3
@@ -92,7 +94,7 @@
             this.cbbMaNV.Location = new System.Drawing.Point(199, 55);
             this.cbbMaNV.Name = "cbbMaNV";
             this.cbbMaNV.Size = new System.Drawing.Size(121, 21);
-            this.cbbMaNV.TabIndex = 34;
+            this.cbbMaNV.TabIndex = 0;
             // 
             // dtNgayThang
             // 
@@ -101,7 +103,7 @@
             this.dtNgayThang.Location = new System.Drawing.Point(496, 54);
             this.dtNgayThang.Name = "dtNgayThang";
             this.dtNgayThang.Size = new System.Drawing.Size(120, 20);
-            this.dtNgayThang.TabIndex = 31;
+            this.dtNgayThang.TabIndex = 1;
             // 
             // label6
             // 
@@ -118,7 +120,7 @@
             this.label4.Location = new System.Drawing.Point(422, 55);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(59, 13);
-            this.label4.TabIndex = 30;
+            this.label4.TabIndex = 2;
             this.label4.Text = "Ngày Sinh:";
             // 
             // txtSuKien
@@ -127,7 +129,7 @@
             this.txtSuKien.Multiline = true;
             this.txtSuKien.Name = "txtSuKien";
             this.txtSuKien.Size = new System.Drawing.Size(589, 106);
-            this.txtSuKien.TabIndex = 33;
+            this.txtSuKien.TabIndex = 2;
             // 
             // label1
             // 

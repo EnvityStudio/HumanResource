@@ -137,7 +137,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label1);
             this.Name = "FrmThanNhanNV";
-            this.Text = "FrmThanNhanNV";
+            this.Text = "Thân nhân";
             this.ResumeLayout(false);
             this.PerformLayout();
 

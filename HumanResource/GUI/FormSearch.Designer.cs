@@ -38,6 +38,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgbNhanVien = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgbNhanVien)).BeginInit();
             this.SuspendLayout();
@@ -125,6 +126,7 @@
             this.dgbNhanVien.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgbNhanVien.Location = new System.Drawing.Point(0, 0);
             this.dgbNhanVien.Name = "dgbNhanVien";
+            this.dgbNhanVien.ReadOnly = true;
             this.dgbNhanVien.Size = new System.Drawing.Size(959, 306);
             this.dgbNhanVien.TabIndex = 0;
             // 
@@ -138,11 +140,22 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Tìm Kiếm Nhân Viên";
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Image = global::HumanResource.Properties.Resources.refresh;
+            this.btnRefresh.Location = new System.Drawing.Point(903, 147);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(49, 36);
+            this.btnRefresh.TabIndex = 12;
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // FormSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(959, 510);
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnCancel);
@@ -174,5 +187,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dgbNhanVien;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }

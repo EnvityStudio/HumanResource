@@ -86,8 +86,10 @@
             this.dgvLuong.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvLuong.Location = new System.Drawing.Point(0, 0);
             this.dgvLuong.Name = "dgvLuong";
+            this.dgvLuong.ReadOnly = true;
             this.dgvLuong.Size = new System.Drawing.Size(747, 508);
             this.dgvLuong.TabIndex = 0;
+            this.dgvLuong.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLuong_CellClick);
             this.dgvLuong.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLuong_CellContentClick);
             // 
             // label1
@@ -132,7 +134,7 @@
             this.txtBacLuong.Location = new System.Drawing.Point(181, 50);
             this.txtBacLuong.Name = "txtBacLuong";
             this.txtBacLuong.Size = new System.Drawing.Size(144, 20);
-            this.txtBacLuong.TabIndex = 15;
+            this.txtBacLuong.TabIndex = 0;
             // 
             // txtLuongCoBan
             // 
@@ -140,7 +142,7 @@
             this.txtLuongCoBan.Location = new System.Drawing.Point(181, 98);
             this.txtLuongCoBan.Name = "txtLuongCoBan";
             this.txtLuongCoBan.Size = new System.Drawing.Size(144, 20);
-            this.txtLuongCoBan.TabIndex = 15;
+            this.txtLuongCoBan.TabIndex = 1;
             // 
             // txtHeSoLuong
             // 
@@ -148,7 +150,7 @@
             this.txtHeSoLuong.Location = new System.Drawing.Point(181, 146);
             this.txtHeSoLuong.Name = "txtHeSoLuong";
             this.txtHeSoLuong.Size = new System.Drawing.Size(144, 20);
-            this.txtHeSoLuong.TabIndex = 15;
+            this.txtHeSoLuong.TabIndex = 2;
             // 
             // txtHeSoPhuCap
             // 
@@ -156,7 +158,7 @@
             this.txtHeSoPhuCap.Location = new System.Drawing.Point(181, 194);
             this.txtHeSoPhuCap.Name = "txtHeSoPhuCap";
             this.txtHeSoPhuCap.Size = new System.Drawing.Size(144, 20);
-            this.txtHeSoPhuCap.TabIndex = 15;
+            this.txtHeSoPhuCap.TabIndex = 3;
             // 
             // UCLuong
             // 

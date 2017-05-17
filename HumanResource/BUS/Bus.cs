@@ -296,5 +296,30 @@ namespace HumanResource.BUS
             return Dao.getNuNhanVien();
         }
 
+
+        public static NhanVien getNhanVien(string maNV)
+        {
+            DataTable dt = SearchNhanVienByTenNV(maNV);
+            NhanVien nv = new NhanVien();
+            nv.MaNV = dt.Rows[0]["MaNV"].ToString();
+            nv.HoTen = dt.Rows[0]["HoTen"].ToString();
+            nv.Sdt = dt.Rows[0]["SDT"].ToString();
+            nv.QueQuan = dt.Rows[0]["QueQuan"].ToString();
+            nv.GioiTinh = dt.Rows[0]["GioiTinh"].ToString();
+            nv.DanToc = dt.Rows[0]["DanToc"].ToString();
+            nv.MaPB = dt.Rows[0]["MaPB"].ToString();
+            nv.MaCV = dt.Rows[0]["MaCV"].ToString();
+            nv.MaTDHV = dt.Rows[0]["MaTDHV"].ToString();
+            nv.BacLuong = dt.Rows[0]["BacLuong"].ToString();
+            nv.Anh = dt.Rows[0]["Anh"].ToString();
+            nv.MatKhau = dt.Rows[0]["MatKhau"].ToString();
+            nv.CMND = dt.Rows[0]["CMND"].ToString();
+            nv.Email = dt.Rows[0]["Email"].ToString();
+
+            nv.NgaySinh = DateTime.Parse(dt.Rows[0]["NgaySinh"].ToString());
+
+            return nv;
+        }
+
     }
 }

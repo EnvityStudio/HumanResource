@@ -55,7 +55,7 @@
             this.txtMaPB.Location = new System.Drawing.Point(185, 33);
             this.txtMaPB.Name = "txtMaPB";
             this.txtMaPB.Size = new System.Drawing.Size(175, 20);
-            this.txtMaPB.TabIndex = 3;
+            this.txtMaPB.TabIndex = 0;
             // 
             // label1
             // 
@@ -78,6 +78,7 @@
             this.dgvPhongBan.ReadOnly = true;
             this.dgvPhongBan.Size = new System.Drawing.Size(1270, 263);
             this.dgvPhongBan.TabIndex = 72;
+            this.dgvPhongBan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPhongBan_CellClick);
             this.dgvPhongBan.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPhongBan_CellContentClick);
             // 
             // groupBox4
@@ -110,7 +111,7 @@
             this.cbbTruongPhong.Location = new System.Drawing.Point(563, 32);
             this.cbbTruongPhong.Name = "cbbTruongPhong";
             this.cbbTruongPhong.Size = new System.Drawing.Size(175, 21);
-            this.cbbTruongPhong.TabIndex = 14;
+            this.cbbTruongPhong.TabIndex = 3;
             // 
             // txtTongNV
             // 
@@ -118,7 +119,7 @@
             this.txtTongNV.Location = new System.Drawing.Point(563, 163);
             this.txtTongNV.Name = "txtTongNV";
             this.txtTongNV.Size = new System.Drawing.Size(175, 20);
-            this.txtTongNV.TabIndex = 13;
+            this.txtTongNV.TabIndex = 5;
             // 
             // label5
             // 
@@ -135,7 +136,7 @@
             this.txtDiaChi.Location = new System.Drawing.Point(185, 163);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(175, 20);
-            this.txtDiaChi.TabIndex = 11;
+            this.txtDiaChi.TabIndex = 2;
             // 
             // label6
             // 
@@ -152,7 +153,7 @@
             this.txtSoDT.Location = new System.Drawing.Point(563, 98);
             this.txtSoDT.Name = "txtSoDT";
             this.txtSoDT.Size = new System.Drawing.Size(175, 20);
-            this.txtSoDT.TabIndex = 9;
+            this.txtSoDT.TabIndex = 4;
             // 
             // label3
             // 
@@ -178,7 +179,7 @@
             this.txtTenPB.Location = new System.Drawing.Point(185, 98);
             this.txtTenPB.Name = "txtTenPB";
             this.txtTenPB.Size = new System.Drawing.Size(175, 20);
-            this.txtTenPB.TabIndex = 5;
+            this.txtTenPB.TabIndex = 1;
             // 
             // label2
             // 
