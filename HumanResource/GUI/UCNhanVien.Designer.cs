@@ -63,13 +63,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtMK = new System.Windows.Forms.TextBox();
             this.txtCMND = new System.Windows.Forms.TextBox();
-            this.txtDanToc = new System.Windows.Forms.TextBox();
             this.txtSoDT = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtQueQuan = new System.Windows.Forms.TextBox();
             this.txtHoTen = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.txtDanToc = new System.Windows.Forms.TextBox();
+            this.cbbQueQuan = new System.Windows.Forms.ComboBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNhanVien)).BeginInit();
             this.groupBox4.SuspendLayout();
@@ -117,6 +117,7 @@
             // groupBox4
             // 
             this.groupBox4.AccessibleDescription = "Theo Dõi";
+            this.groupBox4.Controls.Add(this.cbbQueQuan);
             this.groupBox4.Controls.Add(this.label26);
             this.groupBox4.Controls.Add(this.btnXoaTN);
             this.groupBox4.Controls.Add(this.btnSuaTN);
@@ -147,7 +148,6 @@
             this.groupBox4.Controls.Add(this.txtDanToc);
             this.groupBox4.Controls.Add(this.txtSoDT);
             this.groupBox4.Controls.Add(this.txtEmail);
-            this.groupBox4.Controls.Add(this.txtQueQuan);
             this.groupBox4.Controls.Add(this.txtHoTen);
             this.groupBox4.Controls.Add(this.label1);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -449,13 +449,6 @@
             this.txtCMND.TabIndex = 7;
             this.txtCMND.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCMND_KeyPress);
             // 
-            // txtDanToc
-            // 
-            this.txtDanToc.Location = new System.Drawing.Point(439, 68);
-            this.txtDanToc.Name = "txtDanToc";
-            this.txtDanToc.Size = new System.Drawing.Size(167, 20);
-            this.txtDanToc.TabIndex = 3;
-            // 
             // txtSoDT
             // 
             this.txtSoDT.Location = new System.Drawing.Point(439, 115);
@@ -470,13 +463,6 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(167, 20);
             this.txtEmail.TabIndex = 5;
-            // 
-            // txtQueQuan
-            // 
-            this.txtQueQuan.Location = new System.Drawing.Point(191, 69);
-            this.txtQueQuan.Name = "txtQueQuan";
-            this.txtQueQuan.Size = new System.Drawing.Size(167, 20);
-            this.txtQueQuan.TabIndex = 2;
             // 
             // txtHoTen
             // 
@@ -497,6 +483,21 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // txtDanToc
+            // 
+            this.txtDanToc.Location = new System.Drawing.Point(439, 68);
+            this.txtDanToc.Name = "txtDanToc";
+            this.txtDanToc.Size = new System.Drawing.Size(167, 20);
+            this.txtDanToc.TabIndex = 3;
+            // 
+            // cbbQueQuan
+            // 
+            this.cbbQueQuan.FormattingEnabled = true;
+            this.cbbQueQuan.Location = new System.Drawing.Point(191, 68);
+            this.cbbQueQuan.Name = "cbbQueQuan";
+            this.cbbQueQuan.Size = new System.Drawing.Size(167, 21);
+            this.cbbQueQuan.TabIndex = 68;
             // 
             // UCNhanVien
             // 
@@ -560,10 +561,10 @@
         private System.Windows.Forms.TextBox txtHoTen;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtMK;
-        private System.Windows.Forms.TextBox txtQueQuan;
         private System.Windows.Forms.DataGridView dataGridViewNhanVien;
         private System.Windows.Forms.TextBox txtCMND;
-        private System.Windows.Forms.TextBox txtDanToc;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.TextBox txtDanToc;
+        private System.Windows.Forms.ComboBox cbbQueQuan;
     }
 }

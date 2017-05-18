@@ -26,6 +26,43 @@ namespace HumanResource.GUI
         {
             lblUser.Text = nhanVien.HoTen;
         }
-        
+
+        private void btnAccept_Click(object sender, EventArgs e)
+        {
+           if(txtPassword2.Text != txtPassword1.Text || txtPassword1.Text == "")
+            {
+                MessageBox.Show("Mật khẩu không đúng!","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                return;
+            }
+            nhanVien.MatKhau = txtPassword1.Text;
+            int result = Bus.UpdateNhanVien(nhanVien);
+            if(result != -1)
+            {
+                MessageBox.Show("Đổi mật khẩu thành công!","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void txtPassword2_TextChanged(object sender, EventArgs e)
+        {
+            if(txtPassword2.Text != txtPassword1.Text)
+            {
+                errorProvider1.SetError(txtPassword2, "Mật khẩu không đúng");
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

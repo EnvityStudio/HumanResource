@@ -321,5 +321,17 @@ namespace HumanResource.BUS
             return nv;
         }
 
+        public static List<string> getListQueQuan()
+        {
+            List<string> list = new List<string>();
+            string path = Configuration.GetProjectLinkDirectory() + @"\Resource\quequan.txt";
+            System.IO.StreamReader file = new System.IO.StreamReader(path);
+            string line;
+            while ((line = file.ReadLine()) != null)
+            {
+                list.Add(line);
+            }
+            return list;
+        }
     }
 }

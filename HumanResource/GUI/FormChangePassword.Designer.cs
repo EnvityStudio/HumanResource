@@ -45,6 +45,7 @@
             // 
             this.txtPassword1.Location = new System.Drawing.Point(141, 78);
             this.txtPassword1.Name = "txtPassword1";
+            this.txtPassword1.PasswordChar = '*';
             this.txtPassword1.Size = new System.Drawing.Size(100, 20);
             this.txtPassword1.TabIndex = 0;
             // 
@@ -60,7 +61,7 @@
             // lblUser
             // 
             this.lblUser.AutoSize = true;
-            this.lblUser.Location = new System.Drawing.Point(141, 47);
+            this.lblUser.Location = new System.Drawing.Point(141, 46);
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(33, 13);
             this.lblUser.TabIndex = 2;
@@ -69,7 +70,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(45, 80);
+            this.label2.Location = new System.Drawing.Point(45, 79);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 13);
             this.label2.TabIndex = 3;
@@ -79,8 +80,10 @@
             // 
             this.txtPassword2.Location = new System.Drawing.Point(141, 108);
             this.txtPassword2.Name = "txtPassword2";
+            this.txtPassword2.PasswordChar = '*';
             this.txtPassword2.Size = new System.Drawing.Size(100, 20);
             this.txtPassword2.TabIndex = 1;
+            this.txtPassword2.TextChanged += new System.EventHandler(this.txtPassword2_TextChanged);
             // 
             // label3
             // 
@@ -99,6 +102,7 @@
             this.btnAccept.TabIndex = 4;
             this.btnAccept.Text = "Chấp nhận";
             this.btnAccept.UseVisualStyleBackColor = true;
+            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
             // btnCancel
             // 
@@ -108,6 +112,7 @@
             this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Hủy";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // errorProvider1
             // 
@@ -115,9 +120,10 @@
             // 
             // FormChangePassword
             // 
+            this.AcceptButton = this.btnAccept;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(284, 226);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAccept);
             this.Controls.Add(this.label3);

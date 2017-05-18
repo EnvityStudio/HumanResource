@@ -31,6 +31,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuStripHeThong = new System.Windows.Forms.ToolStripMenuItem();
             this.btnDangXuat = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnChangePassword = new System.Windows.Forms.ToolStripMenuItem();
             this.NhanVienToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PhongBanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ChucVuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,7 +56,7 @@
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.btnSearchh = new System.Windows.Forms.ToolStripButton();
             this.tabControl = new System.Windows.Forms.TabControl();
-            this.btnChangePassword = new System.Windows.Forms.ToolStripMenuItem();
+            this.trợGiúpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -70,7 +71,8 @@
             this.TheoDoiNVToolStripMenuItem,
             this.LuongToolStripMenuItem,
             this.ThanNhanToolStripMenuItem,
-            this.HocVanToolStripMenuItem});
+            this.HocVanToolStripMenuItem,
+            this.trợGiúpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(917, 24);
@@ -89,9 +91,16 @@
             // btnDangXuat
             // 
             this.btnDangXuat.Name = "btnDangXuat";
-            this.btnDangXuat.Size = new System.Drawing.Size(152, 22);
+            this.btnDangXuat.Size = new System.Drawing.Size(145, 22);
             this.btnDangXuat.Text = "Đăng Xuất";
             this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click);
+            // 
+            // btnChangePassword
+            // 
+            this.btnChangePassword.Name = "btnChangePassword";
+            this.btnChangePassword.Size = new System.Drawing.Size(145, 22);
+            this.btnChangePassword.Text = "Đổi mật khẩu";
+            this.btnChangePassword.Click += new System.EventHandler(this.btnChangePassword_Click);
             // 
             // NhanVienToolStripMenuItem
             // 
@@ -305,12 +314,12 @@
             this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControlHome_SelectedIndexChanged);
             this.tabControl.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tabControlHome_MouseDown);
             // 
-            // btnChangePassword
+            // trợGiúpToolStripMenuItem
             // 
-            this.btnChangePassword.Name = "btnChangePassword";
-            this.btnChangePassword.Size = new System.Drawing.Size(152, 22);
-            this.btnChangePassword.Text = "Đổi mật khẩu";
-            this.btnChangePassword.Click += new System.EventHandler(this.btnChangePassword_Click);
+            this.trợGiúpToolStripMenuItem.Name = "trợGiúpToolStripMenuItem";
+            this.trợGiúpToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
+            this.trợGiúpToolStripMenuItem.Text = "Trợ giúp";
+            this.trợGiúpToolStripMenuItem.Click += new System.EventHandler(this.trợGiúpToolStripMenuItem_Click);
             // 
             // FormMain
             // 
@@ -363,5 +372,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripButton btnSearchh;
         private System.Windows.Forms.ToolStripMenuItem btnChangePassword;
+        private System.Windows.Forms.ToolStripMenuItem trợGiúpToolStripMenuItem;
     }
 }

@@ -12,7 +12,6 @@ namespace HumanResource.VO
         {
         }
         public NhanVien(string MaNV,string HoTen, DateTime NgaySinh,string QueQuan,string GioiTinh,string DanToc,string Sdt,string MaTDHV ,string MaPB,string MaCV, string BacLuong ,string Anh,string MatKhau , string CMND ,string Email)
-
         {
             this.MaNV = MaNV;
             this.HoTen = HoTen;

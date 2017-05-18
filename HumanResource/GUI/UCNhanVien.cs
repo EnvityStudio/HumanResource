@@ -213,7 +213,7 @@ namespace HumanResource.GUI
                     rdGTNam.Checked = false;
                     rdGTNu.Checked = true;
                 }
-                txtQueQuan.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[4].Value.ToString();
+                cbbQueQuan.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[4].Value.ToString();
                 txtEmail.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells["Email"].Value.ToString();
                 txtSoDT.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[3].Value.ToString();
                 LoadNameFromID(cbbChucVu, dataGridViewNhanVien.Rows[e.RowIndex].Cells[8].Value.ToString(), listChucVu);
@@ -298,7 +298,7 @@ namespace HumanResource.GUI
             MaCV = ((DataItem)cbbChucVu.SelectedItem).Value;
             MaPB = ((DataItem)cbbPhong.SelectedItem).Value;
             MaTDHV = ((DataItem)cbbTrinhDo.SelectedItem).Value;
-            QueQuan = txtQueQuan.Text;
+            QueQuan = cbbQueQuan.Text;
             Sdt = txtSoDT.Text;
             if (avataPath != null)
             {
@@ -390,7 +390,7 @@ namespace HumanResource.GUI
             txtHoTen.Text = "";
             rdGTNam.Checked = true;
             rdGTNu.Checked = false;
-            txtQueQuan.Text = "";
+            cbbQueQuan.Text = "";
             txtEmail.Text = "";
             txtSoDT.Text = "";
             cbbChucVu.Text = "";
@@ -400,9 +400,16 @@ namespace HumanResource.GUI
             cbbTrinhDo.Text = "";
             enableBox(false);
         }
+
+        public void LoadCbbQueQuan()
+        {
+            cbbQueQuan.Items.Clear();
+            cbbQueQuan.Items.AddRange(Bus.getListQueQuan().ToArray());
+        }
+
         private bool checkTextBox()
         {
-            if (!checkEmpty(txtCMND) || !checkEmpty(txtMaNV) || !checkEmpty(txtQueQuan)
+            if (!checkEmpty(txtCMND) || !checkEmpty(txtMaNV) || (cbbQueQuan.Text == null)
                 || !checkEmpty(txtEmail) || !checkEmpty(txtSoDT) || !checkEmpty(txtDanToc))
             {
                 MessageBox.Show("Có lỗi không thể thực hiện");
@@ -452,7 +459,7 @@ namespace HumanResource.GUI
             //txtMaNV.Enabled = bol;
             txtMK.Enabled = bol;
             dtNgaySInh.Enabled = bol;
-            txtQueQuan.Enabled = bol;
+            cbbQueQuan.Enabled = bol;
             pictureBox1.Enabled = bol;
             txtEmail.Enabled = bol;
             txtSoDT.Enabled = bol;
@@ -493,7 +500,7 @@ namespace HumanResource.GUI
                     rdGTNam.Checked = false;
                     rdGTNu.Checked = true;
                 }
-                txtQueQuan.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[4].Value.ToString();
+                cbbQueQuan.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[4].Value.ToString();
                 txtEmail.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells["Email"].Value.ToString();
                 txtSoDT.Text = dataGridViewNhanVien.Rows[e.RowIndex].Cells[3].Value.ToString();
                 LoadNameFromID(cbbChucVu, dataGridViewNhanVien.Rows[e.RowIndex].Cells[8].Value.ToString(), listChucVu);

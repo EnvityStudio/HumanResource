@@ -40,6 +40,7 @@ namespace HumanResource.GUI
             btnSave.Enabled = false;
             btnCancel.Enabled = false;
             this.tenNV = tenNV;
+        
         }
         public void AddNewTab(UserControl userControl)
         {
@@ -310,6 +311,7 @@ namespace HumanResource.GUI
                 ucNhanVien.enableBox(true);
                 ucNhanVien.setMaNV();
                 ucNhanVien.setIsAction(true);
+                ucNhanVien.LoadCbbQueQuan();
             }
             else if (Configuration.TAB_CURRENT == Configuration.TAB_THEODOI)
             {
@@ -717,6 +719,11 @@ namespace HumanResource.GUI
             FormChangePassword frm = new FormChangePassword(tenNV);
             frm.FormBorderStyle = FormBorderStyle.FixedSingle;
             frm.ShowDialog();
+        }
+
+        private void trợGiúpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.microsoft.com/vi-vn/");
         }
     }
 }
