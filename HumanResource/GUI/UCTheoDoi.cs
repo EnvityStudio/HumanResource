@@ -25,7 +25,11 @@ namespace HumanResource.GUI
         }
         public void LoadData()
         {
-          
+            dataGridViewTheoDoi.DataSource = Bus.GetListTheoDoi();
+            DataTable dtNV = Bus.GetListNhanVien();
+
+            LoadComboboxData(cbbMaNV, Bus.GetList(PROC_GET_LIST_NHAN_VIEN));
+            EnableDisableToolBox(false);
         }
 
         public void setIsAction(bool v)
