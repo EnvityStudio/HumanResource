@@ -16,8 +16,10 @@ namespace HumanResource.Config
             string projectLink = Directory.GetParent(binLink).FullName;
             return projectLink;
         }
+
         //public string DATA_SOURCE = @"Data Source=HUNGTRAN;Initial Catalog=HumanResource;Integrated Security=True";
         public string DATA_SOURCE = @"Data Source=HMCHOAN-JLMSP5D\SQLEXPRESS;Initial Catalog=HumanResource;Integrated Security=True";
+        //public string DATA_SOURCE = @"Data Source=DESKTOP-I324HJM\SQLEXPRESS;Initial Catalog=HumanResource;Integrated Security=True";
 
 
         //name tabpages
