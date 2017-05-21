@@ -34,7 +34,7 @@ namespace HumanResource.GUI
 
         public void setIsAction(bool v)
         {
-          
+            isAction = v;
         }
 
         private void UCTheoDoi_Load(object sender, EventArgs e)
