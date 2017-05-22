@@ -64,7 +64,9 @@ namespace HumanResource.GUI
 
         public void EnableDisableToolBox(bool b)
         {
-          
+            txtSuKien.Enabled = b;
+            cbbMaNV.Enabled = b;
+            dtNgayThang.Enabled = b;
         }
         public void ClearTextBox()
         {
