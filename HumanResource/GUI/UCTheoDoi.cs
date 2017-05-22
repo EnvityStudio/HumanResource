@@ -76,7 +76,7 @@ namespace HumanResource.GUI
         }
         public bool getIsAction()
         {
-          
+            return this.isAction;
         }
         public void AddTheoDoi()
         {
