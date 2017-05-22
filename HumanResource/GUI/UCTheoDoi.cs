@@ -80,8 +80,18 @@ namespace HumanResource.GUI
         }
         public void AddTheoDoi()
         {
-           
-                
+            int result = Bus.InsertTheoDoi(GetDataFromFRM());
+            if (result > 0)
+            {
+                MessageBox.Show("Thêm thành công", "Thông Báo", MessageBoxButtons.OK);
+                txtSuKien.Text = "";
+                LoadData();
+                isAction = false;
+            }
+            else
+            {
+                MessageBox.Show("Không thành công", "Thông Báo", MessageBoxButtons.OK);
+            }
         }
         
         private TheoDoi GetDataFromFRM()
