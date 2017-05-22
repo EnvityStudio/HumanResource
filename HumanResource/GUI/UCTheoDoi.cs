@@ -49,7 +49,17 @@ namespace HumanResource.GUI
         }
         private void LoadNameFromID(ComboBox cbb, string id, List<DataItem> list)
         {
-           
+            LoadComboboxData(cbb, list);
+            int i = 0;
+            foreach (DataItem di in list)
+            {
+                if (di.Value.Contains(id))
+                {
+                    cbb.SelectedIndex = i;
+                    return;
+                }
+                i++;
+            }
         }
 
         public void EnableDisableToolBox(bool b)
