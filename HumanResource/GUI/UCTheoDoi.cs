@@ -70,6 +70,9 @@ namespace HumanResource.GUI
         }
         public void ClearTextBox()
         {
+            EnableDisableToolBox(true);
+            LoadComboboxData(cbbMaNV, Bus.GetList(PROC_GET_LIST_NHAN_VIEN));
+            txtSuKien.Text = "";
         }
         public bool getIsAction()
         {
