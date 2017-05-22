@@ -39,11 +39,13 @@ namespace HumanResource.GUI
 
         private void UCTheoDoi_Load(object sender, EventArgs e)
         {
-            
+
         }
         private void LoadComboboxData(ComboBox cbb, List<DataItem> list)
         {
-          
+            cbb.DataSource = list;
+            cbb.ValueMember = "Value";
+            cbb.DisplayMember = "Name";
         }
         private void LoadNameFromID(ComboBox cbb, string id, List<DataItem> list)
         {
