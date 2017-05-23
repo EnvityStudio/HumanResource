@@ -123,7 +123,19 @@ namespace HumanResource.GUI
         }
         public void UpdateTheoDoi()
         {
-           
+            TheoDoi theoDoi = GetDataFromFRM();
+            theoDoi.MaTD = maTDCurrent;
+            int result = Bus.UpdateTheoDoi(theoDoi);
+            if (result >= 0)
+            {
+                MessageBox.Show("Update thành công", "Thông báo", MessageBoxButtons.OK);
+                LoadData();
+                isAction = false;
+            }
+            else
+            {
+                MessageBox.Show("Update không thành công", "Thông báo", MessageBoxButtons.OK);
+            }
         }
         public void EditClick()
         {
