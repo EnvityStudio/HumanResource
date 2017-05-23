@@ -139,7 +139,7 @@ namespace HumanResource.GUI
         }
         public void EditClick()
         {
-           
+            EnableDisableToolBox(true); 
         }
         public void DeleteTheoDoi()
         {
