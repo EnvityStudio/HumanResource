@@ -104,7 +104,9 @@ namespace HumanResource.GUI
         }
         private string GetMaTDNext()
         {
-           
+            DataTable dt = Bus.GetMaTDNext();
+            string maTD = dt.Rows[0][0].ToString();
+            return maTD;
         }
 
         private void dataGridViewTheoDoi_CellContentClick(object sender, DataGridViewCellEventArgs e)
