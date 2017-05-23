@@ -111,8 +111,15 @@ namespace HumanResource.GUI
 
         private void dataGridViewTheoDoi_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-          
-           
+            try
+            {
+                if (isAction) return;
+                LoadNameFromID(cbbMaNV, dataGridViewTheoDoi.Rows[e.RowIndex].Cells["MaNV"].Value.ToString(), Bus.GetList("GetListNhanVien"));
+                txtSuKien.Text = dataGridViewTheoDoi.Rows[e.RowIndex].Cells["SuKien"].Value.ToString();
+                dtNgayThang.Text = dataGridViewTheoDoi.Rows[e.RowIndex].Cells["ThoiGian"].Value.ToString();
+                maTDCurrent = dataGridViewTheoDoi.Rows[e.RowIndex].Cells["MaSoTD"].Value.ToString();
+            }
+            catch (Exception er) { }
         }
         public void UpdateTheoDoi()
         {
