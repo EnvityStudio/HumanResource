@@ -96,7 +96,11 @@ namespace HumanResource.GUI
         
         private TheoDoi GetDataFromFRM()
         {
-          
+            string maTD = GetMaTDNext();
+            string maNV = ((DataItem)cbbMaNV.SelectedItem).Value;
+            string suKien = txtSuKien.Text.ToString();
+            DateTime ngayThang = dtNgayThang.Value;
+            return new TheoDoi(maNV, maTD, ngayThang, suKien);
         }
         private string GetMaTDNext()
         {
