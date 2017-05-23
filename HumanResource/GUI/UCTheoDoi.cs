@@ -143,7 +143,25 @@ namespace HumanResource.GUI
         }
         public void DeleteTheoDoi()
         {
-         
+            DialogResult dialog = MessageBox.Show("Bạn muốn xóa bản ghi này?", "Thông báo", MessageBoxButtons.OKCancel);
+            if (dialog == DialogResult.OK)
+            {
+                int result = Bus.DeleteTheoDoi(maTDCurrent);
+                if (result != -1)
+                {
+                    MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK);
+                    LoadData();
+
+                }
+                else
+                {
+                    MessageBox.Show("Xóa không thành công", "Thông báo", MessageBoxButtons.OK);
+                }
+            }
+            else
+            {
+
+            }
         }
 
         private void dataGridViewTheoDoi_CellClick(object sender, DataGridViewCellEventArgs e)
