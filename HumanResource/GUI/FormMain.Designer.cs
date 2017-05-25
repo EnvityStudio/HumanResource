@@ -39,6 +39,7 @@
             this.LuongToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ThanNhanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.HocVanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.trợGiúpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnAddNew = new System.Windows.Forms.ToolStripButton();
             this.btnEdit = new System.Windows.Forms.ToolStripButton();
@@ -56,7 +57,6 @@
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.btnSearchh = new System.Windows.Forms.ToolStripButton();
             this.tabControl = new System.Windows.Forms.TabControl();
-            this.trợGiúpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -91,14 +91,14 @@
             // btnDangXuat
             // 
             this.btnDangXuat.Name = "btnDangXuat";
-            this.btnDangXuat.Size = new System.Drawing.Size(145, 22);
+            this.btnDangXuat.Size = new System.Drawing.Size(152, 22);
             this.btnDangXuat.Text = "Đăng Xuất";
             this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click);
             // 
             // btnChangePassword
             // 
             this.btnChangePassword.Name = "btnChangePassword";
-            this.btnChangePassword.Size = new System.Drawing.Size(145, 22);
+            this.btnChangePassword.Size = new System.Drawing.Size(152, 22);
             this.btnChangePassword.Text = "Đổi mật khẩu";
             this.btnChangePassword.Click += new System.EventHandler(this.btnChangePassword_Click);
             // 
@@ -151,6 +151,13 @@
             this.HocVanToolStripMenuItem.Text = "Học vấn";
             this.HocVanToolStripMenuItem.Click += new System.EventHandler(this.HocVanToolStripMenuItem_Click);
             // 
+            // trợGiúpToolStripMenuItem
+            // 
+            this.trợGiúpToolStripMenuItem.Name = "trợGiúpToolStripMenuItem";
+            this.trợGiúpToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
+            this.trợGiúpToolStripMenuItem.Text = "Trợ giúp";
+            this.trợGiúpToolStripMenuItem.Click += new System.EventHandler(this.trợGiúpToolStripMenuItem_Click);
+            // 
             // toolStrip1
             // 
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
@@ -178,32 +185,32 @@
             // 
             // btnAddNew
             // 
+            this.btnAddNew.Enabled = false;
             this.btnAddNew.Image = global::HumanResource.Properties.Resources.add;
             this.btnAddNew.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAddNew.Name = "btnAddNew";
             this.btnAddNew.Size = new System.Drawing.Size(58, 22);
             this.btnAddNew.Text = "Thêm";
-            this.btnAddNew.ToolTipText = "Thêm Mới (CTR + N)";
             this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
             // 
             // btnEdit
             // 
+            this.btnEdit.Enabled = false;
             this.btnEdit.Image = global::HumanResource.Properties.Resources.editicon;
             this.btnEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(46, 22);
             this.btnEdit.Text = "Sửa";
-            this.btnEdit.ToolTipText = "Sửa (CTR + E)";
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDelete
             // 
+            this.btnDelete.Enabled = false;
             this.btnDelete.Image = global::HumanResource.Properties.Resources.delete;
             this.btnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(47, 22);
             this.btnDelete.Text = "Xóa";
-            this.btnDelete.ToolTipText = "Xóa (Delete)";
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // toolStripSeparator1
@@ -219,7 +226,6 @@
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(47, 22);
             this.btnSave.Text = "Lưu";
-            this.btnSave.ToolTipText = "Lưu (CTR + S)";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
@@ -230,7 +236,6 @@
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(49, 22);
             this.btnCancel.Text = "Hủy";
-            this.btnCancel.ToolTipText = "Hủy (CTR + Q)";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // toolStripSeparator2
@@ -246,7 +251,6 @@
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(77, 22);
             this.btnRefresh.Text = "Cập Nhật";
-            this.btnRefresh.ToolTipText = "Cập nhật lại (CTR + R)";
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // toolStripSeparator3
@@ -262,7 +266,6 @@
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(37, 22);
             this.btnPrint.Text = "In";
-            this.btnPrint.ToolTipText = "In (CTR + P)";
             // 
             // btnCloseAllTab
             // 
@@ -298,7 +301,6 @@
             this.btnSearchh.Name = "btnSearchh";
             this.btnSearchh.Size = new System.Drawing.Size(77, 22);
             this.btnSearchh.Text = "Tìm kiếm";
-            this.btnSearchh.ToolTipText = "In (CTR + P)";
             this.btnSearchh.Click += new System.EventHandler(this.btnSearchh_Click);
             // 
             // tabControl
@@ -313,13 +315,6 @@
             this.tabControl.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControlHome_DrawItem);
             this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControlHome_SelectedIndexChanged);
             this.tabControl.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tabControlHome_MouseDown);
-            // 
-            // trợGiúpToolStripMenuItem
-            // 
-            this.trợGiúpToolStripMenuItem.Name = "trợGiúpToolStripMenuItem";
-            this.trợGiúpToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
-            this.trợGiúpToolStripMenuItem.Text = "Trợ giúp";
-            this.trợGiúpToolStripMenuItem.Click += new System.EventHandler(this.trợGiúpToolStripMenuItem_Click);
             // 
             // FormMain
             // 

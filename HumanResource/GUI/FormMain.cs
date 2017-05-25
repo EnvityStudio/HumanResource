@@ -53,7 +53,9 @@ namespace HumanResource.GUI
                     return;
                 }
             }
-
+            btnAddNew.Enabled = true;
+            btnEdit.Enabled = true;
+            btnDelete.Enabled = true;
             userControl.Dock = DockStyle.Fill;
             TabPage newTab = new TabPage(userControl.AccessibleDescription + "         ");//Create new tabpage , set name tab
             newTab.Controls.Add(userControl);
@@ -305,6 +307,9 @@ namespace HumanResource.GUI
             isAction = true;
             btnCancel.Enabled = true;
             btnSave.Enabled = true;
+            btnEdit.Enabled = false;
+            btnAddNew.Enabled = false;
+            btnDelete.Enabled = false;
             if (Configuration.TAB_CURRENT == Configuration.TAB_NHANVIEN)
             {
                 ucNhanVien.ClearTextBoox();
@@ -400,7 +405,7 @@ namespace HumanResource.GUI
                     ucChucVu.AddChucVu();
                     if (ucChucVu.getIsAction() == false) isAction = false;
                 }
-
+              
             } else if (Configuration.ACTION == Configuration.EDIT)
             {
                 if (Configuration.TAB_CURRENT == Configuration.TAB_NHANVIEN)
@@ -441,8 +446,12 @@ namespace HumanResource.GUI
             } 
             if(isAction == false)
             {
-                btnCancel.Enabled = false;
+                btnDelete.Enabled = true;
+                btnSave.Enabled = true;
+                btnAddNew.Enabled = true;
                 btnSave.Enabled = false;
+                btnEdit.Enabled = true;
+                btnCancel.Enabled = false;
             }
         }
 
@@ -455,6 +464,9 @@ namespace HumanResource.GUI
                 isAction = false;
                 btnCancel.Enabled = false;
                 btnSave.Enabled = false;
+                btnEdit.Enabled = true;
+                btnAddNew.Enabled = true;
+                btnDelete.Enabled = true;
                 if (Configuration.TAB_CURRENT == Configuration.TAB_NHANVIEN)
                 {
                     ucNhanVien.ClearTextBoox();
@@ -507,6 +519,9 @@ namespace HumanResource.GUI
             Configuration.ACTION = Configuration.EDIT;
             isAction = true;
             btnCancel.Enabled = true;
+            btnAddNew.Enabled = false;
+            btnEdit.Enabled = false;
+            btnDelete.Enabled = false;
             btnSave.Enabled = true;
             if (Configuration.TAB_CURRENT == Configuration.TAB_NHANVIEN)
             {

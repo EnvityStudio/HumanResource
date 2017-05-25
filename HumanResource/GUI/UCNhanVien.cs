@@ -555,18 +555,23 @@ namespace HumanResource.GUI
             {
                 return;
             }
-            int result = Bus.DeleteNhanVien(getDataNhanVien());
-            if (result > 0)
+            DialogResult dialog = MessageBox.Show("Bạn có muốn xóa bản ghi này?","Thông báo",MessageBoxButtons.OKCancel,MessageBoxIcon.Question);
+            if(dialog == DialogResult.OK)
             {
-                MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK);
-                LoadData();
-                ClearTextBoox();
-                enableBox(false);
+                int result = Bus.DeleteNhanVien(getDataNhanVien());
+                if (result > 0)
+                {
+                    MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK);
+                    LoadData();
+                    ClearTextBoox();
+                    enableBox(false);
+                }
+                else
+                {
+                    MessageBox.Show("Xóa không thành công", "Thông báo", MessageBoxButtons.OK);
+                }
             }
-            else
-            {
-                MessageBox.Show("Xóa không thành công", "Thông báo", MessageBoxButtons.OK);
-            }
+            
         }
 
         public void GetThanNhanNhanVien(string maNV)
