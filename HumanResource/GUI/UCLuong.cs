@@ -55,7 +55,9 @@ namespace HumanResource.GUI
         }
         public string getBacLuongNext()
         {
-          
+            DataTable dt = Bus.GetBacLuongNext();
+            string ma = dt.Rows[0][0].ToString();
+            return ma;
         }
         public void setBacLuong()
         {
