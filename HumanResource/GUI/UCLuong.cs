@@ -48,25 +48,38 @@ namespace HumanResource.GUI
 
         public void ClearTextBox()
         {
-           
+            txtBacLuong.Text = "";
+            txtHeSoLuong.Text = "";
+            txtHeSoPhuCap.Text = "";
+            txtLuongCoBan.Text = "";
         }
         public string getBacLuongNext()
         {
-          
+            DataTable dt = Bus.GetBacLuongNext();
+            string ma = dt.Rows[0][0].ToString();
+            return ma;
         }
         public void setBacLuong()
         {
-            
+            txtBacLuong.Text = getBacLuongNext();
+            enableTextBox(true);
         }
 
         public void enableTextBox(bool bol)
         {
-           
+            txtHeSoLuong.Enabled = bol;
+            txtHeSoPhuCap.Enabled = bol;
+            txtLuongCoBan.Enabled = bol;
         }
 
         private Luong getLuongFromFRM()
         {
-          
+            Luong luong = new Luong();
+            luong.BacLuong = txtBacLuong.Text;
+            luong.HeSoLuong = txtHeSoLuong.Text;
+            luong.HeSoPhuCap = txtHeSoPhuCap.Text;
+            luong.LuongCoBan = txtLuongCoBan.Text;
+            return luong;
         }
         public bool getIsAction()
         {
@@ -74,17 +87,57 @@ namespace HumanResource.GUI
         }
         public void AddLuong()
         {
-          
+
+            setBacLuong();
+            Luong luong = getLuongFromFRM();
+            int result = Bus.InsertLuong(luong);
+            if (result != -1)
+            {
+                MessageBox.Show("Thêm lương thành công!", "Thông báo", MessageBoxButtons.OK);
+                ClearTextBox();
+                enableTextBox(false);
+                LoadData();
+                isAction = false;
+            }
+            else
+            {
+                MessageBox.Show("Không thành công!", "Thông báo", MessageBoxButtons.OK);
+            }
         }
 
         public void UpdateLuong()
         {
-           
+            Luong luong = getLuongFromFRM();
+            int result = Bus.UpdateLuong(luong);
+            if (result != -1)
+            {
+                MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK);
+                ClearTextBox();
+                enableTextBox(false);
+                LoadData();
+                isAction = false;
+            }
+            else
+            {
+                MessageBox.Show("Không thành công!", "Thông báo", MessageBoxButtons.OK);
+            }
         }
 
         public void DeleteLuong()
         {
-           
+            Luong luong = getLuongFromFRM();
+            int result = Bus.DeleteLuong(luong.BacLuong);
+            if (result != -1)
+            {
+                MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK);
+                ClearTextBox();
+                enableTextBox(false);
+                LoadData();
+            }
+            else
+            {
+                MessageBox.Show("Không thành công!", "Thông báo", MessageBoxButtons.OK);
+            }
         }
 
         private void dgvLuong_CellClick(object sender, DataGridViewCellEventArgs e)
