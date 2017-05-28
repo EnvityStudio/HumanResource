@@ -22,7 +22,7 @@ namespace HumanResource.GUI
         }
         private void LoadData()
         {
-            dgvLuong.DataSource = Bus.GetListLUONG();
+            
 
         }
 
