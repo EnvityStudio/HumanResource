@@ -61,7 +61,8 @@ namespace HumanResource.GUI
         }
         public void setBacLuong()
         {
-            
+            txtBacLuong.Text = getBacLuongNext();
+            enableTextBox(true);
         }
 
         public void enableTextBox(bool bol)
