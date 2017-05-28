@@ -28,7 +28,7 @@ namespace HumanResource.GUI
 
         public void setIsAction(bool v)
         {
-            
+            isAction = v;
         }
 
         private void dgvLuong_CellContentClick(object sender, DataGridViewCellEventArgs e)
