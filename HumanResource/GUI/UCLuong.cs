@@ -48,7 +48,10 @@ namespace HumanResource.GUI
 
         public void ClearTextBox()
         {
-           
+            txtBacLuong.Text = "";
+            txtHeSoLuong.Text = "";
+            txtHeSoPhuCap.Text = "";
+            txtLuongCoBan.Text = "";
         }
         public string getBacLuongNext()
         {
