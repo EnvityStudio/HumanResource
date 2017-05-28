@@ -74,7 +74,12 @@ namespace HumanResource.GUI
 
         private Luong getLuongFromFRM()
         {
-          
+            Luong luong = new Luong();
+            luong.BacLuong = txtBacLuong.Text;
+            luong.HeSoLuong = txtHeSoLuong.Text;
+            luong.HeSoPhuCap = txtHeSoPhuCap.Text;
+            luong.LuongCoBan = txtLuongCoBan.Text;
+            return luong;
         }
         public bool getIsAction()
         {
