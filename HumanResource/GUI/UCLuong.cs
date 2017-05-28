@@ -139,7 +139,15 @@ namespace HumanResource.GUI
 
         private void dgvLuong_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+            try
+            {
+                if (isAction) return;
+                txtBacLuong.Text = dgvLuong.Rows[e.RowIndex].Cells["BacLuong"].Value.ToString();
+                txtHeSoLuong.Text = dgvLuong.Rows[e.RowIndex].Cells["HeSoLuong"].Value.ToString();
+                txtHeSoPhuCap.Text = dgvLuong.Rows[e.RowIndex].Cells["HeSoPhuCap"].Value.ToString();
+                txtLuongCoBan.Text = dgvLuong.Rows[e.RowIndex].Cells["LuongCoBan"].Value.ToString();
+            }
+            catch (Exception er) { }
         }
     }
 }
