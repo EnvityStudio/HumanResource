@@ -107,11 +107,6 @@ namespace HumanResource.GUI
 
         public void UpdateLuong()
         {
-           
-        }
-
-        public void DeleteLuong()
-        {
             Luong luong = getLuongFromFRM();
             int result = Bus.UpdateLuong(luong);
             if (result != -1)
@@ -121,6 +116,23 @@ namespace HumanResource.GUI
                 enableTextBox(false);
                 LoadData();
                 isAction = false;
+            }
+            else
+            {
+                MessageBox.Show("Không thành công!", "Thông báo", MessageBoxButtons.OK);
+            }
+        }
+
+        public void DeleteLuong()
+        {
+            Luong luong = getLuongFromFRM();
+            int result = Bus.DeleteLuong(luong.BacLuong);
+            if (result != -1)
+            {
+                MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK);
+                ClearTextBox();
+                enableTextBox(false);
+                LoadData();
             }
             else
             {
