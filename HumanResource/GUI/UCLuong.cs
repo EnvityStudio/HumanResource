@@ -67,7 +67,9 @@ namespace HumanResource.GUI
 
         public void enableTextBox(bool bol)
         {
-           
+            txtHeSoLuong.Enabled = bol;
+            txtHeSoPhuCap.Enabled = bol;
+            txtLuongCoBan.Enabled = bol;
         }
 
         private Luong getLuongFromFRM()
