@@ -87,7 +87,22 @@ namespace HumanResource.GUI
         }
         public void AddLuong()
         {
-          
+
+            setBacLuong();
+            Luong luong = getLuongFromFRM();
+            int result = Bus.InsertLuong(luong);
+            if (result != -1)
+            {
+                MessageBox.Show("Thêm lương thành công!", "Thông báo", MessageBoxButtons.OK);
+                ClearTextBox();
+                enableTextBox(false);
+                LoadData();
+                isAction = false;
+            }
+            else
+            {
+                MessageBox.Show("Không thành công!", "Thông báo", MessageBoxButtons.OK);
+            }
         }
 
         public void UpdateLuong()
@@ -97,7 +112,20 @@ namespace HumanResource.GUI
 
         public void DeleteLuong()
         {
-           
+            Luong luong = getLuongFromFRM();
+            int result = Bus.UpdateLuong(luong);
+            if (result != -1)
+            {
+                MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK);
+                ClearTextBox();
+                enableTextBox(false);
+                LoadData();
+                isAction = false;
+            }
+            else
+            {
+                MessageBox.Show("Không thành công!", "Thông báo", MessageBoxButtons.OK);
+            }
         }
 
         private void dgvLuong_CellClick(object sender, DataGridViewCellEventArgs e)
